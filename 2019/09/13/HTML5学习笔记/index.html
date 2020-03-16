@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Yokin的博客">
+    <meta name="keyword"  content="前端技术分享">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        HTML5学习笔记 - Yokin的博客 | Yokin&#39;s Blog
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> 心所向,驰以恒! </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>Yokin</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archive">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#HTML5"><span class="toc-text">HTML5</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#概述"><span class="toc-text">概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#文档类型设定"><span class="toc-text">文档类型设定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字符设定"><span class="toc-text">字符设定</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTML5标签"><span class="toc-text">HTML5标签</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#常用新标签"><span class="toc-text">常用新标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#常用新属性"><span class="toc-text">常用新属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#新增的type属性值"><span class="toc-text">新增的type属性值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#综合案例"><span class="toc-text">综合案例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#多媒体标签"><span class="toc-text">多媒体标签</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#多媒体embed"><span class="toc-text">多媒体embed</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#多媒体audio"><span class="toc-text">多媒体audio</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#多媒体video"><span class="toc-text">多媒体video</span></a></li></ol></li></ol></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> 心所向,驰以恒! </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        HTML5学习笔记
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2019-09-13 17:54:14</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#前端" title="前端">前端</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="HTML5"><a href="#HTML5" class="headerlink" title="HTML5"></a>HTML5</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><h3 id="文档类型设定"><a href="#文档类型设定" class="headerlink" title="文档类型设定"></a>文档类型设定</h3><p>document</p>
+<ul>
+<li>HTML:</li>
+<li>XHTML:</li>
+<li>HTML5</li>
+</ul>
+<h3 id="字符设定"><a href="#字符设定" class="headerlink" title="字符设定"></a>字符设定</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"charset"</span> <span class="attr">content</span>=<span class="string">"utf-8"</span>&gt;</span>：HTML与XHTML中建议这样去写</span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span>：HTML5的标签中建议这样去写</span><br></pre></td></tr></table></figure>
+
+<h2 id="HTML5标签"><a href="#HTML5标签" class="headerlink" title="HTML5标签"></a>HTML5标签</h2><h3 id="常用新标签"><a href="#常用新标签" class="headerlink" title="常用新标签"></a>常用新标签</h3><ul>
+<li>header：定义文档的页眉</li>
+<li>nav：定义导航链接的部分</li>
+<li>footer：定义文档或节的页脚</li>
+<li>article：标签规定独立的自包含内容</li>
+<li>section：定义文档中的节（section、区段）</li>
+<li>aside：定义其所处内容之外的内容</li>
+</ul>
+<h3 id="常用新属性"><a href="#常用新属性" class="headerlink" title="常用新属性"></a>常用新属性</h3><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>用法</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>placeholder</strong></td>
+<td><input type="text" placeholder="请输入用户名"></td>
+<td>占位符提供可描述输入字段预期值的提示信息</td>
+</tr>
+<tr>
+<td><strong>autofocus</strong></td>
+<td><input type="text" autofocus></td>
+<td>规定当页面加载时 input 元素应该自动获得焦点</td>
+</tr>
+<tr>
+<td><strong>multiple</strong></td>
+<td><input type="file" multiple></td>
+<td>多文件上传</td>
+</tr>
+<tr>
+<td><strong>autocomplete</strong></td>
+<td><input type="text" autocomplete="off"></td>
+<td>规定表单是否应该启用自动完成功能</td>
+</tr>
+<tr>
+<td><strong>required</strong></td>
+<td><input type="text" required></td>
+<td>必填项</td>
+</tr>
+<tr>
+<td><strong>accesskey</strong></td>
+<td><input type="text" accesskey="s"></td>
+<td>规定激活（使元素获得焦点）元素的快捷键</td>
+</tr>
+</tbody></table>
+<h3 id="新增的type属性值"><a href="#新增的type属性值" class="headerlink" title="新增的type属性值"></a>新增的type属性值</h3><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>使用示例</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>email</strong></td>
+<td><input type="email"></td>
+<td>输入邮箱格式</td>
+</tr>
+<tr>
+<td><strong>tel</strong></td>
+<td><input type="tel"></td>
+<td>输入手机号码格式</td>
+</tr>
+<tr>
+<td><strong>url</strong></td>
+<td><input type="url"></td>
+<td>输入url格式</td>
+</tr>
+<tr>
+<td><strong>number</strong></td>
+<td><input type="number"></td>
+<td>输入数字格式</td>
+</tr>
+<tr>
+<td><strong>search</strong></td>
+<td><input type="search"></td>
+<td>搜索框（体现语义化）</td>
+</tr>
+<tr>
+<td><strong>range</strong></td>
+<td><input type="range"></td>
+<td>自由拖动滑块</td>
+</tr>
+<tr>
+<td><strong>time</strong></td>
+<td><input type="time"></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>date</strong></td>
+<td><input type="date"></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>datetime</strong></td>
+<td><input type="datetime"></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>month</strong></td>
+<td><input type="month"></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>week</strong></td>
+<td><input type="week"></td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="综合案例"><a href="#综合案例" class="headerlink" title="综合案例"></a>综合案例</h3><form action="">
+  <fieldset>
+    <legend>学生档案</legend>
+    <label for="userName">姓名:</label>
+    <input type="text" name="userName" id="userName" placeholder="请输入用户名"> <br>
+    <label for="userPhone">手机号码:</label>
+    <input type="tel" name="userPhone" id="userPhone" pattern="^1\d{10}$"><br>
+    <label for="email">邮箱地址:</label>
+    <input type="email" required name="email" id="email"><br>
+    <label for="collage">所属学院:</label>
+    <input type="text" name="collage" id="collage" list="cList" placeholder="请选择"><br>
+    <datalist id="cList">
+      <option value="前端与移动开发学院"></option>
+      <option value="java学院"></option>
+      <option value="c++学院"></option>
+    </datalist><br>
+    <label for="score">入学成绩:</label>
+    <input type="number" max="100" min="0" value="0" id="score"><br>
+    <label for="level">基础水平:</label>
+    <meter id="level" max="100" min="0" low="59" high="90"></meter><br>
+    <label for="inTime">入学日期:</label>
+    <input type="date" id="inTime" name="inTime"><br>
+    <label for="leaveTime">毕业日期:</label>
+    <input type="date" id="leaveTime" name="leaveTime"><br>
+    <input type="submit">
+  </fieldset>
+</form>
+
+<h3 id="多媒体标签"><a href="#多媒体标签" class="headerlink" title="多媒体标签"></a>多媒体标签</h3><ul>
+<li>embed：标签定义嵌入的内容</li>
+<li>audio：播放音频</li>
+<li>video：播放视频</li>
+</ul>
+<h4 id="多媒体embed"><a href="#多媒体embed" class="headerlink" title="多媒体embed"></a>多媒体embed</h4><p>embed可以用来插入各种多媒体，格式可以是 Midi、Wav、AIFF、AU、MP3等等。url为音频或视频文件及其路径，可以是相对路径或绝对路径。</p>
+<p>因为兼容性问题，我们这里只讲解 插入网络视频， 后面H5会讲解 audio 和video 视频多媒体。 </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">embed</span> <span class="attr">src</span>=<span class="string">"http://player.youku.com/player.php/sid/XMTI4MzM2MDIwOA==/v.swf"</span> <span class="attr">allowFullScreen</span>=<span class="string">"true"</span> <span class="attr">quality</span>=<span class="string">"high"</span> <span class="attr">width</span>=<span class="string">"480"</span> <span class="attr">height</span>=<span class="string">"400"</span> <span class="attr">align</span>=<span class="string">"middle"</span> <span class="attr">allowScriptAccess</span>=<span class="string">"always"</span> <span class="attr">type</span>=<span class="string">"application/x-shockwave-flash"</span>&gt;</span><span class="tag">&lt;/<span class="name">embed</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="多媒体audio"><a href="#多媒体audio" class="headerlink" title="多媒体audio"></a>多媒体audio</h4><p>HTML5通过<audio>标签来解决音频播放的问题。</p>
+<p>使用相当简单，如下所示</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--通过src指定音频文件路径即可--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">audio</span> <span class="attr">src</span>=<span class="string">"1.mp3"</span>&gt;</span><span class="tag">&lt;/<span class="name">audio</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>并且可以通过附加属性可以更友好控制音频的播放，如：</p>
+<p>autoplay 自动播放</p>
+<p>controls 是否显不默认播放控件</p>
+<p>loop 循环播放</p>
+<p>由于版权等原因，不同的浏览器可支持播放的格式是不一样的，如下图供参考</p>
+<p>当前,audio元素支持三种音频格式:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>IE9</th>
+<th>Firefox 3.5</th>
+<th>Opera 10.5</th>
+<th>Chrome 3.0</th>
+<th>Safari 3.0</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Ogg Vorbis</td>
+<td></td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td></td>
+</tr>
+<tr>
+<td>MP3</td>
+<td>√</td>
+<td></td>
+<td></td>
+<td>√</td>
+<td>√</td>
+</tr>
+<tr>
+<td>Wav</td>
+<td></td>
+<td>√</td>
+<td>√</td>
+<td></td>
+<td>√</td>
+</tr>
+</tbody></table>
+<p>多浏览器支持方案,</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">audio</span> <span class="attr">controls</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!--通过src指定多格式音频文件--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">audio</span> <span class="attr">src</span>=<span class="string">"1.mp3"</span>&gt;</span><span class="tag">&lt;/<span class="name">audio</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">audio</span> <span class="attr">src</span>=<span class="string">"1.wav"</span>&gt;</span><span class="tag">&lt;/<span class="name">audio</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">audio</span> <span class="attr">src</span>=<span class="string">"1.ogg"</span>&gt;</span><span class="tag">&lt;/<span class="name">audio</span>&gt;</span></span><br><span class="line">    您的浏览器不支持HTML音频播放功能!</span><br><span class="line"><span class="tag">&lt;/<span class="name">audio</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="多媒体video"><a href="#多媒体video" class="headerlink" title="多媒体video"></a>多媒体video</h4><p>HTML5通过<video>标签来解决音频播放的问题。</p>
+<p>同音频播放一样，<video>使用也相当简单，如下所示</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--通过src指定音频文件路径即可--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">video</span> <span class="attr">src</span>=<span class="string">"1.mp4"</span> <span class="attr">controls</span>=<span class="string">"controls"</span>&gt;</span><span class="tag">&lt;/<span class="name">audio</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>同样，通过附加属性可以更友好的控制视频的播放</p>
+<p>autoplay 自动播放</p>
+<p>controls 是否显示默认播放控件</p>
+<p>loop 循环播放</p>
+<p>width 设置播放窗口宽度</p>
+<p>height 设置播放窗口的高度</p>
+<p>由于版权等原因，不同的浏览器可支持播放的格式是不一样的，如下供参考：</p>
+<p>当前,video元素支持三种视频格式:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>IE</th>
+<th>Firefox 3.5</th>
+<th>Opera 10.5</th>
+<th>Chrome 3.0</th>
+<th>Safari 3.0</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Ogg</td>
+<td>No</td>
+<td>3.5+</td>
+<td>10.5+</td>
+<td>5.0+</td>
+<td>No</td>
+</tr>
+<tr>
+<td>MPEG4</td>
+<td>9.0+</td>
+<td>No</td>
+<td>No</td>
+<td>5.0+</td>
+<td>3.0+</td>
+</tr>
+<tr>
+<td>WebM</td>
+<td>No</td>
+<td>4.0+</td>
+<td>10.6+</td>
+<td>6.0+</td>
+<td>No</td>
+</tr>
+</tbody></table>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+        <li>
+            <a target="_blank" href="https://www.zhihu.com/people/btcwiki">
+                            <span class="fa-stack fa-lg">
+                                 <i class="iconfont icon-zhihu"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/Zhuyokin">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a href="https://www.re0.cn" target="_blank" rel="noopener">re0</a></span>
+        <span>/</span>
+        
+        <span><a href="https://www.github.com/Zhuyokin" target="_blank" rel="noopener">github</a></span>
+        <span>/</span>
+        
+        <span><a href="#">It helps SEO</a></span>
+        <span>/</span>
+        
+    </p>
+    
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+    <script>
+        /**
+         *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+         *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+        */
+        if( '' || '')
+        var disqus_config = function () {
+            this.page.url = '';  // Replace PAGE_URL with your page's canonical URL variable
+            this.page.identifier = ''; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+            s.src = 'https://yokin.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+
+
+
+</html>
