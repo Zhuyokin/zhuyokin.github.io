@@ -146,8 +146,7 @@
 <p>CSS通常称为CSS样式表或层叠样式表（级联样式表），主要用于设置HTML页面中的文本内容（字体、大小、对齐方式等）、图片的外形（宽高、边框样式、边距等）以及版面的布局等外观显示样式。</p>
 <p>CSS以HTML为基础，提供了丰富的功能，如字体、颜色、背景的控制及整体排版等，而且还可以针对不同的浏览器设置不同的样式。</p>
 <h2 id="样式规则"><a href="#样式规则" class="headerlink" title="样式规则"></a>样式规则</h2><p>CSS具体格式如下：</p>
-<img src="../img/css.png"/>
-
+<p><code>[% asset_img CSS.jpg 图片1 %]</code></p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">在上面的样式规则中:</span><br><span class="line">1.选择器用于指定CSS样式作用的HTML对象，花括号内是对该对象设置的具体样式。</span><br><span class="line">2.属性和属性值以“键值对”的形式出现。</span><br><span class="line">3.属性是对指定的对象设置的样式属性，例如字体大小、文本颜色等。</span><br><span class="line">4.属性和属性值之间用英文“:”连接。</span><br><span class="line">5.多个“键值对”之间用英文“;”进行区分。</span><br><span class="line">可以用段落 和 表格的对齐的演示。</span><br></pre></td></tr></table></figure>
 
 <h2 id="开发者工具（chrome）"><a href="#开发者工具（chrome）" class="headerlink" title="开发者工具（chrome）"></a>开发者工具（chrome）</h2><p>未完成谷歌浏览器Chrome“按F12”或者是 “shift+ctrl+i”   打开 开发者工具。</p>
@@ -735,11 +734,9 @@
 </tr>
 </tbody></table>
 <h4 id="浮动详细内幕特性"><a href="#浮动详细内幕特性" class="headerlink" title="浮动详细内幕特性"></a>浮动详细内幕特性</h4><p>浮动首先创建包含块的概念（包裹）。就是说， 浮动的元素总是找离它最近的父级元素对齐。但是不会超出内边距的范围。 </p>
-<img src="media/css_3.jpg">
-
+<p><code>[% asset_img css_3.jpg 图片3 %]</code></p>
 <p>浮动的元素排列位置，跟上一个元素（块级）有关系。如果上一个元素有浮动，则A元素顶部会和上一个元素的顶部对齐；如果上一个元素是标准流，则A元素的顶部会和上一个元素的底部对齐。</p>
-<img src="media/css_4.png">
-
+<p><code>[% asset_img css_4.jpg 图片4 %]</code></p>
 <p>由2可以推断出，一个父盒子里面的子盒子，如果其中一个子级有浮动的，则其他子级都需要浮动。这样才能一行对齐显示。浮动脱离标准流，不占位置，会影响标准流。浮动只有左右浮动。元素添加浮动后，元素会具有行内块元素的特性。元素的大小完全取决于定义的大小或者默认的内容多少。浮动根据元素书写的位置来显示相应的浮动。</p>
 <h4 id="清除浮动"><a href="#清除浮动" class="headerlink" title="清除浮动"></a>清除浮动</h4><p>为什么要清除浮动？</p>
 <p>由于浮动元素不再占用原文档流的位置，所以它会对后面的元素排版产生影响，为了解决这些问题，此时就需要在该元素中清除浮动。</p>
