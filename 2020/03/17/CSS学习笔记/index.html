@@ -128,13 +128,7 @@
     </div>
 
     <div class="post-meta">
-        <span class="attr">发布于：<span>2019-11-17 09:49:56</span></span>
-        
-        <span class="attr">标签：/
-        
-        <a class="tag" href="/tags/#前端" title="前端">前端</a>
-        <span>/</span>
-        
+        <span class="attr">发布于：<span>2020-03-17 10:52:34</span></span>
         
         </span>
         <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
@@ -142,11 +136,17 @@
 </span>
     </div>
     <div class="post-content ">
-        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>CSS(Cascading Style Sheets)</p>
+        <hr>
+<p>title: CSS学习笔记<br>date: 2019-11-18 09:49:56<br>tags:</p>
+<ul>
+<li>前端</li>
+</ul>
+<hr>
+<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>CSS(Cascading Style Sheets)</p>
 <p>CSS通常称为CSS样式表或层叠样式表（级联样式表），主要用于设置HTML页面中的文本内容（字体、大小、对齐方式等）、图片的外形（宽高、边框样式、边距等）以及版面的布局等外观显示样式。</p>
 <p>CSS以HTML为基础，提供了丰富的功能，如字体、颜色、背景的控制及整体排版等，而且还可以针对不同的浏览器设置不同的样式。</p>
 <h2 id="样式规则"><a href="#样式规则" class="headerlink" title="样式规则"></a>样式规则</h2><p>CSS具体格式如下：</p>
-<p><img src="/2019/11/17/CSS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/css_1.png" alt> </p>
+<p><img src="/2020/03/17/CSS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/css_1.png" alt> </p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">在上面的样式规则中:</span><br><span class="line">1.选择器用于指定CSS样式作用的HTML对象，花括号内是对该对象设置的具体样式。</span><br><span class="line">2.属性和属性值以“键值对”的形式出现。</span><br><span class="line">3.属性是对指定的对象设置的样式属性，例如字体大小、文本颜色等。</span><br><span class="line">4.属性和属性值之间用英文“:”连接。</span><br><span class="line">5.多个“键值对”之间用英文“;”进行区分。</span><br><span class="line">可以用段落 和 表格的对齐的演示。</span><br></pre></td></tr></table></figure>
 
 <h2 id="CSS注释"><a href="#CSS注释" class="headerlink" title="CSS注释"></a>CSS注释</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">CSS规则是使用     /*  需要注释的内容  */  进行注释的，即在需要注释的内容前使用 “/*” 标记开始注释，在内容的结尾使用 “*/”结束。</span><br><span class="line">例如：</span><br><span class="line">p &#123;</span><br><span class="line">  font-size: 14px;                 /* 所有的字体是14像素大小*/</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -642,10 +642,10 @@
 
 <h4 id="外边距合并"><a href="#外边距合并" class="headerlink" title="外边距合并"></a>外边距合并</h4><p>使用margin定义块元素的垂直外边距时，可能会出现外边距的合并。</p>
 <h5 id="相邻块元素垂直外边距的合并"><a href="#相邻块元素垂直外边距的合并" class="headerlink" title="相邻块元素垂直外边距的合并"></a>相邻块元素垂直外边距的合并</h5><p>当上下相邻的两个块元素相遇时，如果上面的元素有下外边距margin-bottom，下面的元素有上外边距margin-top，则他们之间的垂直间距不是margin-bottom与margin-top之和，而是两者中的较大者。这种现象被称为相邻块元素垂直外边距的合并（也称外边距塌陷）。</p>
-<p><img src="/2019/11/17/CSS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/css_2-1.png" alt> </p>
+<p><img src="/2020/03/17/CSS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/css_2-1.png" alt> </p>
 <p>解决方案：  避免就好了。</p>
 <h5 id="嵌套块元素垂直外边距的合并"><a href="#嵌套块元素垂直外边距的合并" class="headerlink" title="嵌套块元素垂直外边距的合并"></a>嵌套块元素垂直外边距的合并</h5><p>对于两个嵌套关系的块元素，如果父元素没有上内边距及边框，则父元素的上外边距会与子元素的上外边距发生合并，合并后的外边距为两者中的较大者，即使父元素的上外边距为0，也会发生合并。</p>
-<p><img src="/2019/11/17/CSS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/css_2-2.png" alt> </p>
+<p><img src="/2020/03/17/CSS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/css_2-2.png" alt> </p>
 <p>解决方案：</p>
 <ol>
 <li>可以为父元素定义1像素的上边框或上内边距。</li>
@@ -719,16 +719,16 @@
 </tr>
 </tbody></table>
 <h4 id="浮动详细内幕特性"><a href="#浮动详细内幕特性" class="headerlink" title="浮动详细内幕特性"></a>浮动详细内幕特性</h4><p>浮动首先创建包含块的概念（包裹）。就是说， 浮动的元素总是找离它最近的父级元素对齐。但是不会超出内边距的范围。 </p>
-<p><img src="/2019/11/17/CSS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/css_3.png" alt> </p>
+<p><img src="/2020/03/17/CSS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/css_3.png" alt> </p>
 <p>浮动的元素排列位置，跟上一个元素（块级）有关系。如果上一个元素有浮动，则A元素顶部会和上一个元素的顶部对齐；如果上一个元素是标准流，则A元素的顶部会和上一个元素的底部对齐。</p>
-<p><img src="/2019/11/17/CSS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/css_4.png" alt> </p>
+<p><img src="/2020/03/17/CSS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/css_4.png" alt> </p>
 <p>由2可以推断出，一个父盒子里面的子盒子，如果其中一个子级有浮动的，则其他子级都需要浮动。这样才能一行对齐显示。浮动脱离标准流，不占位置，会影响标准流。浮动只有左右浮动。元素添加浮动后，元素会具有行内块元素的特性。元素的大小完全取决于定义的大小或者默认的内容多少。浮动根据元素书写的位置来显示相应的浮动。</p>
 <h4 id="清除浮动"><a href="#清除浮动" class="headerlink" title="清除浮动"></a>清除浮动</h4><p>为什么要清除浮动？</p>
 <p>由于浮动元素不再占用原文档流的位置，所以它会对后面的元素排版产生影响，为了解决这些问题，此时就需要在该元素中清除浮动。</p>
 <p>清除浮动本质</p>
 <p>清除浮动主要为了解决父级元素因为子级浮动引起内部高度为0 的问题。</p>
-<p><img src="/2019/11/17/CSS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/css_5.png" alt> </p>
-<p><img src="/2019/11/17/CSS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/css_6.png" alt> </p>
+<p><img src="/2020/03/17/CSS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/css_5.png" alt> </p>
+<p><img src="/2020/03/17/CSS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/css_6.png" alt> </p>
 <h4 id="清除浮动的方法"><a href="#清除浮动的方法" class="headerlink" title="清除浮动的方法"></a>清除浮动的方法</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">其实本质叫做闭合浮动更好一些, 记住，清除浮动就是把浮动的盒子圈到里面，让父盒子闭合出口和入口不让他们出来影响其他元素。</span><br><span class="line">在CSS中，clear属性用于清除浮动，其基本语法格式如下：选择器&#123;clear:属性值;&#125;</span><br></pre></td></tr></table></figure>
 
 <table>
@@ -818,7 +818,7 @@
 <h3 id="静态定位-static"><a href="#静态定位-static" class="headerlink" title="静态定位(static)"></a>静态定位(static)</h3><p>静态定位是所有元素的默认定位方式，当position属性的取值为static时，可以将元素定位于静态位置。 所谓静态位置就是各个元素在HTML文档流中默认的位置。在静态定位状态下，无法通过边偏移属性（top、bottom、left或right）来改变元素的位置。</p>
 <h3 id="相对定位relative"><a href="#相对定位relative" class="headerlink" title="相对定位relative"></a>相对定位relative</h3><p>相对定位是将元素相对于它在标准流中的位置进行定位，当position属性的取值为relative时，可以将元素定位于相对位置。</p>
 <p>对元素设置相对定位后，可以通过边偏移属性改变元素的位置，但是它在文档流中的位置仍然保留。如下图所示，即是一个相对定位的效果展示：</p>
-<p><img src="/2019/11/17/CSS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/css_7.png" alt> </p>
+<p><img src="/2020/03/17/CSS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/css_7.png" alt> </p>
 <p>注意：</p>
 <ol>
 <li>相对定位最重要的一点是，它可以通过边偏移移动位置，但是原来的所占的位置，继续占有。</li>
@@ -831,11 +831,11 @@
 <p>当position属性的取值为absolute时，可以将元素的定位模式设置为绝对定位。</p>
 <p>注意：    绝对定位最重要的一点是，它可以通过边偏移移动位置，但是它完全脱标，完全不占位置。</p>
 <h5 id="父级没有定位"><a href="#父级没有定位" class="headerlink" title="父级没有定位"></a>父级没有定位</h5><p>若所有父元素都没有定位，以浏览器为准对齐(document文档)。</p>
-<p><img src="/2019/11/17/CSS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/css_8.png" alt> </p>
+<p><img src="/2020/03/17/CSS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/css_8.png" alt> </p>
 <h5 id="父级有定位"><a href="#父级有定位" class="headerlink" title="父级有定位"></a>父级有定位</h5><p>绝对定位是将元素依据最近的已经定位（绝对、固定或相对定位）的父元素（祖先）进行定位。 </p>
-<p><img src="/2019/11/17/CSS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/css_9.png" alt> </p>
+<p><img src="/2020/03/17/CSS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/css_9.png" alt> </p>
 <h5 id="绝对定位的盒子没有边偏移-未完成"><a href="#绝对定位的盒子没有边偏移-未完成" class="headerlink" title="绝对定位的盒子没有边偏移 未完成"></a>绝对定位的盒子没有边偏移 未完成</h5><p>如果只是给盒子指定了 定位，但是没有给边偏移，则该盒子以标准流来显示排序，和上一个盒子的底边对齐，但是不占有位置。</p>
-<p><img src="/2019/11/17/CSS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/css_10.png" alt> </p>
+<p><img src="/2020/03/17/CSS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/css_10.png" alt> </p>
 <h5 id="子绝父相"><a href="#子绝父相" class="headerlink" title="子绝父相"></a>子绝父相</h5><p>因为子级是绝对定位，不会占有位置， 可以放到父盒子里面的任何一个地方。父盒子布局时，需要占有位置，因此父亲只能是相对定位。这就是子绝父相的由来。</p>
 <p>绝对定位是将元素依据最近的已经定位（绝对、固定或相对定位）的父元素（祖先）进行定位。 子级是绝对定位，父亲只要是定位即可（不管父亲是绝对定位还是相对定位，甚至是固定定位都可以）</p>
 <h5 id="绝对定位的盒子水平-垂直居中"><a href="#绝对定位的盒子水平-垂直居中" class="headerlink" title="绝对定位的盒子水平/垂直居中"></a>绝对定位的盒子水平/垂直居中</h5><p>普通的盒子是左右margin 改为 auto就可， 但是对于绝对定位就无效了</p>
@@ -943,13 +943,13 @@
 <p>  小公司，背景图片很少的情况，没有必要使用精灵技术，维护成本太高。 如果是背景图片比较多，可以建议使用精灵技术。</p>
 <h3 id="案例：滑动门"><a href="#案例：滑动门" class="headerlink" title="案例：滑动门"></a>案例：滑动门</h3><p>制作网页时，为了美观，常常需要为网页元素设置特殊形状的背景，比如微信官网首页导航栏，有凸起和凹下去的感觉，最大的问题是里面的字数不一样多，咋办？</p>
 <p>为了使各种特殊形状的背景能够自适应元素中文本内容的多少，出现了CSS滑动门技术。它从新的角度构建页面，使各种特殊形状的背景能够自由拉伸滑动，以适应元素内部的文本内容，可用性更强。 最常见于各种导航栏的滑动门。</p>
-<p><img src="/2019/11/17/CSS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/css_12.png" alt> </p>
+<p><img src="/2020/03/17/CSS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/css_12.png" alt> </p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">核心技术就是利用CSS精灵（主要是背景位置）和盒子padding撑开宽度, 以便能适应不同字数的导航栏。</span><br><span class="line">一般的经典布局都是这样的：</span><br><span class="line"><span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span>&gt;</span>导航栏内容<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">总结： </span><br><span class="line"></span><br><span class="line">1. a 设置 背景左侧，padding撑开合适宽度。    </span><br><span class="line">2. span 设置背景右侧， padding撑开合适宽度 剩下由文字继续撑开宽度。</span><br><span class="line">3. 之所以a包含span就是因为 整个导航都是可以点击的。</span><br></pre></td></tr></table></figure>
 
 <h2 id="字体图标"><a href="#字体图标" class="headerlink" title="字体图标"></a>字体图标</h2><p>图片是有诸多优点的，但是缺点很明显，比如图片不但增加了总文件的大小，还增加了很多额外的”http请求”，这都会大大降低网页的性能的。更重要的是图片不能很好的进行“缩放”，因为图片放大和缩小会失真。 我们后面的移动端响应式，很多情况下希望我们的图标是可以缩放的。此时，一个非常重要的技术出现了。 这就是字体图标（iconfont).</p>
 <h3 id="字体图标优点"><a href="#字体图标优点" class="headerlink" title="字体图标优点"></a>字体图标优点</h3><p>可以做出跟图片一样可以做的事情,改变透明度、旋转度，等..但是本质其实是文字，可以很随意的改变颜色、产生阴影、透明效果等等…字体图标本身体积更小，但携带的信息并没有削减。几乎支持所有的浏览器，移动端设备必备良药…</p>
 <h3 id="字体图标使用流程"><a href="#字体图标使用流程" class="headerlink" title="字体图标使用流程"></a>字体图标使用流程</h3><p>总体来说，字体图标按照如下流程：</p>
-<p><img src="/2019/11/17/CSS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/css_11.png" alt> </p>
+<p><img src="/2020/03/17/CSS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/css_11.png" alt> </p>
 <h3 id="设计字体图标"><a href="#设计字体图标" class="headerlink" title="设计字体图标"></a>设计字体图标</h3><p>假如图标是我们公司单独设计，那就需要第一步了，这个属于UI设计人员的工作， 他们在 illustrator 或 Sketch 这类矢量图形软件里创建 icon图标之后保存为svg格式，然后给我们前端人员就好了。 </p>
 <p>  其实第一步，我们不需要关心，只需要给我们这些图标就可以了，如果图标是大众的，网上本来就有的，可以直接跳过第一步，进入第三步。</p>
 <h3 id="上传生成字体包"><a href="#上传生成字体包" class="headerlink" title="上传生成字体包"></a>上传生成字体包</h3><p>当UI设计人员给我们svg文件的时候，我们需要转换成我们页面能使用的字体文件， 而且需要生成的是兼容性的适合各个浏览器的。</p>
@@ -981,7 +981,7 @@
 <p>侧轴：与主轴垂直的轴称作侧轴，默认是垂直方向的</p>
 <p>方向：默认主轴从左向右，侧轴默认从上到下</p>
 <p>主轴和侧轴并不是固定不变的，通过flex-direction可以互换。</p>
-<p><img src="/2019/11/17/CSS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/css_13.png" alt> </p>
+<p><img src="/2020/03/17/CSS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/css_13.png" alt> </p>
 <p>Flex布局的语法规范经过几年发生了很大的变化，也给Flexbox的使用带来一定的局限性，因为语法规范版本众多，浏览器支持不一致，致使Flexbox布局使用不多</p>
 <p><strong>各属性详解</strong></p>
 <p>a、flex-direction调整主轴方向（默认为水平方向）</p>
