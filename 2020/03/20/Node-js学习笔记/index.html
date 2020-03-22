@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Yokin的博客">
+    <meta name="keyword"  content="前端技术分享">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        Node.js学习笔记 - Yokin的博客 | Yokin&#39;s Blog
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> 心所向,驰以恒! </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>Yokin</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archive">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Node-js"><span class="toc-text">Node.js</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Node-js介绍"><span class="toc-text">1.Node.js介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-为什么要学习Node-js"><span class="toc-text">1.1. 为什么要学习Node.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-Node-js是什么？"><span class="toc-text">1.2. Node.js是什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-Node-js能做什么？"><span class="toc-text">1.3. Node.js能做什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-预备知识"><span class="toc-text">1.4. 预备知识</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-5-一些资源"><span class="toc-text">1.5. 一些资源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-Node-js学习内容"><span class="toc-text">1.6 Node.js学习内容</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-起步"><span class="toc-text">2.起步</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-安装Node环境"><span class="toc-text">2.1. 安装Node环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-HelloWorld"><span class="toc-text">2.2 HelloWorld</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Node中的JavaScript"><span class="toc-text">3.Node中的JavaScript</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-EcmaScript"><span class="toc-text">3.1. EcmaScript</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-核心模块"><span class="toc-text">3.2. 核心模块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-用户自定义模块"><span class="toc-text">3.3. 用户自定义模块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-第三方模块"><span class="toc-text">3.4. 第三方模块</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-Web服务器开发"><span class="toc-text">4.Web服务器开发</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-ip地址和端口号"><span class="toc-text">4.1.ip地址和端口号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-Content-Type"><span class="toc-text">4.2. Content-Type</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-服务端渲染和客户端渲染"><span class="toc-text">4.3. 服务端渲染和客户端渲染</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-请求对象Request"><span class="toc-text">4.3. 请求对象Request</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-响应对象Response"><span class="toc-text">4.4. 响应对象Response</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-5-在Node中使用模板引擎"><span class="toc-text">4.5. 在Node中使用模板引擎</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-6-统一处理静态资源"><span class="toc-text">4.6. 统一处理静态资源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-7-服务端渲染"><span class="toc-text">4.7. 服务端渲染</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-留言板"><span class="toc-text">5.留言板</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-Node中的模板系统"><span class="toc-text">6.Node中的模板系统</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> 心所向,驰以恒! </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        Node.js学习笔记
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2020-03-20 21:24:33</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#前端" title="前端">前端</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="Node-js"><a href="#Node-js" class="headerlink" title="Node.js"></a>Node.js</h1><h2 id="1-Node-js介绍"><a href="#1-Node-js介绍" class="headerlink" title="1.Node.js介绍"></a>1.Node.js介绍</h2><h3 id="1-1-为什么要学习Node-js"><a href="#1-1-为什么要学习Node-js" class="headerlink" title="1.1. 为什么要学习Node.js"></a>1.1. 为什么要学习Node.js</h3><p>企业需求</p>
+<ul>
+<li>具有服务端开发经验更好</li>
+</ul>
+<ul>
+<li>front-end</li>
+<li>back-end</li>
+<li>全栈开发工程师</li>
+<li>基本的网站开发能力<ul>
+<li>服务端 后端开发语言:Java,PHP,Python,Ruby(Github后端),.Net,JavaScript(Node.js)…</li>
+<li>前端</li>
+<li>运维部署</li>
+</ul>
+</li>
+<li>多人社区</li>
+</ul>
+<h3 id="1-2-Node-js是什么？"><a href="#1-2-Node-js是什么？" class="headerlink" title="1.2. Node.js是什么？"></a>1.2. Node.js是什么？</h3><ul>
+<li>Node.js® is a JavaScript runtime built on Chrome’s V8 JavaScript engine.<ul>
+<li>Node.js不是一门语言</li>
+<li>Node.js不是库,不是框架</li>
+<li>Node.js是一个JavaScript运行时环境</li>
+<li>简单点来讲就是Node.js可以解析和执行JavaScript代码</li>
+<li>以前只有浏览器可以解析执行JavaScript代码</li>
+<li>也就是说现在JavaScript可以完全脱离浏览器运行,一切归功于Node.js</li>
+</ul>
+</li>
+<li>浏览器中的JavaScript<ul>
+<li>EcmaScript<ul>
+<li>基本的语法</li>
+<li>if</li>
+<li>var</li>
+<li>function</li>
+<li>Object</li>
+<li>Array</li>
+</ul>
+</li>
+<li>BOM</li>
+<li>DOM</li>
+</ul>
+</li>
+<li>Node.js中的JavaScript<ul>
+<li>没有BOM、DOM</li>
+<li>EcmaScript</li>
+<li>在Node.js这个JavaScript执行环境中提供了一些服务器级别的操作API<ul>
+<li>例如文件读写</li>
+<li>网络服务的构建</li>
+<li>网络通信</li>
+<li>http服务器</li>
+<li>等处理…</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>构建于Chrome的V8引擎之上<ul>
+<li>代码只是具有特定格式的字符串而已</li>
+<li>引擎可以认识它,引擎可以帮助你去解析和执行</li>
+<li>Google Chrome的V8引擎是目前公认的解析执行JavaScript代码最快最高效的</li>
+<li>Node.js的作者把Google Chrome中的V8引擎移植了出来,开发了一个独立的JavaScript运行时环境</li>
+</ul>
+</li>
+<li>Node.js特性：<ul>
+<li>event-driven 事件驱动</li>
+<li>non-blocking I/O model 非阻塞IO模型(异步)</li>
+<li>lightweight and efficient 轻量和高效</li>
+</ul>
+</li>
+<li>Node.js生态系统：<ul>
+<li>npm:基于node.js开发的包管理工具</li>
+<li>npm是世界上最大的开源库生态系统</li>
+<li>绝大多数JavaScript相关的包都存放在npm上,这样做的目的是为了让开发人员更方便下载使用</li>
+<li><code>npm install jquery</code><h3 id="1-3-Node-js能做什么？"><a href="#1-3-Node-js能做什么？" class="headerlink" title="1.3. Node.js能做什么？"></a>1.3. Node.js能做什么？</h3></li>
+</ul>
+</li>
+<li>Web服务器</li>
+<li>命令行工具<ul>
+<li>npm(node)</li>
+<li>git(C语言)</li>
+<li>hexo(node)</li>
+<li>。。。</li>
+</ul>
+</li>
+<li>对于前端开发工程师来讲,接触Node最多的是它的命令行工具<ul>
+<li>自己写的很少,主要是使用别人第三方的</li>
+<li>webpack、gulp、npm..</li>
+</ul>
+</li>
+</ul>
+<h3 id="1-4-预备知识"><a href="#1-4-预备知识" class="headerlink" title="1.4. 预备知识"></a>1.4. 预备知识</h3><ul>
+<li>HTML</li>
+<li>CSS</li>
+<li>JavaScript</li>
+<li>简单的命令行操作<ul>
+<li>cd</li>
+<li>dir</li>
+<li>ls</li>
+<li>mkdir</li>
+<li>rm</li>
+</ul>
+</li>
+<li>具有服务端开发经验</li>
+</ul>
+<h3 id="1-5-一些资源"><a href="#1-5-一些资源" class="headerlink" title="1.5. 一些资源"></a>1.5. 一些资源</h3><ul>
+<li>《深入浅出Node.js》<ul>
+<li>朴灵</li>
+<li>偏向理论原理，几乎没有任何实战内容</li>
+<li>理解原理底层有帮助</li>
+<li>结合学习实战去看</li>
+</ul>
+</li>
+<li>《Node.js权威指南》<ul>
+<li>API讲解</li>
+<li>也没有业务,没有实战</li>
+</ul>
+</li>
+<li>阮一峰javaScript标准参考教程(alpha):<a href="http://javascript.ruanyifeng.com/" target="_blank" rel="noopener">http://javascript.ruanyifeng.com/</a></li>
+<li>Node入门：<a href="https://www.nodebeginner.org/index-zh-cn.html" target="_blank" rel="noopener">https://www.nodebeginner.org/index-zh-cn.html</a></li>
+<li>官方API文档:<a href="https://nodejs.org/en/docs/" target="_blank" rel="noopener">https://nodejs.org/en/docs/</a></li>
+<li>中文文档:<a href="http://nodeclass.com/api/node.html" target="_blank" rel="noopener">http://nodeclass.com/api/node.html</a></li>
+<li>CNODE社区：<a href="https://cnodejs.org/" target="_blank" rel="noopener">https://cnodejs.org/</a></li>
+<li>CNODE-新手入门:<a href="https://cnodejs.org/getstart" target="_blank" rel="noopener">https://cnodejs.org/getstart</a></li>
+</ul>
+<h3 id="1-6-Node-js学习内容"><a href="#1-6-Node-js学习内容" class="headerlink" title="1.6 Node.js学习内容"></a>1.6 Node.js学习内容</h3><ul>
+<li>B/S编程模型<ul>
+<li>Browser-Server</li>
+<li>back-end</li>
+<li>任何服务端技术,这种BS编程模型都是一样,和语言无关</li>
+<li>Node只是作为我们学习BS编程模型的一个工具而已</li>
+</ul>
+</li>
+<li>模块化编程<ul>
+<li>RequireJS</li>
+<li>SeaJS</li>
+<li><code>@import(</code>文件路径<code>)</code></li>
+<li>以前认知的JavaScript只能通过<code>script</code>标签来加载</li>
+<li>在Node中可以像<code>@import()</code>一样来引用加载JavaScript脚本文件</li>
+</ul>
+</li>
+<li>Node常用API</li>
+<li>异步编程<ul>
+<li>回调函数</li>
+<li>Promise</li>
+<li>async</li>
+<li>generator</li>
+</ul>
+</li>
+<li>Express Web 开发框架</li>
+<li>Ecmascript6<ul>
+<li>Node常用的JavaScript新语法</li>
+</ul>
+</li>
+<li>学习Node不仅帮助服务端开发,同时会帮助学习前端高级内容<ul>
+<li>Vue.js</li>
+<li>React</li>
+<li>Angular<h2 id="2-起步"><a href="#2-起步" class="headerlink" title="2.起步"></a>2.起步</h2><h3 id="2-1-安装Node环境"><a href="#2-1-安装Node环境" class="headerlink" title="2.1. 安装Node环境"></a>2.1. 安装Node环境</h3></li>
+</ul>
+</li>
+<li>查看当前Node环境的版本号<code>node -v</code></li>
+<li>官网下载Node.js <a href="https://nodejs.org/en/" target="_blank" rel="noopener">https://nodejs.org/en/</a></li>
+<li>安装 </li>
+<li>确定Node环境是否安装成功  命令行<code>node -v</code></li>
+<li>配置环境变量<h3 id="2-2-HelloWorld"><a href="#2-2-HelloWorld" class="headerlink" title="2.2 HelloWorld"></a>2.2 HelloWorld</h3></li>
+</ul>
+<p>1.创建编写JavaScript脚本文件<br>        2.打开终端,定位到脚本文件所属目录<br>        3.输入<code>node 文件名</code>执行对应的文件<br>注意:文件名不要使用<code>node.js</code>命名,不建议使用中文命名</p>
+<ul>
+<li><p>解析执行JavaScript</p>
+</li>
+<li><p>读写文件</p>
+</li>
+<li><p>http </p>
+<p>最简单的http服务</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">// 使用Node创建一个http服务器</span><br><span class="line">// 你可以使用Node非常轻松的构建一个Web服务器</span><br><span class="line">// 在Node中专门提功力一个核心模块http</span><br><span class="line">// http这个核心模块的职责就是帮你创建编写服务器的</span><br><span class="line"></span><br><span class="line">// 1.加载http核心模块</span><br><span class="line">var http = require('http');</span><br><span class="line"></span><br><span class="line">// 2. 使用http.createSever()方法创建一个Web服务器</span><br><span class="line">// 返回一个Server实例</span><br><span class="line">var server = http.createServer();</span><br><span class="line"></span><br><span class="line">// 3.服务器要干嘛?</span><br><span class="line">//      提供服务:对数据的服务</span><br><span class="line">//      发送请求</span><br><span class="line">//      接收请求</span><br><span class="line">//      给个反馈(发送响应)</span><br><span class="line">//      注册request请求事件</span><br><span class="line">//      当客户端请求过来,就会自动触发服务器的request请求事件,然后执行第二个参数,回调处理函数</span><br><span class="line"></span><br><span class="line">server.on('request', function() &#123;</span><br><span class="line">    console.log('收到客户端的请求了!');</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">// 4.绑定端口号,启动服务器</span><br><span class="line">server.listen(3000, function() &#123;</span><br><span class="line">    console.log('服务器启动成功了,可以通过http://127.0.0.1:3000/ 来进行访问');</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="3-Node中的JavaScript"><a href="#3-Node中的JavaScript" class="headerlink" title="3.Node中的JavaScript"></a>3.Node中的JavaScript</h2><ul>
+<li><p>EcmaScript</p>
+<ul>
+<li>没有DOM、BOM</li>
+</ul>
+</li>
+<li><p>核心模块</p>
+</li>
+<li><p>用户自定义模块</p>
+</li>
+<li><p>第三方模块</p>
+</li>
+</ul>
+<h3 id="3-1-EcmaScript"><a href="#3-1-EcmaScript" class="headerlink" title="3.1. EcmaScript"></a>3.1. EcmaScript</h3><h3 id="3-2-核心模块"><a href="#3-2-核心模块" class="headerlink" title="3.2. 核心模块"></a>3.2. 核心模块</h3><p>  Node为JavaScript提功了很多服务器级别的API,这些API绝大多数都被包装到了一个具名的核心模块中了。</p>
+<p>  例如文件操作的<code>fs</code>核心模块,http服务端构建的<code>http</code>模块,<code>path</code>路径操作模块、<code>os</code>操作系统信息模块等等。</p>
+<p>  只要一个模块是核心模块,若想使用它，必须：</p>
+  <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var fs = require('fs')</span><br><span class="line">var http = require('http')</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-3-用户自定义模块"><a href="#3-3-用户自定义模块" class="headerlink" title="3.3. 用户自定义模块"></a>3.3. 用户自定义模块</h3><ul>
+<li>require</li>
+<li>exports</li>
+</ul>
+<h3 id="3-4-第三方模块"><a href="#3-4-第三方模块" class="headerlink" title="3.4. 第三方模块"></a>3.4. 第三方模块</h3><h2 id="4-Web服务器开发"><a href="#4-Web服务器开发" class="headerlink" title="4.Web服务器开发"></a>4.Web服务器开发</h2><h3 id="4-1-ip地址和端口号"><a href="#4-1-ip地址和端口号" class="headerlink" title="4.1.ip地址和端口号"></a>4.1.ip地址和端口号</h3><ul>
+<li><p>ip地址是用来定位计算机</p>
+</li>
+<li><p>端口号用来定位具体的应用程序,一切需要联网通信的软件都会占用一个端口号</p>
+</li>
+<li><p>端口号的范围从0-65536之间</p>
+</li>
+<li><p>在计算机中有一些默认的端口号,最好不要去使用</p>
+<ul>
+<li>如http服务的80端口</li>
+</ul>
+</li>
+<li><p>我们开发过程中使用一些简单好记的端口号即可,如3000，5000等没有什么含义的</p>
+</li>
+<li><p>可以同时开启多个服务,但一定要确保不同服务占用的端口号不一致，一台计算机中，同一个端口号同一时间只能被一个程序占用</p>
+</li>
+</ul>
+<h3 id="4-2-Content-Type"><a href="#4-2-Content-Type" class="headerlink" title="4.2. Content-Type"></a>4.2. Content-Type</h3><ul>
+<li><p>HTTP Mime-type    <a href="https://tool.oschina.net/commons" target="_blank" rel="noopener">https://tool.oschina.net/commons</a> </p>
+</li>
+<li><p>1.结合fs发送文件中的数据</p>
+</li>
+<li><p>2.Content-Type</p>
+</li>
+<li><p><a href="https://tool.oschina.net/commons" target="_blank" rel="noopener">https://tool.oschina.net/commons</a> </p>
+</li>
+<li><p>不同的资源对应的Content-Type是不一样的</p>
+</li>
+<li><p>图片不需要指定编码  一般只为字符数据才指定编码</p>
+</li>
+</ul>
+<h3 id="4-3-服务端渲染和客户端渲染"><a href="#4-3-服务端渲染和客户端渲染" class="headerlink" title="4.3. 服务端渲染和客户端渲染"></a>4.3. 服务端渲染和客户端渲染</h3><ul>
+<li><p>服务端渲染</p>
+<ul>
+<li>说白了就是在服务端使用模板引擎</li>
+<li>模板引擎最早诞生于服务端，后来才发展到了前端</li>
+</ul>
+</li>
+<li><p>服务端渲染和客户端渲染的区别</p>
+<ul>
+<li>客户端渲染不利于 SEO 搜索引擎优化</li>
+<li>服务端渲染是可以被爬虫抓取到的，客户端异步渲染是很难被爬虫抓取到的</li>
+<li>所以你会发现真正的网站既不是纯异步也不是纯服务端渲染出来的</li>
+<li>而是两者结合来做的</li>
+<li>例如京东的商品列表就采用的是服务端渲染，目的了为了 SEO 搜索引擎优化</li>
+<li>而它的商品评论列表为了用户体验，而且也不需要 SEO 优化，所以采用是客户端渲染</li>
+</ul>
+</li>
+</ul>
+<h3 id="4-3-请求对象Request"><a href="#4-3-请求对象Request" class="headerlink" title="4.3. 请求对象Request"></a>4.3. 请求对象Request</h3><h3 id="4-4-响应对象Response"><a href="#4-4-响应对象Response" class="headerlink" title="4.4. 响应对象Response"></a>4.4. 响应对象Response</h3><h3 id="4-5-在Node中使用模板引擎"><a href="#4-5-在Node中使用模板引擎" class="headerlink" title="4.5. 在Node中使用模板引擎"></a>4.5. 在Node中使用模板引擎</h3><h3 id="4-6-统一处理静态资源"><a href="#4-6-统一处理静态资源" class="headerlink" title="4.6. 统一处理静态资源"></a>4.6. 统一处理静态资源</h3><h3 id="4-7-服务端渲染"><a href="#4-7-服务端渲染" class="headerlink" title="4.7. 服务端渲染"></a>4.7. 服务端渲染</h3><h2 id="5-留言板"><a href="#5-留言板" class="headerlink" title="5.留言板"></a>5.留言板</h2><h2 id="6-Node中的模板系统"><a href="#6-Node中的模板系统" class="headerlink" title="6.Node中的模板系统"></a>6.Node中的模板系统</h2>
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+        <li>
+            <a target="_blank" href="https://www.zhihu.com/people/btcwiki">
+                            <span class="fa-stack fa-lg">
+                                 <i class="iconfont icon-zhihu"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/Zhuyokin">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a href="https://www.re0.cn" target="_blank" rel="noopener">re0</a></span>
+        <span>/</span>
+        
+        <span><a href="https://www.github.com/Zhuyokin" target="_blank" rel="noopener">github</a></span>
+        <span>/</span>
+        
+        <span><a href="#">It helps SEO</a></span>
+        <span>/</span>
+        
+    </p>
+    
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
