@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Yokin的博客">
+    <meta name="keyword"  content="前端技术分享">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        版本管理软件Git和GitHub用法总结 - Yokin的博客 | Yokin&#39;s Blog
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> 心所向,驰以恒! </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>Yokin</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archive">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Git基础"><span class="toc-text">1. Git基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-版本管理"><span class="toc-text">1.1 版本管理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-1-什么是版本管理"><span class="toc-text">1.1.1 什么是版本管理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-2-人为维护文档版本的问题"><span class="toc-text">1.1.2 人为维护文档版本的问题</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-Git-是什么"><span class="toc-text">1.2 Git 是什么</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-Git-安装"><span class="toc-text">1.3 Git 安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-Git-基本工作流程"><span class="toc-text">1.4 Git 基本工作流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-5-Git-的使用"><span class="toc-text">1.5 Git 的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-5-1-Git-使用前配置"><span class="toc-text">1.5.1 Git 使用前配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-5-2-提交步骤"><span class="toc-text">1.5.2 提交步骤</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-5-3-撤销"><span class="toc-text">1.5.3 撤销</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Git进阶"><span class="toc-text">2. Git进阶</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-分支"><span class="toc-text">2.1 分支</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-1-分支细分"><span class="toc-text">2.1.1 分支细分</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-2-分支命令"><span class="toc-text">2.1.2 分支命令</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-暂时保存更改"><span class="toc-text">2.2 暂时保存更改</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Github"><span class="toc-text">3. Github</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-注册"><span class="toc-text">3.1 注册</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-多人协作开发流程"><span class="toc-text">3.2 多人协作开发流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-创建仓库"><span class="toc-text">3.3 创建仓库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-拉取操作"><span class="toc-text">3.4 拉取操作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-4-1-克隆仓库"><span class="toc-text">3.4.1 克隆仓库</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-4-2-拉取远程仓库中最新的版本"><span class="toc-text">3.4.2 拉取远程仓库中最新的版本</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5-解决冲突"><span class="toc-text">3.5 解决冲突</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-6-跨团队协作"><span class="toc-text">3.6 跨团队协作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-7-ssh免登陆"><span class="toc-text">3.7 ssh免登陆</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-8-GIT忽略清单"><span class="toc-text">3.8 GIT忽略清单</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> 心所向,驰以恒! </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        版本管理软件Git和GitHub用法总结
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2020-03-26 16:04:53</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#Git" title="Git">Git</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#GitHub" title="GitHub">GitHub</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h2 id="1-Git基础"><a href="#1-Git基础" class="headerlink" title="1. Git基础"></a>1. Git基础</h2><h3 id="1-1-版本管理"><a href="#1-1-版本管理" class="headerlink" title="1.1 版本管理"></a>1.1 版本管理</h3><h4 id="1-1-1-什么是版本管理"><a href="#1-1-1-什么是版本管理" class="headerlink" title="1.1.1 什么是版本管理"></a>1.1.1 什么是版本管理</h4><p>版本管理是一种记录文件变化的方式，以便将来查阅特定版本的文件内容。</p>
+<p><img src="/2020/03/26/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E8%BD%AF%E4%BB%B6Git%E5%92%8CGitHub%E7%94%A8%E6%B3%95%E6%80%BB%E7%BB%93/01.png" alt></p>
+<h4 id="1-1-2-人为维护文档版本的问题"><a href="#1-1-2-人为维护文档版本的问题" class="headerlink" title="1.1.2 人为维护文档版本的问题"></a>1.1.2 人为维护文档版本的问题</h4><ol>
+<li><p>文档数量多且命名不清晰导致文档版本混乱</p>
+</li>
+<li><p>每次编辑文档需要复制，不方便</p>
+</li>
+<li><p>多人同时编辑同一个文档，容易产生覆盖</p>
+</li>
+</ol>
+<p><img src="/2020/03/26/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E8%BD%AF%E4%BB%B6Git%E5%92%8CGitHub%E7%94%A8%E6%B3%95%E6%80%BB%E7%BB%93/04.png" alt></p>
+<h3 id="1-2-Git-是什么"><a href="#1-2-Git-是什么" class="headerlink" title="1.2 Git 是什么"></a>1.2 Git 是什么</h3><p>Git是一个版本管理控制系统（缩写VCS），它可以在任何时间点，将文档的状态作为更新记录保存起来，也可以在任何时间点，将更新记录恢复回来。</p>
+<p><img src="/2020/03/26/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E8%BD%AF%E4%BB%B6Git%E5%92%8CGitHub%E7%94%A8%E6%B3%95%E6%80%BB%E7%BB%93/19.png" alt></p>
+<h3 id="1-3-Git-安装"><a href="#1-3-Git-安装" class="headerlink" title="1.3 Git 安装"></a>1.3 Git 安装</h3><p><a href="https://git-scm.com/downloads" target="_blank" rel="noopener">下载地址</a> </p>
+<p>在安装的过程中，所有选项使用默认值即可。</p>
+<h3 id="1-4-Git-基本工作流程"><a href="#1-4-Git-基本工作流程" class="headerlink" title="1.4 Git 基本工作流程"></a>1.4 Git 基本工作流程</h3><table>
+<thead>
+<tr>
+<th>git仓库</th>
+<th>暂存区</th>
+<th>工作目录</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>用于存放提交记录</td>
+<td>临时存放被修改文件</td>
+<td>被Git管理的项目目录</td>
+</tr>
+</tbody></table>
+<p><img src="/2020/03/26/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E8%BD%AF%E4%BB%B6Git%E5%92%8CGitHub%E7%94%A8%E6%B3%95%E6%80%BB%E7%BB%93/05.png" alt></p>
+<h3 id="1-5-Git-的使用"><a href="#1-5-Git-的使用" class="headerlink" title="1.5 Git 的使用"></a>1.5 Git 的使用</h3><h4 id="1-5-1-Git-使用前配置"><a href="#1-5-1-Git-使用前配置" class="headerlink" title="1.5.1 Git 使用前配置"></a>1.5.1 Git 使用前配置</h4><p>在使用 git 前，需要告诉 git 你是谁，在向 git 仓库中提交时需要用到。</p>
+<ol>
+<li>配置提交人姓名：<code>git config --global user.name 提交人姓名</code></li>
+<li>配置提交人姓名：<code>git config --global user.email 提交人邮箱</code> </li>
+<li>查看git配置信息：<code>git config --list</code>   </li>
+</ol>
+<p><strong>注意</strong></p>
+<ol>
+<li><p>如果要对配置信息进行修改，重复上述命令即可。</p>
+</li>
+<li><p>配置只需要执行一次。</p>
+</li>
+</ol>
+<h4 id="1-5-2-提交步骤"><a href="#1-5-2-提交步骤" class="headerlink" title="1.5.2 提交步骤"></a>1.5.2 提交步骤</h4><ol>
+<li><code>git init</code> 初始化git仓库</li>
+<li><code>git status</code> 查看文件状态</li>
+<li><code>git add 文件列表</code> 追踪文件</li>
+<li><code>git commit -m 提交信息</code>  向仓库中提交代码</li>
+<li><code>git log</code> 查看提交记录</li>
+</ol>
+<h4 id="1-5-3-撤销"><a href="#1-5-3-撤销" class="headerlink" title="1.5.3 撤销"></a>1.5.3 撤销</h4><ul>
+<li><p>用暂存区中的文件覆盖工作目录中的文件： <code>git checkout 文件</code></p>
+</li>
+<li><p>将文件从暂存区中删除： <code>git rm --cached 文件</code></p>
+</li>
+<li><p>将 git 仓库中指定的更新记录恢复出来，并且覆盖暂存区和工作目录：<code>git rest --hard commitID</code> </p>
+</li>
+</ul>
+<p><img src="/2020/03/26/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E8%BD%AF%E4%BB%B6Git%E5%92%8CGitHub%E7%94%A8%E6%B3%95%E6%80%BB%E7%BB%93/07.png" alt></p>
+<h2 id="2-Git进阶"><a href="#2-Git进阶" class="headerlink" title="2. Git进阶"></a>2. Git进阶</h2><h3 id="2-1-分支"><a href="#2-1-分支" class="headerlink" title="2.1 分支"></a>2.1 分支</h3><p>为了便于理解，大家暂时可以认为分支就是当前工作目录中代码的一份副本。</p>
+<p>使用分支，可以让我们从开发主线上分离出来，以免影响开发主线。</p>
+<p><img src="/2020/03/26/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E8%BD%AF%E4%BB%B6Git%E5%92%8CGitHub%E7%94%A8%E6%B3%95%E6%80%BB%E7%BB%93/08.png" alt></p>
+<h4 id="2-1-1-分支细分"><a href="#2-1-1-分支细分" class="headerlink" title="2.1.1 分支细分"></a>2.1.1 分支细分</h4><ol>
+<li>主分支（master）：第一次向 git 仓库中提交更新记录时自动产生的一个分支。</li>
+</ol>
+<p>   <img src="/2020/03/26/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E8%BD%AF%E4%BB%B6Git%E5%92%8CGitHub%E7%94%A8%E6%B3%95%E6%80%BB%E7%BB%93/06.png" alt></p>
+<ol start="2">
+<li>、开发分支（develop）：作为开发的分支，基于 master 分支创建。</li>
+</ol>
+<p>   <img src="/2020/03/26/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E8%BD%AF%E4%BB%B6Git%E5%92%8CGitHub%E7%94%A8%E6%B3%95%E6%80%BB%E7%BB%93/09.png" alt></p>
+<ol start="3">
+<li>功能分支（feature）：作为开发具体功能的分支，基于开发分支创建</li>
+</ol>
+<p>   <img src="/2020/03/26/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E8%BD%AF%E4%BB%B6Git%E5%92%8CGitHub%E7%94%A8%E6%B3%95%E6%80%BB%E7%BB%93/10.png" alt></p>
+<p><strong>功能分支 -&gt; 开发分支 -&gt; 主分支</strong></p>
+<h4 id="2-1-2-分支命令"><a href="#2-1-2-分支命令" class="headerlink" title="2.1.2 分支命令"></a>2.1.2 分支命令</h4><ul>
+<li><p><code>git branch</code> 查看分支</p>
+</li>
+<li><p><code>git branch 分支名称</code> 创建分支</p>
+</li>
+<li><p><code>git checkout 分支名称</code> 切换分支</p>
+</li>
+<li><p><code>git merge 来源分支</code> 合并分支</p>
+</li>
+<li><p><code>git branch -d 分支名称</code> 删除分支（分支被合并后才允许删除）（-D 强制删除）</p>
+</li>
+</ul>
+<h3 id="2-2-暂时保存更改"><a href="#2-2-暂时保存更改" class="headerlink" title="2.2 暂时保存更改"></a>2.2 暂时保存更改</h3><p>在git中，可以暂时提取分支上所有的改动并存储，让开发人员得到一个干净的工作副本，临时转向其他工作。</p>
+<p>使用场景：分支临时切换</p>
+<ul>
+<li>存储临时改动：<code>git stash</code></li>
+<li>恢复改动：<code>git stash pop</code></li>
+</ul>
+<h2 id="3-Github"><a href="#3-Github" class="headerlink" title="3. Github"></a>3. Github</h2><p>在版本控制系统中，大约90%的操作都是在本地仓库中进行的：暂存，提交，查看状态或者历史记录等等。除此之外，如果仅仅只有你一个人在这个项目里工作，你永远没有机会需要设置一个远程仓库。</p>
+<p>只有当你需要和你的开发团队共享数据时，设置一个远程仓库才有意义。你可以把它想象成一个 “文件管理服务器”，利用这个服务器可以与开发团队的其他成员进行数据交换。</p>
+<h3 id="3-1-注册"><a href="#3-1-注册" class="headerlink" title="3.1 注册"></a>3.1 注册</h3><ol>
+<li><p>访问<a href="https://github.com/" target="_blank" rel="noopener">github</a>首页，点击 Sign up 连接。（注册）</p>
+<p><img src="/2020/03/26/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E8%BD%AF%E4%BB%B6Git%E5%92%8CGitHub%E7%94%A8%E6%B3%95%E6%80%BB%E7%BB%93/11.png" alt></p>
+</li>
+<li><p>填写用户名、邮箱地址、GitHub登陆密码</p>
+<p><img src="/2020/03/26/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E8%BD%AF%E4%BB%B6Git%E5%92%8CGitHub%E7%94%A8%E6%B3%95%E6%80%BB%E7%BB%93/12.png" alt></p>
+</li>
+<li><p>选择计划</p>
+<p><img src="/2020/03/26/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E8%BD%AF%E4%BB%B6Git%E5%92%8CGitHub%E7%94%A8%E6%B3%95%E6%80%BB%E7%BB%93/13.png" alt></p>
+</li>
+<li><p>填写 GitHub 问题</p>
+<p><img src="/2020/03/26/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E8%BD%AF%E4%BB%B6Git%E5%92%8CGitHub%E7%94%A8%E6%B3%95%E6%80%BB%E7%BB%93/14.png" alt></p>
+</li>
+<li><p>验证邮箱</p>
+<p><img src="/2020/03/26/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E8%BD%AF%E4%BB%B6Git%E5%92%8CGitHub%E7%94%A8%E6%B3%95%E6%80%BB%E7%BB%93/15.png" alt></p>
+</li>
+<li><p>GitHub 个人中心</p>
+<p><img src="/2020/03/26/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E8%BD%AF%E4%BB%B6Git%E5%92%8CGitHub%E7%94%A8%E6%B3%95%E6%80%BB%E7%BB%93/16.png" alt></p>
+</li>
+</ol>
+<h3 id="3-2-多人协作开发流程"><a href="#3-2-多人协作开发流程" class="headerlink" title="3.2 多人协作开发流程"></a>3.2 多人协作开发流程</h3><ul>
+<li>A在自己的计算机中创建本地仓库</li>
+<li>A在github中创建远程仓库</li>
+<li>A将本地仓库推送到远程仓库</li>
+<li>B克隆远程仓库到本地进行开发</li>
+<li>B将本地仓库中开发的内容推送到远程仓库</li>
+<li>A将远程仓库中的最新内容拉去到本地</li>
+</ul>
+<p><img src="/2020/03/26/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E8%BD%AF%E4%BB%B6Git%E5%92%8CGitHub%E7%94%A8%E6%B3%95%E6%80%BB%E7%BB%93/20.png" alt></p>
+<p><img src="/2020/03/26/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E8%BD%AF%E4%BB%B6Git%E5%92%8CGitHub%E7%94%A8%E6%B3%95%E6%80%BB%E7%BB%93/21.png" alt></p>
+<h3 id="3-3-创建仓库"><a href="#3-3-创建仓库" class="headerlink" title="3.3 创建仓库"></a>3.3 创建仓库</h3><ol>
+<li><p>填写仓库基本信息</p>
+<p><img src="/2020/03/26/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E8%BD%AF%E4%BB%B6Git%E5%92%8CGitHub%E7%94%A8%E6%B3%95%E6%80%BB%E7%BB%93/17.png" alt></p>
+</li>
+<li><p>将本地仓库推送到远程仓库</p>
+<p><img src="/2020/03/26/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E8%BD%AF%E4%BB%B6Git%E5%92%8CGitHub%E7%94%A8%E6%B3%95%E6%80%BB%E7%BB%93/18.png" alt></p>
+<ol>
+<li><p>git push 远程仓库地址 分支名称</p>
+</li>
+<li><p>git push 远程仓库地址别名 分支名称</p>
+</li>
+<li><p>git push -u 远程仓库地址别名 分支名称</p>
+<p> -u 记住推送地址及分支，下次推送只需要输入git push即可</p>
+</li>
+<li><p>git remote add 远程仓库地址别名 远程仓库地址</p>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="3-4-拉取操作"><a href="#3-4-拉取操作" class="headerlink" title="3.4 拉取操作"></a>3.4 拉取操作</h3><h4 id="3-4-1-克隆仓库"><a href="#3-4-1-克隆仓库" class="headerlink" title="3.4.1 克隆仓库"></a>3.4.1 克隆仓库</h4><p>克隆远端数据仓库到本地：<code>git clone 仓库地址</code></p>
+<h4 id="3-4-2-拉取远程仓库中最新的版本"><a href="#3-4-2-拉取远程仓库中最新的版本" class="headerlink" title="3.4.2 拉取远程仓库中最新的版本"></a>3.4.2 拉取远程仓库中最新的版本</h4><p>拉取远程仓库中最新的版本：<code>git pull 远程仓库地址 分支名称</code></p>
+<h3 id="3-5-解决冲突"><a href="#3-5-解决冲突" class="headerlink" title="3.5 解决冲突"></a>3.5 解决冲突</h3><p>在多人同时开发一个项目时，如果两个人修改了同一个文件的同一个地方，就会发生冲突。冲突需要人为解决。</p>
+<h3 id="3-6-跨团队协作"><a href="#3-6-跨团队协作" class="headerlink" title="3.6 跨团队协作"></a>3.6 跨团队协作</h3><ol>
+<li>程序员 C fork仓库</li>
+<li>程序员 C 将仓库克隆在本地进行修改</li>
+<li>程序员 C 将仓库推送到远程</li>
+<li>程序员 C 发起pull reqest</li>
+<li>原仓库作者审核</li>
+<li>原仓库作者合并代码</li>
+</ol>
+<h3 id="3-7-ssh免登陆"><a href="#3-7-ssh免登陆" class="headerlink" title="3.7 ssh免登陆"></a>3.7 ssh免登陆</h3><p>https协议仓库地址：<a href="https://github.com/itcast-frontEnd/git-demo.git" target="_blank" rel="noopener">https://github.com/itcast-frontEnd/git-demo.git</a></p>
+<p><img src="/2020/03/26/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E8%BD%AF%E4%BB%B6Git%E5%92%8CGitHub%E7%94%A8%E6%B3%95%E6%80%BB%E7%BB%93/22.png" alt></p>
+<p>生成秘钥：<code>ssh-keygen</code></p>
+<p>秘钥存储目录：C:\Users\用户\.ssh</p>
+<p>公钥名称：id_rsa.pub</p>
+<p>私钥名称：id_rsa</p>
+<p><img src="/2020/03/26/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E8%BD%AF%E4%BB%B6Git%E5%92%8CGitHub%E7%94%A8%E6%B3%95%E6%80%BB%E7%BB%93/23.png" alt></p>
+<p><img src="/2020/03/26/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E8%BD%AF%E4%BB%B6Git%E5%92%8CGitHub%E7%94%A8%E6%B3%95%E6%80%BB%E7%BB%93/24.png" alt></p>
+<h3 id="3-8-GIT忽略清单"><a href="#3-8-GIT忽略清单" class="headerlink" title="3.8 GIT忽略清单"></a>3.8 GIT忽略清单</h3><p>将不需要被git管理的文件名字添加到此文件中，在执行git命令的时候，git就会忽略这些文件。</p>
+<p>git忽略清单文件名称：<strong>.gitignore</strong></p>
+<p>将工作目录中的文件全部添加到暂存区：<code>git add .</code></p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+        <li>
+            <a target="_blank" href="https://www.zhihu.com/people/btcwiki">
+                            <span class="fa-stack fa-lg">
+                                 <i class="iconfont icon-zhihu"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/Zhuyokin">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a href="https://www.re0.cn" target="_blank" rel="noopener">re0</a></span>
+        <span>/</span>
+        
+        <span><a href="https://www.github.com/Zhuyokin" target="_blank" rel="noopener">github</a></span>
+        <span>/</span>
+        
+        <span><a href="#">It helps SEO</a></span>
+        <span>/</span>
+        
+    </p>
+    
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
