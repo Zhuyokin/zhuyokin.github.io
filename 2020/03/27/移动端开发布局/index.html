@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Yokin的博客">
+    <meta name="keyword"  content="前端技术分享">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        移动开发布局 - Yokin的博客 | Yokin&#39;s Blog
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> 心所向,驰以恒! </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>Yokin</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archive">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#移动端开发布局"><span class="toc-text">移动端开发布局</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#摘要"><span class="toc-text">摘要</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#流式布局"><span class="toc-text">流式布局</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#响应式布局"><span class="toc-text">响应式布局</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#响应式布局原理"><span class="toc-text">响应式布局原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#响应式布局容器"><span class="toc-text">响应式布局容器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#媒体查询"><span class="toc-text">媒体查询</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#媒体查询概念"><span class="toc-text">媒体查询概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#mediatype媒体查询类型"><span class="toc-text">mediatype媒体查询类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#关键字"><span class="toc-text">关键字</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#媒体特效"><span class="toc-text">媒体特效</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#引入资源"><span class="toc-text">引入资源</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#flex布局"><span class="toc-text">flex布局</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#flex布局原理"><span class="toc-text">flex布局原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#flex布局父项常见属性"><span class="toc-text">flex布局父项常见属性</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#常见的父项属性"><span class="toc-text">常见的父项属性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#flex-direction"><span class="toc-text">flex-direction</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-主轴和侧轴"><span class="toc-text">(1)主轴和侧轴</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-属性值"><span class="toc-text">(2)属性值</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#justify-content"><span class="toc-text">justify-content</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#flex-wrap"><span class="toc-text">flex-wrap</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#align-items"><span class="toc-text">align-items</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#align-content"><span class="toc-text">align-content</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#align-content和align-items的区别"><span class="toc-text">align-content和align-items的区别</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#flex布局子项常见属性"><span class="toc-text">flex布局子项常见属性</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#flex子项占的份数"><span class="toc-text">flex子项占的份数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#align-self"><span class="toc-text">align-self</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#order属性"><span class="toc-text">order属性</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#rem布局"><span class="toc-text">rem布局</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#rem基础"><span class="toc-text">rem基础</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#媒体查询-rem实现元素动态大小变化原理"><span class="toc-text">媒体查询+rem实现元素动态大小变化原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rem实际开发适配方案"><span class="toc-text">rem实际开发适配方案</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#rem实际开发适配方案1"><span class="toc-text">rem实际开发适配方案1</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-设计稿常见尺寸宽度"><span class="toc-text">(1)设计稿常见尺寸宽度</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-动态设置html标签font-size大小"><span class="toc-text">(2)动态设置html标签font-size大小</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-元素大小取值方法"><span class="toc-text">(3)元素大小取值方法</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#rem实际开发适配方案2"><span class="toc-text">rem实际开发适配方案2</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#简洁高效的rem适配方案flexible-js"><span class="toc-text">简洁高效的rem适配方案flexible.js</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#原理"><span class="toc-text">原理</span></a></li></ol></li></ol></li></ol></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> 心所向,驰以恒! </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        移动开发布局
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2020-03-27 22:13:59</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#flex" title="flex">flex</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#rem" title="rem">rem</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#响应式布局" title="响应式布局">响应式布局</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#媒体查询" title="媒体查询">媒体查询</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="移动端开发布局"><a href="#移动端开发布局" class="headerlink" title="移动端开发布局"></a>移动端开发布局</h1><h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>在项目开发的技术选型的时候，其中一项就是移动端布局的方案,可提供的方案有流式布局,响应式布局,flex和rem（主流），本文将对上述主流的移动端布局的技术要点进行讲解。</p>
+<h2 id="流式布局"><a href="#流式布局" class="headerlink" title="流式布局"></a>流式布局</h2><p>流式布局,就是百分比布局,也称非固定像素布局。</p>
+<p>原理:通过盒子的宽度设置成百分比来根据屏幕的宽度来进行伸缩，不受固定像素的限制，内容向两侧填充。</p>
+<p>流式布局方式式移动web开发使用的比较常见的布局方式.</p>
+<p>参数:</p>
+<p>max-width 最大宽度 (max-height 最大高度)</p>
+<p>min-width 最小宽度 (min-height 最小高度)</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">// 用法示例</span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=0"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"ie=edge"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line">        * &#123;</span><br><span class="line">            padding: 0;</span><br><span class="line">            margin: 0;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        section &#123;</span><br><span class="line">            width: 100%;</span><br><span class="line">            max-width: 980px;</span><br><span class="line">            min-width: 320px;</span><br><span class="line">            margin: 0 auto;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        section div &#123;</span><br><span class="line">            width: 50%;</span><br><span class="line">            height: 400px;</span><br><span class="line">            float: left;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line"><span class="css">        <span class="selector-tag">section</span> <span class="selector-tag">div</span><span class="selector-pseudo">:nth-child(1)</span> &#123;</span></span><br><span class="line">            background-color: pink;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line"><span class="css">        <span class="selector-tag">section</span> <span class="selector-tag">div</span><span class="selector-pseudo">:nth-child(2)</span> &#123;</span></span><br><span class="line">            background-color: purple;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">section</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="响应式布局"><a href="#响应式布局" class="headerlink" title="响应式布局"></a>响应式布局</h2><h3 id="响应式布局原理"><a href="#响应式布局原理" class="headerlink" title="响应式布局原理"></a>响应式布局原理</h3><p>就是使用媒体查询针对不同宽度的设备进行布局和样式的设置,从而适配不同设备的目的。</p>
+<table>
+<thead>
+<tr>
+<th>设备划分</th>
+<th>尺寸区间</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>超小屏幕(手机)</td>
+<td>&lt;768px</td>
+</tr>
+<tr>
+<td>小屏设备(平板)</td>
+<td>&gt;=768px~&lt;992px</td>
+</tr>
+<tr>
+<td>中等屏幕(桌面显示器)</td>
+<td>&gt;=992px~&lt;1200px</td>
+</tr>
+<tr>
+<td>宽屏设备(大桌面显示器)</td>
+<td>&gt;=1200px</td>
+</tr>
+</tbody></table>
+<h3 id="响应式布局容器"><a href="#响应式布局容器" class="headerlink" title="响应式布局容器"></a>响应式布局容器</h3><p> 响应式需要一个父级作为布局容器，来配合子级元素来实现变化效果。原理就是在不同屏幕下，通过媒体查询来改变布局容器的大小，再改变里面的子元素的排列方式和大小，从而实现在不同屏幕下，看到不同的页面布局和样式变化。</p>
+<p>平时我们的响应式尺寸划分</p>
+<p>(1)超小屏幕(手机，小于768px):设置宽度为100%;<br>        (2)小屏幕(平板，大于等于768px):设置宽度为750px;<br>        (3)中等屏幕(桌面显示器，大于等于992px):设置宽度为970px;<br>        (4)大屏幕(大桌面显示器，大于等于1200px):设置宽度为1170px;</p>
+ <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"ie=edge"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>响应式布局原理<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.container</span> &#123;</span></span><br><span class="line">        height: 150px;</span><br><span class="line">        background: pink;</span><br><span class="line">        margin: 0 auto;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="css">    <span class="comment">/* 1.超小屏幕下，小于768，布局容器宽度100% */</span></span></span><br><span class="line">    </span><br><span class="line"><span class="css">    <span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">max-width:</span><span class="number">767px</span>) &#123;</span></span><br><span class="line"><span class="css">        <span class="selector-class">.container</span> &#123;</span></span><br><span class="line">            width: 100%;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="css">    <span class="comment">/* 2.小屏幕下，&gt;=768,布局容器改为750px */</span></span></span><br><span class="line">    </span><br><span class="line"><span class="css">    <span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">max-width:</span> <span class="number">768px</span>) &#123;</span></span><br><span class="line"><span class="css">        <span class="selector-class">.container</span> &#123;</span></span><br><span class="line">            width: 750px;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="css">    <span class="comment">/* 3.中等屏幕下，&gt;=992，布局容器改为970px */</span></span></span><br><span class="line">    </span><br><span class="line"><span class="css">    <span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">max-width:</span> <span class="number">992px</span>) &#123;</span></span><br><span class="line"><span class="css">        <span class="selector-class">.container</span> &#123;</span></span><br><span class="line">            width: 970px;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="css">    <span class="comment">/* 4.大屏幕下,&gt;=1200,布局容易修改为1170px */</span></span></span><br><span class="line">    </span><br><span class="line"><span class="css">    <span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">max-width:</span> <span class="number">1200px</span>) &#123;</span></span><br><span class="line"><span class="css">        <span class="selector-class">.container</span> &#123;</span></span><br><span class="line">            width: 1170px;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 响应式开发里面,首先需要一个布局容器     --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="媒体查询"><a href="#媒体查询" class="headerlink" title="媒体查询"></a>媒体查询</h3><h4 id="媒体查询概念"><a href="#媒体查询概念" class="headerlink" title="媒体查询概念"></a>媒体查询概念</h4><pre><code>媒体查询(Media Query)是CSS3新语法.使用@media查询,可以针对不同的媒体类型定义不同的样式
+@media可以针对不同的屏幕尺寸设置不同的样式
+当你重置浏览器大小的过程中,页面也会根据浏览器的宽度和高度重新渲染页面
+目前针对很多苹果手机、Android手机,平板等设备都用得到媒体查询</code></pre><p>语法规范</p>
+<p><code>@media mediatype and|not|only{media feature}{CSS-Code;}</code></p>
+<ul>
+<li><p>媒体查询用@media开头</p>
+</li>
+<li><p>mediatype是媒体类型</p>
+</li>
+<li><p>关键字and not only</p>
+</li>
+<li><p>media feature 媒体特性,必须有小括号包含</p>
+</li>
+</ul>
+<h4 id="mediatype媒体查询类型"><a href="#mediatype媒体查询类型" class="headerlink" title="mediatype媒体查询类型"></a>mediatype媒体查询类型</h4><p>将不同的终端设备划分成不同的类型,称为媒体查询</p>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>解释说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>all</td>
+<td>用于所有设备</td>
+</tr>
+<tr>
+<td>print</td>
+<td>用于打印机和打印预览</td>
+</tr>
+<tr>
+<td>screen</td>
+<td>用于电脑屏幕，平板电脑，智能手机等</td>
+</tr>
+</tbody></table>
+<h4 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h4><p>关键字将媒体类型或多个媒体特效链接到一起作为媒体查询的条件</p>
+<ul>
+<li><p>and:可以将多个媒体特性连接到一起,相当于’且’的意思。</p>
+</li>
+<li><p>not:排除某个媒体类型，相当于’非’的意思，可以忽略。</p>
+</li>
+<li><p>only：指定某个特效的媒体类型,可以省略</p>
+</li>
+</ul>
+<h4 id="媒体特效"><a href="#媒体特效" class="headerlink" title="媒体特效"></a>媒体特效</h4><p>每种媒体类型都具有各种不同的特性，根据不同的媒体类型特性设置不同的展示风格。我们战且了解三个。</p>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>解释说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>width</td>
+<td>定义输出设备中页面可见区域的宽度</td>
+</tr>
+<tr>
+<td>min-width</td>
+<td>定义输出设备中页面最小可见区域宽度</td>
+</tr>
+<tr>
+<td>max-width</td>
+<td>定义输出设备中页面最大可见区域宽度</td>
+</tr>
+</tbody></table>
+<p>代码示例:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">    <span class="comment">/* 1. 媒体查询一般按照从大到小或者 从小到大的顺序来 */</span></span></span><br><span class="line"><span class="css">    <span class="comment">/* 2. 小于540px 页面的背景颜色变为蓝色 */</span></span></span><br><span class="line">    </span><br><span class="line"><span class="css">    <span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">max-width:</span> <span class="number">539px</span>) &#123;</span></span><br><span class="line">        body &#123;</span><br><span class="line">            background-color: blue;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="css">    <span class="comment">/* 3. 540 ~ 970 我们的页面颜色改为 绿色 */</span></span></span><br><span class="line">    /* @media screen and (min-width: 540px) and (max-width: 969px) &#123;</span><br><span class="line">        body &#123;</span><br><span class="line">            background-color: green;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; */</span><br><span class="line">    </span><br><span class="line"><span class="css">    <span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">min-width:</span> <span class="number">540px</span>) &#123;</span></span><br><span class="line">        body &#123;</span><br><span class="line">            background-color: green;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="css">    <span class="comment">/* 4. 大于等于970 我们页面的颜色改为 红色 */</span></span></span><br><span class="line">    </span><br><span class="line"><span class="css">    <span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">min-width:</span> <span class="number">970px</span>) &#123;</span></span><br><span class="line">        body &#123;</span><br><span class="line">            background-color: red;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="css">    <span class="comment">/* 5. screen 还有 and 必须带上不能省略的 */</span></span></span><br><span class="line"><span class="css">    <span class="comment">/* 6. 我们的数字后面必须跟单位  970px   这个 px 不能省略的 */</span></span></span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="引入资源"><a href="#引入资源" class="headerlink" title="引入资源"></a>引入资源</h4><p>媒体查询支持响应式引入资源文件,当样式比较繁多的时候，我们可以针对不同的媒体使用不同的stylesheets（样式表）。原理，就是直接在link中判断设备的尺寸,然后引入不同的css文件。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"ie=edge"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">        <span class="comment">/* 当我们屏幕大于等于 640px以上的，我们让div 一行显示2个 */</span></span></span><br><span class="line"><span class="css">        <span class="comment">/* 当我们屏幕小于640 我们让div一行显示一个 */</span></span></span><br><span class="line"><span class="css">        <span class="comment">/* 一个建议： 我们媒体查询最好的方法是从小到大 */</span></span></span><br><span class="line"><span class="css">        <span class="comment">/* 引入资源就是 针对于不同的屏幕尺寸 调用不同的css文件 */</span></span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"style320.css"</span> <span class="attr">media</span>=<span class="string">"screen and (min-width: 320px)"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"style640.css"</span> <span class="attr">media</span>=<span class="string">"screen and (min-width: 640px)"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="flex布局"><a href="#flex布局" class="headerlink" title="flex布局"></a>flex布局</h2><p>1.1传统布局与flex弹性布局</p>
+<table>
+<thead>
+<tr>
+<th>传统布局</th>
+<th>flex弹性布局</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>兼容性好</td>
+<td>操作方便,布局极为简单,移动端应用很广泛</td>
+</tr>
+<tr>
+<td>布局繁琐</td>
+<td>PC端浏览器支持情况较差</td>
+</tr>
+<tr>
+<td>局限性,不能再移动端很好的布局</td>
+<td>IE11或更低版本,不支持或仅部分支持</td>
+</tr>
+</tbody></table>
+<p>建议:</p>
+<p>1.如果是PC端页面布局,我们还是传统布局</p>
+<p>2.如果是移动端或不考虑兼容性问题的PC端页面布局,我们还是使用flex弹性布局</p>
+<h3 id="flex布局原理"><a href="#flex布局原理" class="headerlink" title="flex布局原理"></a>flex布局原理</h3><p> flex是flexible Box的缩写,意为”弹性布局”,又称为伸缩布局,伸缩盒布局和flex布局,用来为盒状模型提供最大的灵活性,任何一个容器无论是行内元素还是块级元素都可以指定为flex布局.</p>
+<p>当我们为父盒子设为flex布局以后,子元素的float、clear和vertical属性都将失效。</p>
+<h3 id="flex布局父项常见属性"><a href="#flex布局父项常见属性" class="headerlink" title="flex布局父项常见属性"></a>flex布局父项常见属性</h3><h4 id="常见的父项属性"><a href="#常见的父项属性" class="headerlink" title="常见的父项属性"></a>常见的父项属性</h4><p> 以下6个属性是对父元素设置的<br>        *flex-direction:设置主轴的方向<br>        *justify-content:设置主轴上的子元素排列方式<br>        *flex-wrap:设置子元素是否换行<br>        *align-content:设置侧轴上的子元素排列方式（多行）<br>        *align-items:设置侧轴上的子元素排列方式（单行）<br>        *flex-flow:复合属性,相当于同时设置了flex-direction和flex-wrap</p>
+<h4 id="flex-direction"><a href="#flex-direction" class="headerlink" title="flex-direction"></a>flex-<strong>direction</strong></h4><h5 id="1-主轴和侧轴"><a href="#1-主轴和侧轴" class="headerlink" title="(1)主轴和侧轴"></a>(1)主轴和侧轴</h5><p>在flex布局中,分为主轴和侧轴两个方向,同样的叫法有:行和列,x轴和y轴</p>
+<p>*默认主轴方向就是x轴方向,水平向右</p>
+<p>*默认侧轴方向就是y轴方向,水平向下</p>
+<h5 id="2-属性值"><a href="#2-属性值" class="headerlink" title="(2)属性值"></a>(2)属性值</h5><p>flex-direction属性决定主轴方向(即项目的排列方向)</p>
+<p>注意:主轴和侧轴是会变化的,就看flex-direction设置谁为主轴,剩下的就是侧轴,而我们的子元素是跟着主轴来排列的.</p>
+<table>
+<thead>
+<tr>
+<th>属性值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>row</td>
+<td>默认从左到右</td>
+</tr>
+<tr>
+<td>row-reverse</td>
+<td>从右到左</td>
+</tr>
+<tr>
+<td>column</td>
+<td>从上到下</td>
+</tr>
+<tr>
+<td>column-reverse</td>
+<td>从下到上</td>
+</tr>
+</tbody></table>
+<h4 id="justify-content"><a href="#justify-content" class="headerlink" title="justify-content"></a>justify-content</h4><p>justify-content设置主轴上的子元素排列方式</p>
+<p>justify-content属性定义了项目在主轴上的对齐方式</p>
+<p>注意:使用这个属性之前一定要确定好主轴是row还是column</p>
+<table>
+<thead>
+<tr>
+<th>属性值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>flex-start</td>
+<td>默认值从头部开始,如果主轴是x轴,则从左到右</td>
+</tr>
+<tr>
+<td>flex-end</td>
+<td>从尾部开始排列</td>
+</tr>
+<tr>
+<td>center</td>
+<td>在主轴居中对齐(如果主轴是x轴则水平居中)</td>
+</tr>
+<tr>
+<td>space-around</td>
+<td>平分剩余空间</td>
+</tr>
+<tr>
+<td>space-between</td>
+<td>先两边贴边,在评分剩余空间(重要)</td>
+</tr>
+</tbody></table>
+<h4 id="flex-wrap"><a href="#flex-wrap" class="headerlink" title="flex-wrap"></a>flex-wrap</h4><p>flex-wrap设置子元素是否换行</p>
+<p> 默认情况下,项目都在一条线上(又称为”轴线”)上。flex-wrap属性定义是否换行,flex布局中默认是不换行的. </p>
+<table>
+<thead>
+<tr>
+<th>属性值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>nowrap</td>
+<td>默认值,不换行</td>
+</tr>
+<tr>
+<td>wrap</td>
+<td>换行</td>
+</tr>
+</tbody></table>
+<h4 id="align-items"><a href="#align-items" class="headerlink" title="align-items"></a>align-items</h4><p>align-items设置侧轴上的子元素排列方式(单行)</p>
+<p>该属性是控制子项(默认是y轴)上的排列方式,在子项为单行时使用.</p>
+<table>
+<thead>
+<tr>
+<th>属性值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>flex-start</td>
+<td>从上到下</td>
+</tr>
+<tr>
+<td>flex-end</td>
+<td>从下到上</td>
+</tr>
+<tr>
+<td>center</td>
+<td>挤在一起(垂直居中)</td>
+</tr>
+<tr>
+<td>stretch</td>
+<td>拉伸(默认值)</td>
+</tr>
+</tbody></table>
+<h4 id="align-content"><a href="#align-content" class="headerlink" title="align-content"></a>align-content</h4><p>align-content设置侧轴上的子元素排列方式(多行)</p>
+<p>设置子项在侧轴上的排列方式,并且只能用在子项出现换行的情况下,在单行下是没有效果的!</p>
+<table>
+<thead>
+<tr>
+<th>属性值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>flex-start</td>
+<td>默认值在侧轴的头部开始排列</td>
+</tr>
+<tr>
+<td>flex-end</td>
+<td>在侧轴的尾部开始排列</td>
+</tr>
+<tr>
+<td>center</td>
+<td>在侧轴中间显示</td>
+</tr>
+<tr>
+<td>space-around</td>
+<td>子项在侧轴平分剩余空间</td>
+</tr>
+<tr>
+<td>space-between</td>
+<td>子项在侧轴先分布在两头,再评分剩余空间</td>
+</tr>
+<tr>
+<td>stretch</td>
+<td>设置子项元素宽度平分父级元素高度</td>
+</tr>
+</tbody></table>
+<h4 id="align-content和align-items的区别"><a href="#align-content和align-items的区别" class="headerlink" title="align-content和align-items的区别"></a><strong>align-content和align-items的区别</strong></h4><p> *align-items适用于单行的情况下,只有上对齐，下对齐、居中和拉伸。<br>*align-content适用于多行(换行)的情况下(单行情况下无效)，可以设置上对齐、下对齐、居中、拉伸以及平均分配剩余空间等属性。</p>
+<p> *总结就是单行找align-items，多行找align-content。 </p>
+<p>flex-flow</p>
+<p>flex-flow属性是flex-wrap和flex-direction属性的复合属性.</p>
+<p><code>flex-flow:row wrap</code></p>
+<h3 id="flex布局子项常见属性"><a href="#flex布局子项常见属性" class="headerlink" title="flex布局子项常见属性"></a>flex布局子项常见属性</h3><h4 id="flex子项占的份数"><a href="#flex子项占的份数" class="headerlink" title="flex子项占的份数"></a>flex子项占的份数</h4><p> flex属性定义子项目分配剩余空间,用flex来表示占多少份数。</p>
+<h4 id="align-self"><a href="#align-self" class="headerlink" title="align-self"></a>align-self</h4><p>align-self控制子项自己再侧轴的排列方式</p>
+<p> align-self属性允许单个项目有与其他项目不一样的对齐方式,可覆盖align-items属性。<br>默认值为auto，表示继承父元素的align-items属性,如果没有父元素,则等同于stretch。 </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">span:nth-child(2)&#123;</span><br><span class="line">	/* 设置自己再侧轴上的排列方式 */</span><br><span class="line">	align-self:flex-end;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="order属性"><a href="#order属性" class="headerlink" title="order属性"></a>order属性</h4><p>order属性定义子项的排列顺序（前后顺序）*</p>
+<p> 数值越小,排列越靠前，默认为0.</p>
+<p>注意：和z-index不一样</p>
+<h2 id="rem布局"><a href="#rem布局" class="headerlink" title="rem布局"></a>rem布局</h2><h3 id="rem基础"><a href="#rem基础" class="headerlink" title="rem基础"></a>rem基础</h3><p> rem页面布局可以使得文字随着屏幕大小变化而变化<br>        流式布局和flex布局主要针对于宽度布局,高度无法设置<br>        rem布局让屏幕发生变化的时候元素高度和宽度等比例缩放 </p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span> &#123;  </span><br><span class="line">    <span class="comment">/* 1. em相对于父元素 的字体大小来说的 */</span>  </span><br><span class="line">    <span class="comment">/* width: 10em; </span></span><br><span class="line"><span class="comment">    height: 10em; */</span>  </span><br><span class="line">    <span class="comment">/* 2. rem 相对于 html元素 字体大小来说的 */</span>  </span><br><span class="line">    <span class="attribute">width</span>: <span class="number">10rem</span>;  </span><br><span class="line">    <span class="attribute">height</span>: <span class="number">10rem</span>;  </span><br><span class="line">    <span class="attribute">background-color</span>: pink;  </span><br><span class="line">    <span class="comment">/* 3.rem的优点就是可以通过修改html里面的文字大小来改变页面中元素的大小可以整体控制 */</span>  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="媒体查询-rem实现元素动态大小变化原理"><a href="#媒体查询-rem实现元素动态大小变化原理" class="headerlink" title="媒体查询+rem实现元素动态大小变化原理"></a><strong>媒体查询+rem实现元素动态大小变化原理</strong></h3><ul>
+<li><p>rem单位是跟着html来走的，有了rem页面元素可以设置不同大小尺寸</p>
+</li>
+<li><p>媒体查询可以根据不同的设备宽度来修改样式</p>
+</li>
+<li><p>媒体查询+rem就可以实现不同设备宽度，实现页面元素大小的动态变化 </p>
+</li>
+</ul>
+<p>rem适配方案</p>
+<h3 id="rem实际开发适配方案"><a href="#rem实际开发适配方案" class="headerlink" title="rem实际开发适配方案"></a><strong>rem实际开发适配方案</strong></h3><p> *根据设计稿与设备宽度的比例,动态计算并设置html根标签的font-size大小;（媒体查询）<br>*CSS中,设计稿元素的宽、高、相对位置等取值,按照同等比例换算为rem单位的值; </p>
+<p>市场上主流的rem适配方案技术</p>
+<p>(1)less+媒体查询+rem</p>
+<p>(2)flexible.js+rem(推荐)</p>
+<h4 id="rem实际开发适配方案1"><a href="#rem实际开发适配方案1" class="headerlink" title="rem实际开发适配方案1"></a><strong>rem实际开发适配方案1</strong></h4><h5 id="1-设计稿常见尺寸宽度"><a href="#1-设计稿常见尺寸宽度" class="headerlink" title="(1)设计稿常见尺寸宽度"></a><strong>(1)设计稿常见尺寸宽度</strong></h5><p>一般情况下,我们以一套或两套效果图适应大部分的屏幕,放弃极端屏,牺牲一些效果,现在基本以750px设计稿为主.</p>
+<h5 id="2-动态设置html标签font-size大小"><a href="#2-动态设置html标签font-size大小" class="headerlink" title="(2)动态设置html标签font-size大小"></a><strong>(2)动态设置html标签font-size大小</strong></h5><ul>
+<li>假设设计稿是750px</li>
+<li>假设我们把整个屏幕划分为15等份(划分标准不一可以是20份也可以是10等份)</li>
+<li>每一份作为Html字体大小,这里就是50px</li>
+<li>那么在320px设备的时候,字体大小为320/15就是 21.33px</li>
+<li>用我们页面元素的大小除以不同的html字体大小会发现它们比例还是相同的</li>
+<li>比如我们以750px为标准设计稿,一个100*100像素的页面元素在750px屏幕下,就是100/50转换为rem是2rem * 2rem 宽高比例是1 比 1</li>
+<li>320屏幕下,html字体大小为21.33,则2rem=42.66,此时宽和高都是42.66,但是宽和高的比例还是1比1</li>
+<li>但是已经能实现在不同屏幕下,页面元素盒子等比例缩放的效果</li>
+</ul>
+<h5 id="3-元素大小取值方法"><a href="#3-元素大小取值方法" class="headerlink" title="(3)元素大小取值方法"></a><strong>(3)元素大小取值方法</strong></h5><ul>
+<li><p>最后的公司:页面元素的rem值=页面元素值(px)/(屏幕宽度/划分份数)</p>
+</li>
+<li><p>屏幕宽度/划分的份数 就是html font-size的大小</p>
+</li>
+<li><p>或者:页面元素的rem值=页面元素的(px)/html font-size字体大小</p>
+</li>
+<li><p>举例:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/* 1. 首先我们选一套标准尺寸 750为准 1280px </span><br><span class="line">   2. 我们用屏幕尺寸 除以 我们划分的份数10 得到了 html 里面的文字大小128px 但是我们知道不同屏幕下得到的文字大小是不一样的 */  </span><br><span class="line">/* 3. 页面元素的rem值 =  页面元素在 750像素的下px值 / html 里面的文字大小128px */</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h4 id="rem实际开发适配方案2"><a href="#rem实际开发适配方案2" class="headerlink" title="rem实际开发适配方案2"></a><strong>rem实际开发适配方案2</strong></h4><h5 id="简洁高效的rem适配方案flexible-js"><a href="#简洁高效的rem适配方案flexible-js" class="headerlink" title="简洁高效的rem适配方案flexible.js"></a>简洁高效的rem适配方案flexible.js</h5><p>flexible.js是手机淘宝团队推出的简洁高效移动端适配库,我们再也不需要在写不同屏幕的媒体查询,因为里面js做了处理,它的原理是把当前设备分为10等份,但是不同设备下,比例还是一致的.</p>
+<h5 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h5><p>我们要做的是确定好我们当前设备的Html文字大小即可.比如当前设计稿为750px,那么我们只需要把html文字大小设置为75px(750px/10)即可,里面页面元素rem值:页面元素的px值/75,剩余的,让flexible.js去计算.</p>
+<p>github地址:<a href="https://github.com/amfe/lib-flexible" target="_blank" rel="noopener">https://github.com/amfe/lib-flexible</a></p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+        <li>
+            <a target="_blank" href="https://www.zhihu.com/people/btcwiki">
+                            <span class="fa-stack fa-lg">
+                                 <i class="iconfont icon-zhihu"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/Zhuyokin">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a href="https://www.re0.cn" target="_blank" rel="noopener">re0</a></span>
+        <span>/</span>
+        
+        <span><a href="https://www.github.com/Zhuyokin" target="_blank" rel="noopener">github</a></span>
+        <span>/</span>
+        
+        <span><a href="#">It helps SEO</a></span>
+        <span>/</span>
+        
+    </p>
+    
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
