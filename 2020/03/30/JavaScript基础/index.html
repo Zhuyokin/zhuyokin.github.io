@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Yokin的博客">
+    <meta name="keyword"  content="前端技术分享">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        JavaScript基础 - Yokin的博客 | Yokin&#39;s Blog
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> 心所向,驰以恒! </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>Yokin</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archive">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JavaScript基础"><span class="toc-text">JavaScript基础</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-初识javascript"><span class="toc-text">1.初识javascript</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1作者"><span class="toc-text">1.1作者</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-JavaScript是什么"><span class="toc-text">1.2 JavaScript是什么?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-JavaScript作用"><span class="toc-text">1.3 JavaScript作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-HTML-CSS-JS的关系"><span class="toc-text">1.4 HTML&#x2F;CSS&#x2F;JS的关系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-5-浏览器执行JS简介"><span class="toc-text">1.5 浏览器执行JS简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-JS的组成"><span class="toc-text">1.6 JS的组成</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-7-JS初体验"><span class="toc-text">1.7 JS初体验</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-8-JS注释"><span class="toc-text">1.8 JS注释</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-9-JS的输入输出语句"><span class="toc-text">1.9 JS的输入输出语句</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-变量"><span class="toc-text">2. 变量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#变量的数据类型"><span class="toc-text">变量的数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据类型转换"><span class="toc-text">数据类型转换</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#转换为字符串"><span class="toc-text">转换为字符串</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#转换为数字型"><span class="toc-text">转换为数字型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#转换为布尔型"><span class="toc-text">转换为布尔型</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-JS运算符"><span class="toc-text">3. JS运算符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-流程控制"><span class="toc-text">4. 流程控制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-循环结构"><span class="toc-text">5. 循环结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-数组"><span class="toc-text">6.数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-函数"><span class="toc-text">7. 函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#作用域"><span class="toc-text">作用域</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#预解析"><span class="toc-text">预解析</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-对象"><span class="toc-text">8.对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#遍历对象"><span class="toc-text">遍历对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JS对象分类"><span class="toc-text">JS对象分类</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#内置对象"><span class="toc-text">内置对象</span></a></li></ol></li></ol></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> 心所向,驰以恒! </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        JavaScript基础
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2020-03-30 21:28:33</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#javascript" title="javascript">javascript</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="JavaScript基础"><a href="#JavaScript基础" class="headerlink" title="JavaScript基础"></a>JavaScript基础</h1><h2 id="1-初识javascript"><a href="#1-初识javascript" class="headerlink" title="1.初识javascript"></a>1.初识javascript</h2><h3 id="1-1作者"><a href="#1-1作者" class="headerlink" title="1.1作者"></a>1.1作者</h3><p>作者:布兰登·艾奇（Brendan Eich，1961年～）。</p>
+<p>用10天完成 JavaScript 设计。</p>
+<p>最初命名为 LiveScript，后来在与 Sun 合作之后将其改名为 JavaScript。</p>
+<h3 id="1-2-JavaScript是什么"><a href="#1-2-JavaScript是什么" class="headerlink" title="1.2 JavaScript是什么?"></a>1.2 JavaScript是什么?</h3><p>JavaScript 是世界上最流行的语言之一，是一种运行在客户端的脚本语言 （Script 是脚本的意思）</p>
+<p>脚本语言：不需要编译，运行过程中由 js 解释器( js 引擎）逐行来进行解释并执行</p>
+<p>现在也可以基于 Node.js 技术进行服务器端编程</p>
+<h3 id="1-3-JavaScript作用"><a href="#1-3-JavaScript作用" class="headerlink" title="1.3 JavaScript作用"></a>1.3 JavaScript作用</h3><p>表单动态校验（密码强度检测） （ JS 产生最初的目的 ）</p>
+<p>网页特效</p>
+<p>服务端开发(Node.js)</p>
+<p>桌面程序(Electron)</p>
+<p>App(Cordova) </p>
+<p>控制硬件-物联网(Ruff)</p>
+<p>游戏开发(cocos2d-js)</p>
+<h3 id="1-4-HTML-CSS-JS的关系"><a href="#1-4-HTML-CSS-JS的关系" class="headerlink" title="1.4 HTML/CSS/JS的关系"></a>1.4 HTML/CSS/JS的关系</h3><p>HTML/CSS 标记语言–描述类语言</p>
+<p>HTML 决定网页结构和内容( 决定看到什么 )，相当于人的身体</p>
+<p>CSS 决定网页呈现给用户的模样( 决定好不好看 )，相当于给人穿衣服、化妆</p>
+<p>JS 脚本语言–编程类语言</p>
+<p>实现业务逻辑和页面控制(决定功能)，相当于人的各种动作 </p>
+<h3 id="1-5-浏览器执行JS简介"><a href="#1-5-浏览器执行JS简介" class="headerlink" title="1.5 浏览器执行JS简介"></a>1.5 浏览器执行JS简介</h3><p>浏览器分成两部分：渲染引擎和 JS 引擎</p>
+<p><strong>渲染引擎</strong>：用来解析HTML与CSS，俗称内核，比如 chrome 浏览器的 blink ，老版本的 webkit</p>
+<p> <strong>JS</strong> <strong>引擎</strong>：也称为 JS 解释器。 用来读取网页中的JavaScript代码，对其处理后运行，比如 chrome 浏览器的 V8</p>
+<p>浏览器本身并不会执行JS代码，而是通过内置 JavaScript 引擎(解释器) 来执行 JS 代码 。JS 引擎执行代码时逐行解释每一句源码（转换为机器语言），然后由计算机去执行，所以 JavaScript 语言归为脚本语言，会逐行解释执行。</p>
+<h3 id="1-6-JS的组成"><a href="#1-6-JS的组成" class="headerlink" title="1.6 JS的组成"></a>1.6 JS的组成</h3><p>JS由:ECMAScript（JavaScript语法）、DOM(页面文档对象模型)和BOM(浏览器对象模型)三部分组成</p>
+<p>ECMAScript:</p>
+<p><strong>ECMAScript</strong> 是由ECMA 国际（ 原欧洲计算机制造商协会）进行标准化的一门编程语言，这种语言在万维网上应用广泛，它往往被称为 JavaScript 或 JScript，但实际上后两者是 ECMAScript 语言的实现和扩展。</p>
+<p>ECMAScript：ECMAScript 规定了JS的编程语法和基础核心知识，是所有浏览器厂商共同遵守的一套JS语法工业标准。</p>
+<p><strong>DOM</strong> <strong>——</strong>文档对象模型</p>
+<p><strong>文档对象模型</strong>（Document Object Model，简称DOM），是W3C组织推荐的处理可扩展标记语言的标准编程接口。通过 DOM 提供的接口可以对页面上的各种元素进行操作（大小、位置、颜色等）。</p>
+<p><strong>BOM</strong> **——浏览器对象模型</p>
+<p><strong>BOM</strong> (Browser Object Model，简称BOM) 是指浏览器对象模型，它提供了独立于内容的、可以与浏览器窗口进行互动的对象结构。通过BOM可以操作浏览器窗口，比如弹出框、控制浏览器跳转、获取分辨率等。</p>
+<h3 id="1-7-JS初体验"><a href="#1-7-JS初体验" class="headerlink" title="1.7 JS初体验"></a>1.7 JS初体验</h3><p>JS有三种书写方式,分别为行内、内嵌和外部</p>
+<h3 id="1-8-JS注释"><a href="#1-8-JS注释" class="headerlink" title="1.8 JS注释"></a>1.8 JS注释</h3><p>为了提高代码的可读性，JS与CSS一样，也提供了注释功能。JS中的注释主要有两种，分别是单行注释和多行注释。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  用来注释单行文字（  快捷键   ctrl  +  /   ）</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">  获取用户年龄和姓名</span></span><br><span class="line"><span class="comment">  并通过提示框显示出来</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="1-9-JS的输入输出语句"><a href="#1-9-JS的输入输出语句" class="headerlink" title="1.9 JS的输入输出语句"></a>1.9 JS的输入输出语句</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+<th>归属</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>alert(msg)</td>
+<td>浏览器弹出警示框</td>
+<td>浏览器</td>
+</tr>
+<tr>
+<td>console.log(msg)</td>
+<td>浏览器控制台输出信息</td>
+<td>浏览器</td>
+</tr>
+<tr>
+<td>prompt(info)</td>
+<td>浏览器弹出输入框,用户自行输入内容</td>
+<td>浏览器</td>
+</tr>
+</tbody></table>
+<h2 id="2-变量"><a href="#2-变量" class="headerlink" title="2. 变量"></a>2. 变量</h2><p>变量在使用时分为两步： 1. 声明变量  2. 赋值 </p>
+<p>声明一个变量并赋值， 我们称之为变量的初始化。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  声明变量  </span></span><br><span class="line"><span class="keyword">var</span> age; <span class="comment">//  声明一个 名称为age 的变量     </span></span><br><span class="line">age = <span class="number">10</span>; <span class="comment">// 给 age  这个变量赋值为 10          </span></span><br><span class="line"><span class="keyword">var</span> age  = <span class="number">18</span>;  <span class="comment">// 声明变量同时赋值为 18 </span></span><br><span class="line"><span class="comment">// 更新变量</span></span><br><span class="line">age = <span class="number">81</span>;   <span class="comment">// 最后的结果就是81因为18 被覆盖掉了 </span></span><br><span class="line"><span class="comment">// 同时声明多个变量时，只需要写一个 var， 多个变量名之间使用英文逗号隔开。</span></span><br><span class="line"><span class="keyword">var</span> age = <span class="number">10</span>,  name = <span class="string">'zs'</span>, sex = <span class="number">2</span>;</span><br></pre></td></tr></table></figure>
+
+<p>声母变量的特殊情况</p>
+<table>
+<thead>
+<tr>
+<th>情况</th>
+<th>说明</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>var age;console.log(age);</td>
+<td>只声明，不赋值</td>
+<td>undefined</td>
+</tr>
+<tr>
+<td>console.log(age)</td>
+<td>不声明,不赋值,直接使用</td>
+<td>报错</td>
+</tr>
+<tr>
+<td>age=10;console.log(age)</td>
+<td>不声明,只赋值</td>
+<td>10</td>
+</tr>
+</tbody></table>
+<p>变量命名规范</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">js变量由字母(A-Za-z)、数字(<span class="number">0</span><span class="number">-9</span>)、下划线(_)、美元符号( $ )组成，如：usrAge, num01, _name</span><br><span class="line">严格区分大小写。<span class="keyword">var</span> app; 和 <span class="keyword">var</span> App; 是两个变量</span><br><span class="line">不能 以数字开头。  <span class="number">18</span>age   是错误的</span><br><span class="line">不能 是关键字、保留字。例如：<span class="keyword">var</span>、<span class="keyword">for</span>、<span class="keyword">while</span></span><br><span class="line">变量名必须有意义。 </span><br><span class="line">遵守驼峰命名法。首字母小写，后面单词的首字母需要大写。 myFirstName</span><br></pre></td></tr></table></figure>
+
+<h3 id="变量的数据类型"><a href="#变量的数据类型" class="headerlink" title="变量的数据类型"></a>变量的数据类型</h3><p>变量是用来存储值的所在处，它们有名字和数据类型。变量的数据类型决定了如何将代表这些值的位存储到计算机的内存中。<strong>JavaScript</strong> <strong>是一种弱类型或者说动态语言。</strong>这意味着不用提前声明变量的类型，在程序运行过程中，类型会被自动确定。</p>
+<p>在代码运行时，变量的数据类型是由 JS引擎 根据 = 右边变量值的数据类型来判断 的，运行完毕之后， 变量就确定了数据类型。</p>
+<p>JavaScript 拥有动态类型，同时也意味着相同的变量可用作不同的类型</p>
+<p>JS 把数据类型分为两类：</p>
+<p>简单数据类型 （Number,String,Boolean,Undefined,Null）</p>
+<p>复杂数据类型 （Object、Array、Function)</p>
+<p>简单类型又叫做基本数据类型或者值类型，简单数据类型存放到栈里面。复杂类型又叫做引用类型，复杂数据类型存放到堆里面。</p>
+<p>值类型：简单数据类型/基本数据类型，在存储时变量中存储的是值本身，因此叫做值类型</p>
+<p>string ，number，boolean，undefined，null</p>
+<p>引用类型：复杂数据类型，在存储时变量中存储的仅仅是地址（引用），因此叫做引用数据类型</p>
+<p> 通过 new 关键字创建的对象（系统对象、自定义对象），如 Object、Array、Function等</p>
+<table>
+<thead>
+<tr>
+<th>简单数据类型</th>
+<th>说明</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Number</td>
+<td>数字型,包含整型和浮点型</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Boolean</td>
+<td>布尔类型，true 的值为 1 ，false 的值为 0</td>
+<td>false</td>
+</tr>
+<tr>
+<td>String</td>
+<td>字符串类型,都带单引号</td>
+<td>“”</td>
+</tr>
+<tr>
+<td>Undefined</td>
+<td>声明了变量但没赋值</td>
+<td>undefined</td>
+</tr>
+<tr>
+<td>Null</td>
+<td>声明变量为空,var a = null</td>
+<td>null</td>
+</tr>
+</tbody></table>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">通过字符串的 length 属性可以获取整个字符串的长度。</span><br><span class="line"><span class="keyword">typeof</span> 可用来获取检测变量的数据类型</span><br></pre></td></tr></table></figure>
+
+<h3 id="数据类型转换"><a href="#数据类型转换" class="headerlink" title="数据类型转换"></a>数据类型转换</h3><pre><code>使用表单、prompt 获取过来的数据默认是字符串类型的，此时就不能直接简单的进行加法运算，而需要转换变量的数据类型。通俗来说，就是把一种数据类型的变量转换成另外一种数据类型。  我们通常会实现3种方式的转换：转换为字符串类型,转换为数字型和转换为布尔型</code></pre><h4 id="转换为字符串"><a href="#转换为字符串" class="headerlink" title="转换为字符串"></a>转换为字符串</h4><table>
+<thead>
+<tr>
+<th>方式</th>
+<th>说明</th>
+<th>案例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>toString()</td>
+<td>转成字符串</td>
+<td>var num=1;alert(num.toString());</td>
+</tr>
+<tr>
+<td>String()强制转换</td>
+<td>转成字符串</td>
+<td>var num=1;alert(String(num));</td>
+</tr>
+<tr>
+<td>加号拼接字符串</td>
+<td>和字符串拼接的结果都是字符串</td>
+<td>var num=1;alert(num+”我是字符串”);</td>
+</tr>
+</tbody></table>
+<p>toString()和String()使用方式不一样</p>
+<p>三种转换方式,我们最常用的是第三种, 这一种方式也称之为隐式转换.</p>
+<h4 id="转换为数字型"><a href="#转换为数字型" class="headerlink" title="转换为数字型"></a>转换为数字型</h4><table>
+<thead>
+<tr>
+<th>方式</th>
+<th>说明</th>
+<th>案例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>parseInt(string)函数</td>
+<td>将string类型转成整数数值型</td>
+<td>parseInt(‘78’)</td>
+</tr>
+<tr>
+<td>parseFloat(string)函数</td>
+<td>将string类型转成浮点数数值型</td>
+<td>parseFloat(‘78.21’)</td>
+</tr>
+<tr>
+<td>Number()强制转换函数</td>
+<td>将string类型转换成数值型</td>
+<td>Number(‘12’)</td>
+</tr>
+<tr>
+<td>js隐式转换(- * /)</td>
+<td>利用算术运算隐式转换为数值型</td>
+<td>‘12’-0</td>
+</tr>
+</tbody></table>
+<h4 id="转换为布尔型"><a href="#转换为布尔型" class="headerlink" title="转换为布尔型"></a>转换为布尔型</h4><table>
+<thead>
+<tr>
+<th>方式</th>
+<th>说明</th>
+<th>案例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Boolean()函数</td>
+<td>其他类型转成布尔值</td>
+<td>Boolean(‘true’)</td>
+</tr>
+</tbody></table>
+<h2 id="3-JS运算符"><a href="#3-JS运算符" class="headerlink" title="3. JS运算符"></a>3. JS运算符</h2><p>运算符（operator）也被称为操作符，是用于实现赋值、比较和执行算数运算等功能的符号。</p>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>格式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>算术运算符</td>
+<td><code>+、-、*、/、%</code>加减乘除，取余</td>
+</tr>
+<tr>
+<td>递增和递减运算符</td>
+<td><code>n++、n--</code></td>
+</tr>
+<tr>
+<td>比较运算符</td>
+<td><code>&gt;、&lt;、&gt;=、&lt;=、!=、===、!==</code></td>
+</tr>
+<tr>
+<td>逻辑运算符</td>
+<td>`&amp;&amp;、</td>
+</tr>
+<tr>
+<td>赋值运算符</td>
+<td><code>=、+=、-=、*=、/=、%=</code></td>
+</tr>
+</tbody></table>
+<h2 id="4-流程控制"><a href="#4-流程控制" class="headerlink" title="4. 流程控制"></a>4. 流程控制</h2><p>流程控制主要有三种结构，分别是顺序结构、分支结构和循环结构，这三种结构代表三种代码执行的顺序。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// JS 语言提供了两种分支结构语句，if语句和switch语句</span></span><br><span class="line"><span class="comment">// 条件成立  执行 if 里面代码，否则执行else 里面的代码</span></span><br><span class="line"><span class="comment">// 适合于检查多重条件。</span></span><br><span class="line"><span class="keyword">if</span> (条件表达式<span class="number">1</span>) &#123;</span><br><span class="line">    语句<span class="number">1</span>；</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (条件表达式<span class="number">2</span>)  &#123;</span><br><span class="line">    语句<span class="number">2</span>；</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (条件表达式<span class="number">3</span>)  &#123;</span><br><span class="line">   语句<span class="number">3</span>；</span><br><span class="line"> ....</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// 上述条件都不成立执行此处代码</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 三元表达式</span></span><br><span class="line">表达式<span class="number">1</span> ? 表达式<span class="number">2</span> : 表达式<span class="number">3</span>; <span class="comment">//如果表达式1为 true ，则返回表达式2的值，如果表达式1为 false，则返回表达式3的值</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">switch</span>( 表达式 )&#123; </span><br><span class="line">    <span class="keyword">case</span> value1:</span><br><span class="line">        <span class="comment">// 表达式 等于 value1 时要执行的代码</span></span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> value2:</span><br><span class="line">        <span class="comment">// 表达式 等于 value2 时要执行的代码</span></span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">        <span class="comment">// 表达式 不等于任何一个 value 时要执行的代码</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 注意： 执行case 里面的语句时，如果没有break，则继续执行下一个case里面的语句。</span></span><br><span class="line"><span class="keyword">if</span>语句和<span class="keyword">switch</span>语句的区别:</span><br><span class="line">①一般情况下，它们两个语句可以相互替换</span><br><span class="line">②<span class="keyword">switch</span>...case 语句通常处理 <span class="keyword">case</span>为比较确定值的情况， 而 <span class="keyword">if</span>…<span class="keyword">else</span>…语句更加灵活，常用于范围判断(大于、等于某个范围)</span><br><span class="line">③<span class="keyword">switch</span> 语句进行条件判断后直接执行到程序的条件语句，效率更高。而<span class="keyword">if</span>…<span class="keyword">else</span> 语句有几种条件，就得判断多少次。</span><br><span class="line">④当分支比较少时，<span class="keyword">if</span>… <span class="keyword">else</span>语句的执行效率比 <span class="keyword">switch</span>语句高。</span><br><span class="line">⑤当分支比较多，<span class="keyword">switch</span>的效率比较高而且结构更清晰</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-循环结构"><a href="#5-循环结构" class="headerlink" title="5. 循环结构"></a>5. 循环结构</h2><p>在Js 中，主要有三种类型的循环语句：for 循环、while 循环和do…while 循环</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// for循环示例：</span></span><br><span class="line"><span class="keyword">var</span> sum = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">1</span>;i &lt;= <span class="number">100</span>; i++)&#123;</span><br><span class="line">        sumNum += i;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'1-100之间整数的和 = '</span> + sum);</span><br><span class="line"><span class="comment">//while 语句可以在条件表达式为真的前提下，循环执行指定的一段代码，直到表达式不为真时结束循环。</span></span><br><span class="line"><span class="comment">//使用 while 循环时一定要注意，它必须要有退出条件，否则会成为死循环</span></span><br><span class="line"><span class="comment">//while 循环和 for 循环的不同之处在于 while 循环可以做较为复杂的条件判断，比如判断用户名和密码</span></span><br><span class="line"><span class="keyword">while</span> (条件表达式) &#123;</span><br><span class="line">    <span class="comment">// 循环体代码 </span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// do... while 语句其实是 while 语句的一个变体。该循环会先执行一次代码块，然后对条件表达式进行判断，如果条件为真，就会重复执行循环体，否则退出循环。</span></span><br><span class="line"><span class="keyword">do</span> &#123;</span><br><span class="line">    <span class="comment">// 循环体代码 - 条件表达式为 true 时重复执行循环体代码</span></span><br><span class="line">&#125; <span class="keyword">while</span>(条件表达式);</span><br><span class="line"><span class="comment">// 关键字continue和break</span></span><br><span class="line"><span class="comment">// continue 关键字用于立即跳出本次循环，继续下一次循环（本次循环体中 continue 之后的代码就会少执行一次）。</span></span><br><span class="line"><span class="comment">// break 关键字用于立即跳出整个循环（循环结束）</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="6-数组"><a href="#6-数组" class="headerlink" title="6.数组"></a>6.数组</h2><p>数组是指一组数据的集合，其中的每个数据被称作元素，在数组中可以存放任意类型的元素。数组是一种将一组数据存储在单个变量名下的优雅方式。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建数组,数组一次可以存储多个值</span></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>];</span><br><span class="line"><span class="comment">// 数组的索引</span></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="string">'red'</span>,<span class="string">'green'</span>, <span class="string">'blue'</span>];</span><br><span class="line"><span class="built_in">console</span>.log(arr[<span class="number">0</span>]) <span class="comment">// red</span></span><br><span class="line"><span class="built_in">console</span>.log(arr[<span class="number">1</span>]) <span class="comment">// green</span></span><br><span class="line"><span class="built_in">console</span>.log(arr[<span class="number">2</span>]) <span class="comment">// blue</span></span><br><span class="line"><span class="comment">// 遍历数组</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.length; i++)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(arr[i]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 数组的长度</span></span><br><span class="line">alert(arr.length);  <span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="7-函数"><a href="#7-函数" class="headerlink" title="7. 函数"></a>7. 函数</h2><p>函数：就是封装了一段可被重复调用执行的代码块。通过此代码块可以实现大量代码的重复使用。 </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 声明函数</span></span><br><span class="line">(<span class="number">1</span>)命名函数</span><br><span class="line"><span class="function"><span class="keyword">function</span> 函数名(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">//函数体代码</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 调用函数</span></span><br><span class="line">函数名();  <span class="comment">// 通过调用函数名来执行函数体代码</span></span><br><span class="line"><span class="comment">// 在JavaScript中，形参的默认值是undefined。</span></span><br><span class="line">(<span class="number">2</span>)匿名函数</span><br><span class="line"><span class="comment">// 这是函数表达式写法，匿名函数后面跟分号结束</span></span><br><span class="line"><span class="keyword">var</span> fn = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;...&#125;；</span><br><span class="line"><span class="comment">// 调用的方式，函数调用必须写到函数体下面</span></span><br><span class="line">fn();</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">num1, num2</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(num1 + num2);</span><br><span class="line">&#125;</span><br><span class="line">sum(<span class="number">100</span>, <span class="number">200</span>);             <span class="comment">// 形参和实参个数相等，输出正确结果</span></span><br><span class="line">sum(<span class="number">100</span>, <span class="number">400</span>, <span class="number">500</span>, <span class="number">700</span>);   <span class="comment">// 实参个数多于形参，只取到形参的个数,结果为500</span></span><br><span class="line">sum(<span class="number">200</span>);                  <span class="comment">// 实参个数少于形参，多的形参定义为undefined，结果为NaN</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 有的时候，我们会希望函数将值返回给调用者，此时通过使用 return 语句就可以实现。如果函数没有 return ，返回的值是 undefined,return 语句之后的代码不被执行。</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">num1，num2</span>)</span>&#123;</span><br><span class="line">    <span class="comment">//函数体</span></span><br><span class="line">    <span class="keyword">return</span> num1 + num2; <span class="comment">// 注意：return 后的代码不执行</span></span><br><span class="line">    alert(<span class="string">'我不会被执行，因为前面有 return'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> resNum = add(<span class="number">21</span>,<span class="number">6</span>); <span class="comment">// 调用函数，传入两个实参，并通过 resNum 接收函数返回值</span></span><br><span class="line">alert(resNum);          <span class="comment">// 27</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// return 只能返回一个值。如果用逗号隔开多个值，以最后一个为准。</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">num1，num2</span>)</span>&#123;</span><br><span class="line">    <span class="comment">//函数体</span></span><br><span class="line">    <span class="keyword">return</span> num1，num2;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> resNum = add(<span class="number">21</span>,<span class="number">6</span>); <span class="comment">// 调用函数，传入两个实参，并通过 resNum 接收函数返回值</span></span><br><span class="line">alert(resNum);          <span class="comment">// 6</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// break ,continue ,return 的区别</span></span><br><span class="line"><span class="comment">// break ：结束当前的循环体（如 for、while）</span></span><br><span class="line"><span class="comment">// continue ：跳出本次循环，继续执行下次循环（如 for、while）</span></span><br><span class="line"><span class="comment">// return ：不仅可以退出循环，还能够返回 return 语句中的值，同时还可以结束当前的函数体内的代码</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 当我们不确定有多少个参数传递的时候，可以用 arguments 来获取。在 JavaScript 中，arguments 实际上它是当前函数的一个内置对象。所有函数都内置了一个 arguments 对象，arguments 对象中存储了传递的所有实参。</span></span><br><span class="line"><span class="comment">// arguments展示形式是一个伪数组，因此可以进行遍历。伪数组具有以下特点：</span></span><br><span class="line"><span class="comment">// (1)具有 length 属性 (2)按索引方式储存数据 (3)不具有数组的 push , pop 等方法</span></span><br><span class="line"><span class="comment">// 案例:利用函数求任意个数的最大值</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">maxValue</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> max = <span class="built_in">arguments</span>[<span class="number">0</span>];</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="built_in">arguments</span>.length; i++) &#123;</span><br><span class="line">         <span class="keyword">if</span> (max &lt; <span class="built_in">arguments</span>[i]) &#123;</span><br><span class="line">                    max = <span class="built_in">arguments</span>[i];</span><br><span class="line">         &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> max;</span><br><span class="line">&#125;</span><br><span class="line"> <span class="built_in">console</span>.log(maxValue(<span class="number">2</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">9</span>));</span><br><span class="line"> <span class="built_in">console</span>.log(maxValue(<span class="number">12</span>, <span class="number">4</span>, <span class="number">9</span>));</span><br></pre></td></tr></table></figure>
+
+<h3 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h3><p>JavaScript（es6前）中的作用域有两种：全局作用域和局部作用域（函数作用域）。在函数内部 var 声明的变量是局部变量。函数的形参实际上就是局部变量。</p>
+<p>全局变量：在任何一个地方都可以使用，只有在浏览器关闭时才会被销毁，因此比较占内存</p>
+<p>局部变量：只在函数内部使用，当其所在的代码块被执行时，会被初始化；当代码块运行结束后，就会被销毁，因此更节省内存空间</p>
+<p>作用域链</p>
+<p>如果函数中还有函数，那么在这个作用域中就又可以诞生一个作用域， 根据在内部函数可以访问外部函数变量的这种机制，用链式查找决定哪些数据能被内部函数访问，就称作作用域链。</p>
+<p>作用域链采取<strong>就近原则</strong>的方式来查找变量最终的值。 </p>
+<h3 id="预解析"><a href="#预解析" class="headerlink" title="预解析"></a>预解析</h3><p>预解析：在当前作用域下, JS 代码执行之前，浏览器会默认把带有 var 和 function 声明的变量在内存中进行提前声明或者定义。</p>
+<p>代码执行：从上到下执行JS语句。</p>
+<p>预解析只会发生在通过 var 定义的变量和 function 上。学习预解析能够让我们知道为什么在变量声明之前访问变量的值是 undefined，为什么在函数声明之前就可以调用函数。变量的声明会被提升到当前作用域的最上面，变量的赋值不会提升。函数的声明会被提升到当前作用域的最上面，但是不会调用函数。</p>
+<h2 id="8-对象"><a href="#8-对象" class="headerlink" title="8.对象"></a>8.对象</h2><p>在 JavaScript 中，对象是一组无序的相关属性和方法的集合，所有的事物都是对象，例如字符串、数值、数组、函数等。JavaScript里的对象是由属性和方法组成的。</p>
+<p>ES5创建对象的三种方式:利用字面量创建对象,利用 new Object 创建对象和利用构造函数创建对象 </p>
+<p>构造函数 ：是一种特殊的函数，主要用来初始化对象，即为对象成员变量赋初始值，它总与 new 运算符一起使用。我们可以把对象中一些公共的属性和方法抽取出来，然后封装到这个函数里面。</p>
+<p>在 js 中，使用构造函数要时要注意以下两点：(1)构造函数用于创建某一类对象，其首字母要大写(2)构造函数要和 new 一起使用才有意义</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">(<span class="number">1</span>)利用对象字面量创建对象</span><br><span class="line"><span class="keyword">var</span> star = &#123;</span><br><span class="line">    name : <span class="string">'pink'</span>,</span><br><span class="line">    age : <span class="number">18</span>,</span><br><span class="line">    sex : <span class="string">'男'</span>,</span><br><span class="line">    sayHi : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        alert(<span class="string">'大家好啊~'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">(<span class="number">2</span>)利用 <span class="keyword">new</span> <span class="built_in">Object</span> 创建对象</span><br><span class="line"><span class="keyword">var</span> andy = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">andy.name = <span class="string">'pink'</span>;</span><br><span class="line">andy.age = <span class="number">18</span>;</span><br><span class="line">andy.sex = <span class="string">'男'</span>;</span><br><span class="line">andy.sayHi = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    alert(<span class="string">'大家好啊~'</span>);</span><br><span class="line">&#125;</span><br><span class="line">(<span class="number">3</span>)利用构造函数创建对象</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name, age, sex</span>) </span>&#123;</span><br><span class="line">     <span class="keyword">this</span>.name = name;</span><br><span class="line">     <span class="keyword">this</span>.age = age;</span><br><span class="line">     <span class="keyword">this</span>.sex = sex;</span><br><span class="line">     <span class="keyword">this</span>.sayHi = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      alert(<span class="string">'我的名字叫：'</span> + <span class="keyword">this</span>.name + <span class="string">'，年龄：'</span> + <span class="keyword">this</span>.age + <span class="string">'，性别：'</span> + <span class="keyword">this</span>.sex);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> bigbai = <span class="keyword">new</span> Person(<span class="string">'大白'</span>, <span class="number">100</span>, <span class="string">'男'</span>);</span><br><span class="line"><span class="keyword">var</span> smallbai = <span class="keyword">new</span> Person(<span class="string">'小白'</span>, <span class="number">21</span>, <span class="string">'男'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(bigbai.name);</span><br><span class="line"><span class="built_in">console</span>.log(smallbai.name);</span><br><span class="line">注意</span><br><span class="line"><span class="number">1.</span>   构造函数约定首字母大写。</span><br><span class="line"><span class="number">2.</span>   函数内的属性和方法前面需要添加 <span class="keyword">this</span> ，表示当前对象的属性和方法。</span><br><span class="line"><span class="number">3.</span>   构造函数中不需要 <span class="keyword">return</span> 返回结果。</span><br><span class="line"><span class="number">4.</span>   当我们创建对象的时候，必须用 <span class="keyword">new</span> 来调用构造函数。</span><br></pre></td></tr></table></figure>
+
+<h3 id="遍历对象"><a href="#遍历对象" class="headerlink" title="遍历对象"></a>遍历对象</h3><p>for…in 语句用于对对象的属性进行循环操作。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> k <span class="keyword">in</span> obj) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(k);      <span class="comment">// 这里的 k 是属性名</span></span><br><span class="line">    <span class="built_in">console</span>.log(obj[k]); <span class="comment">// 这里的 obj[k] 是属性值</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="JS对象分类"><a href="#JS对象分类" class="headerlink" title="JS对象分类"></a>JS对象分类</h3><p>JavaScript 中的对象分为3种：自定义对象 、内置对象、 浏览器对象</p>
+<h4 id="内置对象"><a href="#内置对象" class="headerlink" title="内置对象"></a>内置对象</h4><p>前面两种对象是JS 基础内容，属于 ECMAScript； 第三个浏览器对象属于我们JS 独有的， 我们JS API 讲解</p>
+<p>内置对象就是指 JS 语言自带的一些对象，这些对象供开发者使用，并提供了一些常用的或是最基本而必要的功能（属性和方法）</p>
+<p>内置对象最大的优点就是帮助我们快速开发</p>
+<p>JavaScript 提供了多个内置对象：Math、 Date 、Array、String等</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Math对象</span></span><br><span class="line"><span class="built_in">Math</span>.PI		 <span class="comment">// 圆周率</span></span><br><span class="line"><span class="built_in">Math</span>.floor() 	 <span class="comment">// 向下取整</span></span><br><span class="line"><span class="built_in">Math</span>.ceil()            <span class="comment">// 向上取整</span></span><br><span class="line"><span class="built_in">Math</span>.round()           <span class="comment">// 四舍五入版 就近取整   注意 -3.5   结果是  -3 </span></span><br><span class="line"><span class="built_in">Math</span>.abs()		 <span class="comment">// 绝对值</span></span><br><span class="line"><span class="built_in">Math</span>.max()/<span class="built_in">Math</span>.min()	 <span class="comment">// 求最大和最小值 </span></span><br><span class="line"><span class="comment">// Date对象</span></span><br><span class="line"><span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"><span class="built_in">console</span>.log(date);</span><br><span class="line"><span class="comment">// 日期格式化</span></span><br><span class="line"><span class="built_in">console</span>.log(date.getFullYear()); <span class="comment">// 返回当前日期的年  2019</span></span><br><span class="line"><span class="built_in">console</span>.log(date.getMonth() + <span class="number">1</span>); <span class="comment">// 月份 返回的月份小1个月   记得月份+1 呦</span></span><br><span class="line"><span class="built_in">console</span>.log(date.getDate()); <span class="comment">// 返回的是 几号</span></span><br><span class="line"><span class="built_in">console</span>.log(date.getDay()); <span class="comment">// 3  周一返回的是 1 周六返回的是 6 但是 周日返回的是</span></span><br><span class="line"><span class="built_in">console</span>.log(date.getHours()); <span class="comment">// 时</span></span><br><span class="line"><span class="built_in">console</span>.log(date.getMinutes()); <span class="comment">// 分</span></span><br><span class="line"><span class="built_in">console</span>.log(date.getSeconds()); <span class="comment">// 秒</span></span><br><span class="line"><span class="comment">// Array对象</span></span><br><span class="line">(<span class="number">1</span>)检测是否为数组</span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">23</span>];</span><br><span class="line"><span class="keyword">var</span> obj = &#123;&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(arr <span class="keyword">instanceof</span> <span class="built_in">Array</span>); <span class="comment">// true instanceof 运算符，可以判断一个对象是否属于某种类型</span></span><br><span class="line"><span class="built_in">console</span>.log(obj <span class="keyword">instanceof</span> <span class="built_in">Array</span>); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Array</span>.isArray(arr));   <span class="comment">// true Array.isArray()用于判断一个对象是否为数组，isArray() 是 HTML5 中提供的方法</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Array</span>.isArray(obj));   <span class="comment">// false</span></span><br><span class="line">(<span class="number">2</span>)添加删除数组元素的方法</span><br><span class="line">push(参数<span class="number">1.</span>..),末尾添加一个或多个元素，其会修改原数组,并返回新的长度</span><br><span class="line">pop(),删除数组最后一个元素，把数组长度减<span class="number">1</span>，无参数,修改原数组,并返回它删除的元素值</span><br><span class="line">unshift(参数<span class="number">1.</span>..),向数组的开头添加一个或更多元素，修改原数组,返回新的长度</span><br><span class="line">shift(),删除数组的第一个元素，数组长度减<span class="number">1</span>，无参数，修改原数组，返回第一个元素的值</span><br><span class="line">(<span class="number">3</span>)数组排序</span><br><span class="line">reverse(),颠倒数组中元素的顺序，无参数，该方法会改变原数组，返回新数组</span><br><span class="line">sort(),对数组的元素进行排序，无参数，该方法会改变原数组，返回新数组</span><br><span class="line">(<span class="number">4</span>)数组索引方法</span><br><span class="line">indexOf(元素值),数组中查找给定元素的第一个索引,如果存在返回索引值，不存在则返回<span class="number">-1.</span></span><br><span class="line">lastIndexOf(元素值),数组中查找给定元素的最后一个索引,如果存在返回索引值，不存在则返回<span class="number">-1.</span></span><br><span class="line">(<span class="number">5</span>)数组转换成字符串</span><br><span class="line">toString(),把数组转换成字符串，逗号分隔每一项，返回一个字符串.</span><br><span class="line">join(<span class="string">'分隔符'</span>),方法用于把数组中的所有元素转换成一个字符串,返回一个字符串</span><br><span class="line">(<span class="number">6</span>)其他方法</span><br><span class="line">concat(),连接两个或多个数组,不影响原数组,返回一个新数组</span><br><span class="line">slice(),数组截取slice(begin,end),返回被截取项目的新数组</span><br><span class="line">splice(),数组删除splice(第几个开始,要删除个数),返回被删除项目的新数组，会影响原数组</span><br><span class="line"><span class="comment">// String对象,字符串的所有方法都不会修改字符串本身（字符串本身是不可变的）,操作完成会返回一个新的字符串</span></span><br><span class="line">(<span class="number">1</span>)根据字符返回位置</span><br><span class="line">indexOf(<span class="string">'要查找的字符'</span>,开始的位置)，返回指定内容在原字符中的位置,找不到返回<span class="number">-1</span>,开始的位置是index索引号</span><br><span class="line">lastIndexOf(),从后往前找，只找第一个匹配的</span><br><span class="line">(<span class="number">2</span>)根据位置返回字符</span><br><span class="line">charAt(index),返回指定位置的字符(index字符串的索引号),str.charAt(<span class="number">0</span>)</span><br><span class="line">charCodeAt(index),获取指定位置处字符的ASCII码(index是索引号),str.charCodeAt(<span class="number">0</span>)</span><br><span class="line">str[index],获取指定位置处字符,HTML5,IE8+支持,和charAt()等效</span><br><span class="line">(<span class="number">3</span>)字符串操作方法</span><br><span class="line">concat(str1,str2,str3...),用于拼接两个或多个字符串</span><br><span class="line">substr(start,length),从start位置开始(索引号)截取指定数目的字符。</span><br><span class="line">slice(start,end),从start位置开始,截取到end位置,end位置截取不到,参数都是索引号</span><br><span class="line">substring(start,end),从start位置开始,截取到end位置,end位置截取不到,参数都是索引号</span><br><span class="line">replace(被替换的字符串，要替换为的字符串),用于在字符串中用一些字符替换另一些字符</span><br><span class="line">split()，切分字符串并返回切分完毕的新数组</span><br><span class="line">toUpperCase()/toLowerCase(),转换为大写/小写</span><br></pre></td></tr></table></figure>
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+        <li>
+            <a target="_blank" href="https://www.zhihu.com/people/btcwiki">
+                            <span class="fa-stack fa-lg">
+                                 <i class="iconfont icon-zhihu"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/Zhuyokin">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a href="https://www.re0.cn" target="_blank" rel="noopener">re0</a></span>
+        <span>/</span>
+        
+        <span><a href="https://www.github.com/Zhuyokin" target="_blank" rel="noopener">github</a></span>
+        <span>/</span>
+        
+        <span><a href="#">It helps SEO</a></span>
+        <span>/</span>
+        
+    </p>
+    
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
