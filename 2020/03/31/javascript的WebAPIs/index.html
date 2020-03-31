@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Yokin的博客">
+    <meta name="keyword"  content="前端技术分享">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        javascript的WebAPIs - Yokin的博客 | Yokin&#39;s Blog
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> 心所向,驰以恒! </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>Yokin</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archive">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Web-APIs"><span class="toc-text">Web APIs</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#DOM"><span class="toc-text">DOM</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#获取网页元素"><span class="toc-text">获取网页元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#事件基础"><span class="toc-text">事件基础</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#操作元素"><span class="toc-text">操作元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#节点操作"><span class="toc-text">节点操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#事件处理"><span class="toc-text">事件处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DOM事件流"><span class="toc-text">DOM事件流</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#事件对象"><span class="toc-text">事件对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#阻止事件冒泡"><span class="toc-text">阻止事件冒泡</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#事件委托（代理、委派）"><span class="toc-text">事件委托（代理、委派）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#常见的鼠标事件"><span class="toc-text">常见的鼠标事件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#鼠标事件对象"><span class="toc-text">鼠标事件对象</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#常见的键盘事件"><span class="toc-text">常见的键盘事件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BOM"><span class="toc-text">BOM</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#window对象常见事件"><span class="toc-text">window对象常见事件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#窗口加载事件"><span class="toc-text">窗口加载事件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#调整窗口大小事件"><span class="toc-text">调整窗口大小事件</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#定时器"><span class="toc-text">定时器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#this指向"><span class="toc-text">this指向</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#单线程"><span class="toc-text">单线程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#同步和异步"><span class="toc-text">同步和异步</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JS执行机制"><span class="toc-text">JS执行机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#location对象"><span class="toc-text">location对象</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#location对象的属性"><span class="toc-text">location对象的属性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#location对象的方法"><span class="toc-text">location对象的方法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#navigator对象"><span class="toc-text">navigator对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#history对象"><span class="toc-text">history对象</span></a></li></ol></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> 心所向,驰以恒! </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        javascript的WebAPIs
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2020-03-31 14:50:59</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#javascript" title="javascript">javascript</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#BOM" title="BOM">BOM</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#DOM" title="DOM">DOM</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="Web-APIs"><a href="#Web-APIs" class="headerlink" title="Web APIs"></a>Web APIs</h1><p>Web APIs 是 W3C 组织的JS标准,其包含DOM 和 BOM,我们主要学习页面交互功能。</p>
+<p>API（Application Programming Interface,应用程序编程接口）是一些预先定义的函数，目的是提供应用程序与开发人员基于某软件或硬件得以访问一组例程的能力，而又无需访问源码，或理解内部工作机制的细节。</p>
+<p>Web API是浏览器提供的一套操作浏览器功能和页面元素的 API ( BOM 和 DOM )。MDN 详细 API : <a href="https://developer.mozilla.org/zh-CN/docs/Web/API" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/API</a><br>因为 Web API 很多，所以我们将这个阶段称为 Web APIs</p>
+<h2 id="DOM"><a href="#DOM" class="headerlink" title="DOM"></a>DOM</h2><p>文档对象模型（Document Object Model，简称 DOM），是 W3C 组织推荐的处理可扩展标记语言（HTML或者XML）的标准编程接口。</p>
+<h3 id="获取网页元素"><a href="#获取网页元素" class="headerlink" title="获取网页元素"></a>获取网页元素</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 根据 ID 获取</span></span><br><span class="line"> <span class="built_in">document</span>.getElementById(<span class="string">'id'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 根据标签名获取</span></span><br><span class="line"> <span class="built_in">document</span>.getElementsByTagName(<span class="string">'标签名'</span>);</span><br><span class="line">(<span class="number">1</span>)因为得到的是一个对象的集合，所以我们想要操作里面的元素就需要遍历。</span><br><span class="line">(<span class="number">2</span>)得到元素对象是动态的</span><br><span class="line">(<span class="number">3</span>)如果获取不到元素,则返回为空的伪数组(因为获取不到对象)</span><br><span class="line">(<span class="number">4</span>)还可以获取某个元素(父元素)内部所有指定标签名的子元素.父元素必须是单个对象(必须指明是哪一个元素对象). 获取的时候不包括父元素自己。</span><br><span class="line"></span><br><span class="line"><span class="comment">// 通过 HTML5 新增的方法获取</span></span><br><span class="line"><span class="built_in">document</span>.getElementsByClassName(‘类名’)；<span class="comment">// 根据类名返回元素对象集合</span></span><br><span class="line"><span class="built_in">document</span>.querySelector(<span class="string">'选择器'</span>);        <span class="comment">// 根据指定选择器返回第一个元素对象</span></span><br><span class="line"><span class="built_in">document</span>.querySelectorAll(<span class="string">'选择器'</span>);     <span class="comment">// 根据指定选择器返回</span></span><br><span class="line">注意： </span><br><span class="line">querySelector 和 querySelectorAll里面的选择器需要加符号,比如:<span class="built_in">document</span>.querySelector(<span class="string">'#nav'</span>); </span><br><span class="line"></span><br><span class="line"><span class="comment">// 特殊元素获取</span></span><br><span class="line">doucumnet.body  <span class="comment">// 返回body元素对象</span></span><br><span class="line"><span class="built_in">document</span>.documentElement  <span class="comment">// 返回html元素对象</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="事件基础"><a href="#事件基础" class="headerlink" title="事件基础"></a>事件基础</h3><p>JavaScript 使我们有能力创建动态页面，而事件是可以被 JavaScript 侦测到的行为。事件的三要素:事件源，事件类型，事件处理程序。</p>
+<p>常见的鼠标点击事件</p>
+<table>
+<thead>
+<tr>
+<th>鼠标事件</th>
+<th>触发条件</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>onclick</td>
+<td>鼠标点击左键触发</td>
+</tr>
+<tr>
+<td>onmouseover</td>
+<td>鼠标经过触发</td>
+</tr>
+<tr>
+<td>onmouseout</td>
+<td>鼠标离开触发</td>
+</tr>
+<tr>
+<td>onfocus</td>
+<td>获得鼠标焦点触发</td>
+</tr>
+<tr>
+<td>onblur</td>
+<td>失去鼠标焦点触发</td>
+</tr>
+<tr>
+<td>onmousemove</td>
+<td>鼠标移动触发</td>
+</tr>
+<tr>
+<td>onmouseup</td>
+<td>鼠标弹起触发</td>
+</tr>
+<tr>
+<td>onmousedown</td>
+<td>鼠标按下触发</td>
+</tr>
+</tbody></table>
+<h3 id="操作元素"><a href="#操作元素" class="headerlink" title="操作元素"></a>操作元素</h3><pre><code>JavaScript 的 DOM 操作可以改变网页内容、结构和样式，我们可以利用 DOM 操作元素来改变元素里面的内容 、属性等。  </code></pre><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 改变元素内容</span></span><br><span class="line">从起始位置到终止位置的内容, 但它去除 html 标签， 同时空格和换行也会去掉</span><br><span class="line">element.innerText</span><br><span class="line">起始位置到终止位置的全部内容，包括 html 标签，同时保留空格和换行</span><br><span class="line">element.innerHTML</span><br><span class="line"></span><br><span class="line"><span class="comment">// 常用元素的属性操作</span></span><br><span class="line">innerText、innerHTML 改变元素内容</span><br><span class="line">src、href</span><br><span class="line">id、alt、title</span><br><span class="line"></span><br><span class="line"><span class="comment">// 表单元素的属性操作</span></span><br><span class="line">type、value、checked、selected、disabled</span><br><span class="line"></span><br><span class="line"><span class="comment">//样式属性操作 我们可以通过 JS 修改元素的大小、颜色、位置等样式。</span></span><br><span class="line"><span class="number">1.</span> element.style     行内样式操作</span><br><span class="line"><span class="number">2.</span> element.className 类名样式操作</span><br><span class="line">注意：</span><br><span class="line"><span class="number">1.</span>JS 里面的样式采取驼峰命名法 比如 fontSize、 backgroundColor</span><br><span class="line"><span class="number">2.</span>JS 修改 style 样式操作，产生的是行内样式，CSS 权重比较高</span><br><span class="line">注意：</span><br><span class="line"><span class="number">3.</span> 如果样式修改较多，可以采取操作类名方式更改元素样式。 </span><br><span class="line"><span class="number">4.</span> <span class="class"><span class="keyword">class</span>因为是个保留字，因此使用<span class="title">className</span>来操作元素类名属性</span></span><br><span class="line"><span class="class">5. <span class="title">className</span> 会直接更改元素的类名，会覆盖原先的类名。</span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class">// 自定义属性的操作</span></span><br><span class="line"><span class="class">获取属性值</span></span><br><span class="line"><span class="class"><span class="title">element</span>.属性  获取属性值。</span></span><br><span class="line"><span class="class"><span class="title">element</span>.<span class="title">getAttribute</span>('属性')</span>;</span><br><span class="line">区别:</span><br><span class="line">element.属性  获取内置属性值（元素本身自带的属性）</span><br><span class="line">element.getAttribute(‘属性’);  主要获得自定义的属性 （标准） 我们自定义的属性</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置属性值</span></span><br><span class="line">element.属性 = ‘值’  设置内置属性值。</span><br><span class="line">element.setAttribute(<span class="string">'属性'</span>, <span class="string">'值'</span>); </span><br><span class="line">区别:</span><br><span class="line">element.属性  设置内置属性值</span><br><span class="line">element.setAttribute(‘属性’);  主要设置自定义的属性 （标准）</span><br><span class="line"></span><br><span class="line"><span class="comment">// 移除属性</span></span><br><span class="line">element.removeAttribute(<span class="string">'属性'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// H5自定义属性 自定义属性目的：是为了保存并使用数据。有些数据可以保存到页面中而不用保存到数据库中。</span></span><br><span class="line">H5规定自定义属性data-开头做为属性名并且赋值。</span><br><span class="line">比如 &lt;div data-index=“<span class="number">1</span>”&gt;&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">或者使用 JS 设置  </span></span><br><span class="line"><span class="regexp">element.setAttribute(‘data-index’, 2)</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/获取H5自定义属性</span></span><br><span class="line"><span class="regexp">兼容性获取   element.getAttribute(‘data-index’);</span></span><br><span class="line"><span class="regexp">H5新增 element.dataset.index  或者 element.dataset[‘index’]   ie 11才开始支持</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="节点操作"><a href="#节点操作" class="headerlink" title="节点操作"></a>节点操作</h3><p>JS获取元素的两种方式: 利用DOM提供的方法获取元素（逻辑性不强、繁琐）和利用节点层级关系获取元素（逻辑性强， 但是兼容性稍差，节点操作获取元素更简单  ）。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 父级节点 parentNode 属性可返回某节点的父节点，注意是最近的一个父节点 如果指定的节点没有父节点则返回 null </span></span><br><span class="line">node.parentNode  </span><br><span class="line"></span><br><span class="line"><span class="comment">// 子节点</span></span><br><span class="line">parentNode.childNodes（标准） 返回包含指定节点的子节点的集合，该集合为即时更新的集合。</span><br><span class="line">注意：返回值里面包含了所有的子节点，包括元素节点，文本节点等。</span><br><span class="line">如果只想要获得里面的元素节点，则需要专门处理。 所以我们一般不提倡使用childNodes</span><br><span class="line"> </span><br><span class="line">parentNode.children（非标准） </span><br><span class="line">parentNode.children 是一个只读属性，返回所有的子元素节点。它只返回子元素节点，其余节点不返回 （这个是我们重点掌握的）。</span><br><span class="line">虽然children 是一个非标准，但是得到了各个浏览器的支持，因此我们可以放心使用。</span><br><span class="line"></span><br><span class="line">parentNode.firstChild</span><br><span class="line">parentNode.lastChild </span><br><span class="line">firstChild 返回第一个子节点，lastChild 返回最后一个子节点，找不到则返回<span class="literal">null</span>。同样，也是包含所有的节点。</span><br><span class="line"></span><br><span class="line">parentNode.firstElementChild </span><br><span class="line">parentNode.lastElementChild</span><br><span class="line">firstElementChild  返回第一个子元素节点，lastElementChild 返回最后一个子元素节点，找不到则返回<span class="literal">null</span>。 注意：这两个方法有兼容性问题，IE9 以上才支持。</span><br><span class="line"></span><br><span class="line">实际开发中，firstChild 和 lastChild 包含其他节点，操作不方便，而 firstElementChild 和 lastElementChild 又有兼容性问题，那么我们如何获取第一个子元素节点或最后一个子元素节点呢？</span><br><span class="line">解决方案：</span><br><span class="line">如果想要第一个子元素节点，可以使用 parentNode.chilren[<span class="number">0</span>] </span><br><span class="line">如果想要最后一个子元素节点，可以使用 parentNode.chilren[parentNode.chilren.length - <span class="number">1</span>]  </span><br><span class="line"></span><br><span class="line"><span class="comment">// 兄弟节点</span></span><br><span class="line">node.nextSibling</span><br><span class="line">node.previousSibling </span><br><span class="line">nextSibling 返回当前元素的下一个兄弟元素节点，previousSibling 返回当前元素上一个兄弟元素节点，找不到则返回<span class="literal">null</span>。同样，也是包含所有的节点。</span><br><span class="line"></span><br><span class="line">node.nextElementSibling</span><br><span class="line">node.previousElementSibling</span><br><span class="line">nextElementSibling 返回当前元素下一个兄弟元素节点，previousElementSibling 返回当前元素上一个兄弟节点，找不到则返回<span class="literal">null</span>。 注意：这两个方法有兼容性问题， IE9 以上才支持。</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建节点</span></span><br><span class="line"><span class="built_in">document</span>.createElement(<span class="string">'tagName'</span>)</span><br><span class="line"><span class="built_in">document</span>.createElement() 方法创建由 tagName 指定的 HTML 元素。因为这些元素原先不存在，是根据我们的需求动态生成的，所以我们也称为动态创建元素节点。</span><br><span class="line"></span><br><span class="line"><span class="comment">// 添加节点</span></span><br><span class="line">node.appendChild(child) </span><br><span class="line">node.insertBefore(child, 指定元素) </span><br><span class="line">node.appendChild() 方法将一个节点添加到指定父节点的子节点列表末尾。类似于 CSS 里面的 after 伪元素。</span><br><span class="line">node.insertBefore() 方法将一个节点添加到父节点的指定子节点前面。类似于 CSS 里面的 before 伪元素。</span><br><span class="line"></span><br><span class="line"><span class="comment">// 删除节点</span></span><br><span class="line">node.removeChild(child) </span><br><span class="line">node.removeChild() 方法从 DOM 中删除一个子节点，返回删除的节点。</span><br><span class="line"></span><br><span class="line"><span class="comment">// 复制节点(克隆节点)</span></span><br><span class="line">node.cloneNode() </span><br><span class="line">node.cloneNode() 方法返回调用该方法的节点的一个副本。 也称为克隆节点/拷贝节点</span><br><span class="line">注意：</span><br><span class="line"><span class="number">1.</span> 如果括号参数为空或者为 <span class="literal">false</span> ，则是浅拷贝，即只克隆复制节点本身，不克隆里面的子节点。</span><br><span class="line"><span class="number">2.</span> 如果括号参数为 <span class="literal">true</span> ，则是深度拷贝，会复制节点本身以及里面所有的子节点。</span><br><span class="line"></span><br><span class="line"><span class="comment">// 三种动态创建元素区别</span></span><br><span class="line"><span class="built_in">document</span>.write()</span><br><span class="line">element.innerHTML</span><br><span class="line"><span class="built_in">document</span>.createElement()</span><br><span class="line"></span><br><span class="line">区别:</span><br><span class="line"><span class="number">1.</span> <span class="built_in">document</span>.write 是直接将内容写入页面的内容流，但是文档流执行完毕，则它会导致页面全部重绘</span><br><span class="line"><span class="number">2.</span> innerHTML 是将内容写入某个 DOM 节点，不会导致页面全部重绘</span><br><span class="line"><span class="number">3.</span> innerHTML 创建多个元素效率更高（不要拼接字符串，采取数组形式拼接），结构稍微复杂</span><br><span class="line"><span class="number">4.</span> createElement() 创建多个元素效率稍低一点点，但是结构更清晰</span><br><span class="line">总结：不同浏览器下，innerHTML 效率要比 creatElement 高</span><br></pre></td></tr></table></figure>
+
+<h3 id="事件处理"><a href="#事件处理" class="headerlink" title="事件处理"></a>事件处理</h3><p>给元素添加事件，称为注册事件或者绑定事件。注册事件有两种方式：传统方式和方法监听注册方式。</p>
+<p>传统方式注册事件具有唯一性,同一个元素同一个事件只能设置一个处理函数，最后注册的处理函数将会覆盖前面注册的处理函数。</p>
+<p>方法监听注册方式同一个元素同一个事件可以注册多个监听器按注册顺序依次执行</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 注册事件</span></span><br><span class="line">(<span class="number">1</span>)addEventListener 事件监听方式 </span><br><span class="line"> eventTarget.addEventListener(type, listener[, useCapture])  </span><br><span class="line">type：事件类型字符串，比如 click 、mouseover ，注意这里不要带 on</span><br><span class="line">listener：事件处理函数，事件发生时，会调用该监听函数</span><br><span class="line">useCapture：可选参数，是一个布尔值，默认是 <span class="literal">false</span>,表示在事件冒泡阶段调用事件处理程序。</span><br><span class="line"></span><br><span class="line">(<span class="number">2</span>)attachEvent 事件监听方式  注意：IE8 及早期版本支持</span><br><span class="line">eventTarget.attachEvent(eventNameWithOn, callback) </span><br><span class="line">该方法接收两个参数：</span><br><span class="line">eventNameWithOn：事件类型字符串，比如 onclick 、onmouseover ，这里要带 on</span><br><span class="line">callback： 事件处理函数，当目标触发事件时回调函数被调用</span><br><span class="line"></span><br><span class="line">注册事件兼容性解决方案  兼容性处理的原则： 首先照顾大多数浏览器，再处理特殊浏览器</span><br><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">addEventListener</span>(<span class="params">element, eventName, fn</span>) </span>&#123;</span><br><span class="line">      <span class="comment">// 判断当前浏览器是否支持 addEventListener 方法</span></span><br><span class="line">      <span class="keyword">if</span> (element.addEventListener) &#123;</span><br><span class="line">        element.addEventListener(eventName, fn);  <span class="comment">// 第三个参数 默认是false</span></span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (element.attachEvent) &#123;</span><br><span class="line">        element.attachEvent(<span class="string">'on'</span> + eventName, fn);</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// 相当于 element.onclick = fn;</span></span><br><span class="line">        element[<span class="string">'on'</span> + eventName] = fn;</span><br><span class="line"> &#125; </span><br><span class="line"></span><br><span class="line"><span class="comment">// 删除事件</span></span><br><span class="line">针对传统注册方式</span><br><span class="line">eventTarget.onclick = <span class="literal">null</span>;</span><br><span class="line">针对方法监听注册方式</span><br><span class="line">eventTarget.removeEventListener(type, listener[, useCapture]);</span><br><span class="line">eventTarget.detachEvent(eventNameWithOn, callback);</span><br><span class="line">删除事件兼容性解决方案 </span><br><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">removeEventListener</span>(<span class="params">element, eventName, fn</span>) </span>&#123;</span><br><span class="line">      <span class="comment">// 判断当前浏览器是否支持 removeEventListener 方法</span></span><br><span class="line">      <span class="keyword">if</span> (element.removeEventListener) &#123;</span><br><span class="line">        element.removeEventListener(eventName, fn);  <span class="comment">// 第三个参数 默认是false</span></span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (element.detachEvent) &#123;</span><br><span class="line">        element.detachEvent(<span class="string">'on'</span> + eventName, fn);</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        element[<span class="string">'on'</span> + eventName] = <span class="literal">null</span>;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="DOM事件流"><a href="#DOM事件流" class="headerlink" title="DOM事件流"></a>DOM事件流</h3><p>事件流描述的是从页面中接收事件的顺序。事件发生时会在元素节点之间按照特定的顺序传播，这个传播过程即 DOM 事件流。DOM 事件流分为3个阶段： 捕获阶段，当前目标阶段和冒泡阶段。</p>
+<p>事件冒泡：IE 最早提出，事件开始时由最具体的元素接收，然后逐级向上传播到到 DOM 最顶层节点的过程。</p>
+<p>事件捕获：网景最早提出，DOM 顶层节点开始，然后逐级向下传播到到最具体的元素 。</p>
+<p>注意:</p>
+<p>1.JS 代码中只能执行捕获或者冒泡其中的一个阶段。</p>
+<p>2.onclick 和 attachEvent 只能得到冒泡阶段。</p>
+<p>3.addEventListener(type, listener[, useCapture])第三个参数如果是 true，表示在事件捕获阶段调用事件处理程序；如果是 false（不写默认就是false），表示在事件冒泡阶段调用事件处理程序。</p>
+<p>4.实际开发中我们很少使用事件捕获，我们更关注事件冒泡。</p>
+<p>5.有些事件是没有冒泡的，比如 onblur、onfocus、onmouseenter、onmouseleave</p>
+<p>6.事件冒泡有时候会带来麻烦，有时候又会帮助很巧妙的做某些事件，我们后面讲解。</p>
+<h3 id="事件对象"><a href="#事件对象" class="headerlink" title="事件对象"></a>事件对象</h3><p>官方解释：event 对象代表事件的状态，比如键盘按键的状态、鼠标的位置、鼠标按钮的状态。</p>
+<p>简单理解：事件发生后，跟事件相关的一系列信息数据的集合都放到这个对象里面，这个对象就是事件对象 event，它有很多属性和方法。这个 event 是个形参，系统帮我们设定为事件对象，不需要传递实参过去。当我们注册， event 系统自动，（事件处理函数）</p>
+<p>比如： </p>
+<ol>
+<li><p>谁绑定了这个事件。</p>
+</li>
+<li><p>鼠标触发事件的话，会得到鼠标的相关信息，如鼠标位置。</p>
+</li>
+<li><p>键盘触发事件的话，会得到键盘的相关信息，如按了哪个键。</p>
+</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">  eventTarget.onclick = function(event) &#123;</span><br><span class="line">     <span class="comment">// 这个 event 就是事件对象，我们还喜欢的写成 e 或者 evt </span></span><br><span class="line">  &#125; </span><br><span class="line">  eventTarget.addEventListener(<span class="string">'click'</span>, function(event) &#123;</span><br><span class="line">    <span class="comment">// 这个 event 就是事件对象，我们还喜欢的写成 e 或者 evt </span></span><br><span class="line">  &#125;）</span><br><span class="line"></span><br><span class="line"><span class="comment">// 事件对象的兼容性方案 </span></span><br><span class="line">事件对象本身的获取存在兼容问题：</span><br><span class="line"><span class="number">1</span>. 标准浏览器中是浏览器给方法传递的参数，只需要定义形参 e 就可以获取到。</span><br><span class="line"><span class="number">2</span>. 在 IE6~<span class="number">8</span> 中，浏览器不会给方法传递参数，如果需要的话，需要到 window.event 中获取查找。</span><br><span class="line">解决: </span><br><span class="line">e = e || window.event;</span><br></pre></td></tr></table></figure>
+
+<p>事件对象的常见属性和方法<br>e.target 和 this 的区别：<br>  this 是事件绑定的元素， 这个函数的调用者（绑定这个事件的元素）<br>  e.target 是事件触发的元素。</p>
+<table>
+<thead>
+<tr>
+<th>事件对象的属性方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>e.target</td>
+<td>返回触发事件的对象 标准</td>
+</tr>
+<tr>
+<td>e.srcElement</td>
+<td>返回触发事件的对象 非标准 ie6-8使用</td>
+</tr>
+<tr>
+<td>e.type</td>
+<td>返回事件的类型 比如click mouseover 不带on</td>
+</tr>
+<tr>
+<td>e.cancelBubble</td>
+<td>该属性阻止冒泡 非标准 ie6-8使用</td>
+</tr>
+<tr>
+<td>e.returnValue</td>
+<td>该属性阻止默认事件(默认行为) 非标准 ie6-8使用 比如不让连接跳转</td>
+</tr>
+<tr>
+<td>e.preventDefault()</td>
+<td>该属性阻止默认事件(默认行为) 标准 比如不让连接跳转</td>
+</tr>
+<tr>
+<td>e.stopPropagation()</td>
+<td>阻止冒泡 标准</td>
+</tr>
+</tbody></table>
+<h3 id="阻止事件冒泡"><a href="#阻止事件冒泡" class="headerlink" title="阻止事件冒泡"></a>阻止事件冒泡</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 标准写法：利用事件对象里面的 stopPropagation()方法</span></span><br><span class="line"> e.stopPropagation() </span><br><span class="line"><span class="comment">// 非标准写法：IE 6-8  利用事件对象 cancelBubble 属性 </span></span><br><span class="line"> e.cancelBubble = <span class="literal">true</span>;</span><br><span class="line"><span class="comment">// 阻止事件冒泡的兼容性解决方案 </span></span><br><span class="line">  <span class="keyword">if</span>(e &amp;&amp; e.stopPropagation)&#123;</span><br><span class="line">      e.stopPropagation();</span><br><span class="line">  &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">      <span class="built_in">window</span>.event.cancelBubble = <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="事件委托（代理、委派）"><a href="#事件委托（代理、委派）" class="headerlink" title="事件委托（代理、委派）"></a>事件委托（代理、委派）</h3><p>事件委托也称为事件代理， 在 jQuery 里面称为事件委派。</p>
+<p>优点：我们只操作了一次 DOM ，提高了程序的性能。</p>
+<p>原理：不是每个子节点单独设置事件监听器，而是事件监听器设置在其父节点上，然后利用冒泡原理影响设置每个子节点。</p>
+<h3 id="常见的鼠标事件"><a href="#常见的鼠标事件" class="headerlink" title="常见的鼠标事件"></a>常见的鼠标事件</h3><table>
+<thead>
+<tr>
+<th>鼠标事件</th>
+<th>触发事件</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>onclick</td>
+<td>鼠标点击左键触发</td>
+</tr>
+<tr>
+<td>onmouseover</td>
+<td>鼠标经过触发</td>
+</tr>
+<tr>
+<td>onmouseout</td>
+<td>鼠标离开触发</td>
+</tr>
+<tr>
+<td>onfocus</td>
+<td>获得鼠标焦点触发</td>
+</tr>
+<tr>
+<td>onblur</td>
+<td>失去焦点触发</td>
+</tr>
+<tr>
+<td>onmousemove</td>
+<td>鼠标移动触发</td>
+</tr>
+<tr>
+<td>onmouseup</td>
+<td>鼠标弹起触发</td>
+</tr>
+<tr>
+<td>onmousedown</td>
+<td>鼠标按下触发</td>
+</tr>
+</tbody></table>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span>禁止鼠标右键菜单</span><br><span class="line">contextmenu主要控制应该何时显示上下文菜单，主要用于程序员取消默认的上下文菜单</span><br><span class="line"><span class="built_in">document</span>.addEventListener(<span class="string">'contextmenu'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">e.preventDefault();</span><br><span class="line">&#125;)</span><br><span class="line"><span class="number">2.</span>禁止鼠标选中（selectstart 开始选中）</span><br><span class="line"><span class="built_in">document</span>.addEventListener(<span class="string">'selectstart'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">    e.preventDefault();</span><br><span class="line">   &#125;)</span><br></pre></td></tr></table></figure>
+
+<h4 id="鼠标事件对象"><a href="#鼠标事件对象" class="headerlink" title="鼠标事件对象"></a>鼠标事件对象</h4><p>event对象代表事件的状态，跟事件相关的一系列信息的集合。现阶段我们主要是用鼠标事件对象 MouseEvent 和键盘事件对象 KeyboardEvent。</p>
+<table>
+<thead>
+<tr>
+<th>鼠标事件对象</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>e.clientX</td>
+<td>返回鼠标相对于浏览器窗口可视区X坐标</td>
+</tr>
+<tr>
+<td>e.clientY</td>
+<td>返回鼠标相对于浏览器窗口可视区Y坐标</td>
+</tr>
+<tr>
+<td>e.pageX</td>
+<td>返回鼠标相对于文档页面X坐标 IE9+支持</td>
+</tr>
+<tr>
+<td>e.pageY</td>
+<td>返回鼠标相对于文档页面Y坐标 IE9+支持</td>
+</tr>
+<tr>
+<td>e.screenX</td>
+<td>返回鼠标相对于电脑屏幕的X坐标</td>
+</tr>
+<tr>
+<td>e.screenY</td>
+<td>返回鼠标相对于电脑屏幕的Y坐标</td>
+</tr>
+</tbody></table>
+<h3 id="常见的键盘事件"><a href="#常见的键盘事件" class="headerlink" title="常见的键盘事件"></a>常见的键盘事件</h3><p>事件除了使用鼠标触发，还可以用键盘触发</p>
+<table>
+<thead>
+<tr>
+<th>键盘事件</th>
+<th>触发条件</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>onkeyup</td>
+<td>某个键盘按键被松开时触发</td>
+</tr>
+<tr>
+<td>onkeydown</td>
+<td>某个键盘按键被按下时触发</td>
+</tr>
+<tr>
+<td>onkeypress</td>
+<td>某个键盘按键被按下时触发 但是它不识别功能键如ctrl、shift箭头等</td>
+</tr>
+<tr>
+<td>keyCode</td>
+<td>返回该键的ASCII值,onkeydown 和 onkeyup 不区分字母大小写，onkeypress 区分字母大小写。在我们实际开发中，我们更多的使用keydown和keyup， 它能识别所有的键（包括功能键）Keypress 不识别功能键，但是keyCode属性能区分大小写，返回不同的ASCII值</td>
+</tr>
+</tbody></table>
+<p>注意：</p>
+<p>1.如果使用addEventListener不需要加on</p>
+<p>2.onkeypress 和前面2个的区别是，它不识别功能键，比如左右箭头，shift 等。</p>
+<p>3.三个事件的执行顺序是： keydown – keypress — keyup</p>
+<h2 id="BOM"><a href="#BOM" class="headerlink" title="BOM"></a>BOM</h2><p>BOM（Browser Object Model）即浏览器对象模型，它提供了独立于内容而与浏览器窗口进行交互的对象，其核心对象是 window。</p>
+<p>BOM 由一系列相关的对象构成，并且每个对象都提供了很多方法与属性。</p>
+<p>BOM 缺乏标准，JavaScript 语法的标准化组织是 ECMA，DOM 的标准化组织是 W3C.</p>
+<h3 id="window对象常见事件"><a href="#window对象常见事件" class="headerlink" title="window对象常见事件"></a>window对象常见事件</h3><h4 id="窗口加载事件"><a href="#窗口加载事件" class="headerlink" title="窗口加载事件"></a>窗口加载事件</h4><p>window.onload 是窗口 (页面）加载事件,当文档内容完全加载完成会触发该事件(包括图像、脚本文件、CSS 文件等), 就调用的处理函数。</p>
+<p><strong>注意：</strong></p>
+<ol>
+<li><p>有了 window.onload 就可以把 JS 代码写到页面元素的上方，因为 onload 是等页面内容全部加载完毕，再去执行处理函数。</p>
+</li>
+<li><p>window.onload 传统注册事件方式 只能写一次，如果有多个，会以最后一个 window.onload 为准。</p>
+</li>
+<li><p>如果使用 addEventListener 则没有限制</p>
+</li>
+</ol>
+<p>DOMContentLoaded 事件触发时，仅当DOM加载完成，不包括样式表，图片，flash等等。 Ie9以上才支持</p>
+<p>如果页面的图片很多的话, 从用户访问到onload触发可能需要较长的时间, 交互效果就不能实现，必然影响用户的体验，此时用 DOMContentLoaded 事件比较合适。</p>
+<h4 id="调整窗口大小事件"><a href="#调整窗口大小事件" class="headerlink" title="调整窗口大小事件"></a>调整窗口大小事件</h4><p>window.onresize 是调整窗口大小加载事件, 当触发时就调用的处理函数。</p>
+<p><strong>注意：</strong></p>
+<ol>
+<li><p>只要窗口大小发生像素变化，就会触发这个事件。</p>
+</li>
+<li><p>我们经常利用这个事件完成响应式布局。 window.innerWidth 当前屏幕的宽度</p>
+</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">(<span class="number">1</span>)<span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">或者 </span><br><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">"load"</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;);</span><br><span class="line"></span><br><span class="line">(<span class="number">2</span>)<span class="built_in">document</span>.addEventListener(<span class="string">'DOMContentLoaded'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;)</span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">(<span class="number">3</span>)<span class="built_in">window</span>.onresize = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"> <span class="built_in">window</span>.addEventListener(<span class="string">"resize"</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="定时器"><a href="#定时器" class="headerlink" title="定时器"></a>定时器</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  window.setTimeout(调用函数, [延迟的毫秒数]);</span></span><br><span class="line">setTimeout() 方法用于设置一个定时器，该定时器在定时器到期后执行调用函数。</span><br><span class="line">setTimeout() 方法用于设置一个定时器，该定时器在定时器到期后执行调用函数。</span><br><span class="line">注意：</span><br><span class="line"><span class="number">1.</span> <span class="built_in">window</span> 可以省略。</span><br><span class="line"><span class="number">2.</span> 这个调用函数可以直接写函数，或者写函数名或者采取字符串‘函数名()<span class="string">'三种形式。第三种不推荐</span></span><br><span class="line"><span class="string">3. 延迟的毫秒数省略默认是 0，如果写，必须是毫秒。</span></span><br><span class="line"><span class="string">4. 因为定时器可能有很多，所以我们经常给定时器赋值一个标识符。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">// 停止定时器</span></span><br><span class="line"><span class="string"> window.clearTimeout(timeoutID)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">//  window.setInterval(回调函数, [间隔的毫秒数]);</span></span><br><span class="line"><span class="string">setInterval() 方法重复调用一个函数，每隔这个时间，就去调用一次回调函数。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">// clearInterval()方法取消了先前通过调用 setInterval()建立的定时器。</span></span><br><span class="line"><span class="string">window.clearInterval(intervalID);</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="this指向"><a href="#this指向" class="headerlink" title="this指向"></a>this指向</h3><p>this的指向在函数定义的时候是确定不了的，只有函数执行的时候才能确定this到底指向谁，一般情况下this的最终指向的是那个调用它的对象</p>
+<p>现阶段，我们先了解一下几个this指向</p>
+<ol>
+<li><p>全局作用域或者普通函数中this指向全局对象window（注意定时器里面的this指向window）</p>
+</li>
+<li><p>方法调用中谁调用this指向谁</p>
+</li>
+<li><p>构造函数中this指向构造函数的实例</p>
+</li>
+</ol>
+<h3 id="单线程"><a href="#单线程" class="headerlink" title="单线程"></a>单线程</h3><p>JavaScript 语言的一大特点就是单线程，也就是说，同一个时间只能做一件事。这是因为 Javascript 这门脚本语言诞生的使命所致——JavaScript 是为处理页面中用户的交互，以及操作 DOM 而诞生的。比如我们对某个 DOM 元素进行添加和删除操作，不能同时进行。 应该先进行添加，之后再删除。</p>
+<p>单线程就意味着，所有任务需要排队，前一个任务结束，才会执行后一个任务。这样所导致的问题是： 如果 JS 执行的时间过长，这样就会造成页面的渲染不连贯，导致页面渲染加载阻塞的感觉。</p>
+<h3 id="同步和异步"><a href="#同步和异步" class="headerlink" title="同步和异步"></a>同步和异步</h3><p>为了解决页面渲染加载阻塞这个问题，利用多核 CPU 的计算能力，HTML5 提出 Web Worker 标准，允许 JavaScript 脚本创建多个线程。于是，JS 中出现了同步和异步。</p>
+<p>同步</p>
+<pre><code>前一个任务结束后再执行后一个任务，程序的执行顺序与任务的排列顺序是一致的、同步的 。同步任务都在主线程上执行，形成一个执行栈。</code></pre><p>异步</p>
+<pre><code>你在做一件事情时，因为这件事情会花费很长时间，在做这件事的同时，你还可以去处理其他事情。 异步任务 JS 的异步是通过回调函数实现的。  </code></pre><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">一般而言，异步任务有以下三种类型:</span><br><span class="line"><span class="number">1</span>、普通事件，如 click、resize 等</span><br><span class="line"><span class="number">2</span>、资源加载，如 load、error 等</span><br><span class="line"><span class="number">3</span>、定时器，包括 setInterval、setTimeout 等</span><br><span class="line">异步任务相关回调函数添加到任务队列中（任务队列也称为消息队列）。</span><br></pre></td></tr></table></figure>
+
+<h3 id="JS执行机制"><a href="#JS执行机制" class="headerlink" title="JS执行机制"></a>JS执行机制</h3><ol>
+<li><p>先执行执行栈中的同步任务。</p>
+</li>
+<li><p>异步任务（回调函数）放入任务队列中。</p>
+</li>
+<li><p>一旦执行栈中的所有同步任务执行完毕，系统就会按次序读取任务队列中的异步任务，于是被读取的异步任务结束等待状态，进入执行栈，开始执行。</p>
+</li>
+</ol>
+<p>由于主线程不断的重复获得任务、执行任务、再获取任务、再执行，所以这种机制被称为事件循环（ event loop）。</p>
+<h3 id="location对象"><a href="#location对象" class="headerlink" title="location对象"></a>location对象</h3><p>window 对象给我们提供了一个 location 属性用于获取或设置窗体的 URL，并且可以用于解析 URL 。 因为这个属性返回的是一个对象，所以我们将这个属性也称为 location 对象。</p>
+<h4 id="location对象的属性"><a href="#location对象的属性" class="headerlink" title="location对象的属性"></a>location对象的属性</h4><table>
+<thead>
+<tr>
+<th>location对象属性</th>
+<th>返回值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>location.href</td>
+<td>返回或设置整个URL</td>
+</tr>
+<tr>
+<td>location.host</td>
+<td>返回主机(域名) <a href="http://www.baidu.com" target="_blank" rel="noopener">www.baidu.com</a></td>
+</tr>
+<tr>
+<td>location.port</td>
+<td>返回端口号 如果未写返回空字符串</td>
+</tr>
+<tr>
+<td>location.pathname</td>
+<td>返回路径</td>
+</tr>
+<tr>
+<td>location.search</td>
+<td>返回参数</td>
+</tr>
+<tr>
+<td>location.hash</td>
+<td>返回片段 #后面内容常见于链接 锚点</td>
+</tr>
+</tbody></table>
+<h4 id="location对象的方法"><a href="#location对象的方法" class="headerlink" title="location对象的方法"></a>location对象的方法</h4><table>
+<thead>
+<tr>
+<th>location对象方法</th>
+<th>返回值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>location.assign()</td>
+<td>跟href一样,可以跳转页面(也称为重定向页面)</td>
+</tr>
+<tr>
+<td>location.replace()</td>
+<td>替换当前页面,因为不记录历史，所以不能后退页面</td>
+</tr>
+<tr>
+<td>location.reload()</td>
+<td>重新加载页面，相当于刷新，如果参数为true，强制刷新</td>
+</tr>
+</tbody></table>
+<h3 id="navigator对象"><a href="#navigator对象" class="headerlink" title="navigator对象"></a>navigator对象</h3><p>navigator 对象包含有关浏览器的信息，它有很多属性，我们最常用的是 userAgent，该属性可以返回由客户机发送服务器的 user-agent 头部的值。</p>
+<p>下面前端代码可以判断用户那个终端打开页面，实现跳转</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>((navigator.userAgent.match(<span class="regexp">/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i</span>))) &#123;</span><br><span class="line">    <span class="built_in">window</span>.location.href = <span class="string">""</span>;     <span class="comment">//手机</span></span><br><span class="line"> &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">window</span>.location.href = <span class="string">""</span>;     <span class="comment">//电脑</span></span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="history对象"><a href="#history对象" class="headerlink" title="history对象"></a>history对象</h3><p>history 对象一般在实际开发中比较少用，但是会在一些 OA 办公系统中见到。</p>
+<p>window 对象给我们提供了一个 history 对象，与浏览器历史记录进行交互。该对象包含用户（在浏览器窗口中）访问过的 URL。</p>
+<p>history对象的方法</p>
+<table>
+<thead>
+<tr>
+<th>history对象的方法</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>back()</td>
+<td>可以后退功能</td>
+</tr>
+<tr>
+<td>forward()</td>
+<td>前进功能</td>
+</tr>
+<tr>
+<td>go(参数)</td>
+<td>前进/后退功能,参数是1为前进1个页面；-1为后退1个页面</td>
+</tr>
+</tbody></table>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+        <li>
+            <a target="_blank" href="https://www.zhihu.com/people/btcwiki">
+                            <span class="fa-stack fa-lg">
+                                 <i class="iconfont icon-zhihu"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/Zhuyokin">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a href="https://www.re0.cn" target="_blank" rel="noopener">re0</a></span>
+        <span>/</span>
+        
+        <span><a href="https://www.github.com/Zhuyokin" target="_blank" rel="noopener">github</a></span>
+        <span>/</span>
+        
+        <span><a href="#">It helps SEO</a></span>
+        <span>/</span>
+        
+    </p>
+    
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
