@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Yokin的博客">
+    <meta name="keyword"  content="前端技术分享">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        Three.js基础使用小结 - Yokin的博客 | Yokin&#39;s Blog
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> 心所向,驰以恒! </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>Yokin</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archive">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Three-js基础使用小结"><span class="toc-text">Three.js基础使用小结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#摘要"><span class="toc-text">摘要</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#three-js相关库"><span class="toc-text">three.js相关库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决预览Three-js项目的跨域问题"><span class="toc-text">解决预览Three.js项目的跨域问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开发调试和热加载"><span class="toc-text">开发调试和热加载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#three-js三要素"><span class="toc-text">three.js三要素</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#入门案例"><span class="toc-text">入门案例</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#html部分"><span class="toc-text">html部分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#javascript部分"><span class="toc-text">javascript部分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#效果预览"><span class="toc-text">效果预览</span></a></li></ol></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> 心所向,驰以恒! </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        Three.js基础使用小结
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2020-03-31 19:37:29</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#three.js" title="three.js">three.js</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="Three-js基础使用小结"><a href="#Three-js基础使用小结" class="headerlink" title="Three.js基础使用小结"></a>Three.js基础使用小结</h1><h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>Three.js是基于原生WebGL封装运行的三维引擎，在所有WebGL引擎中，Three.js是国内文资料最多、使用最广泛的三维引擎，本文将简要介绍three.js的基础使用知识。</p>
+<h2 id="three-js相关库"><a href="#three-js相关库" class="headerlink" title="three.js相关库"></a>three.js相关库</h2><p>下面表格列举了一些Three.js相关的开源库。</p>
+<table>
+<thead>
+<tr>
+<th>库</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://github.com/chandlerprall/Physijs" target="_blank" rel="noopener">Physijs</a></td>
+<td>Physijs是一款物理引擎，可以协助基于原生WebGL或使用three.js创建模拟物理现象，比如重力下落、物体碰撞等物理现象</td>
+</tr>
+<tr>
+<td><a href="https://github.com/mrdoob/stats.js" target="_blank" rel="noopener">stats.js</a></td>
+<td>JavaScript性能监控器，同样也可以测试webgl的渲染性能</td>
+</tr>
+<tr>
+<td><a href="https://github.com/dataarts/dat.gui" target="_blank" rel="noopener">dat.gui</a></td>
+<td>轻量级的icon形用户界面框架，可以用来控制Javascript的变量，比如WebGL中一个物体的尺寸、颜色</td>
+</tr>
+<tr>
+<td><a href="https://github.com/tweenjs/tween.js/" target="_blank" rel="noopener">tween.js</a></td>
+<td>借助tween.js快速创建补间动画，可以非常方便的控制机械、游戏角色运动</td>
+</tr>
+<tr>
+<td><a href="https://github.com/sshirokov/ThreeBSP" target="_blank" rel="noopener">ThreeBSP</a></td>
+<td>可以作为three.js的插件，完成几何模型的布尔，各类三维建模软件基本都有布尔的概念</td>
+</tr>
+</tbody></table>
+<h2 id="解决预览Three-js项目的跨域问题"><a href="#解决预览Three-js项目的跨域问题" class="headerlink" title="解决预览Three.js项目的跨域问题"></a>解决预览Three.js项目的跨域问题</h2><p> 不需要加载外部贴图和模型文件的three.js案例，可以直接使用浏览器打开.html案例文件，通常一个threejs项目案例往往都会加载一些外部模型，因此打开threejs案例要搭建一个本地的静态服务器，否则的话，threejs案例无法正常打开，浏览器控制台会提示跨域问题。</p>
+<p>解决跨域问题:通过Node.js搭建本地静态服务器即可，安装<code>http-server</code>或者 <code>live-server</code> 模块，以<code>live-server</code>为例， 然后使用npm执行<code>npm install -g live-server</code>安装<code>live-server</code>模块，如果你想通过安装好的<code>live-server</code>模块开启一个静态服务器，打开命令行，进入threejs案例所在的文件目录，然后执行<code>live-server</code>命令就可以。 </p>
+<p> 通过浏览器访问<code>http://localhost:8080</code>或<code>http://127.0.0.1:8080</code>地址，找到threejs案例的.html文件直接打开就可以看到三维场景渲染效果。 </p>
+<p>至于通过Node.js安装http-server和使用教程可参考先前的文章： <a href="https://zhuyokin.github.io/2020/03/23/http-server的安装和使用/" target="_blank" rel="noopener">《http-server的安装和使用》</a> </p>
+<h2 id="开发调试和热加载"><a href="#开发调试和热加载" class="headerlink" title="开发调试和热加载"></a>开发调试和热加载</h2><p>在使用three.js开发项目的过程中需要频繁代码测试,查看three.js代码渲染效果,通过创建本地静态服务器即可实现代码的热加载，每次更新.html代码文件,其对应的three.js案例就会重新渲染。</p>
+<h2 id="three-js三要素"><a href="#three-js三要素" class="headerlink" title="three.js三要素"></a>three.js三要素</h2><p>three.js的三要素是Scene(场景),Camera(相机)和Renderer(渲染器),缺一不可。</p>
+<h2 id="入门案例"><a href="#入门案例" class="headerlink" title="入门案例"></a>入门案例</h2><p>我们以一个旋转的带纹理的立方体为例来展示在项目中three.js的基本使用.</p>
+<h3 id="html部分"><a href="#html部分" class="headerlink" title="html部分"></a>html部分</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Three JS Example<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line">    body &#123;</span><br><span class="line">        margin: 0;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    canvas &#123;</span><br><span class="line">        width: 100%;</span><br><span class="line">        height: 100%;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./js/Three.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./js/main.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="javascript部分"><a href="#javascript部分" class="headerlink" title="javascript部分"></a>javascript部分</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> scene, camera, renderer, cube;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">init</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 1.三要素之一:场景</span></span><br><span class="line">    scene = <span class="keyword">new</span> THREE.Scene();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2.三要素之一:相机</span></span><br><span class="line">    camera = <span class="keyword">new</span> THREE.PerspectiveCamera(</span><br><span class="line">        <span class="number">75</span>, <span class="comment">//视野角度（FOV）</span></span><br><span class="line">        <span class="built_in">window</span>.innerWidth / <span class="built_in">window</span>.innerHeight, <span class="comment">//长宽比（aspect ratio）</span></span><br><span class="line">        <span class="number">0.1</span>, <span class="comment">//近截面（near）</span></span><br><span class="line">        <span class="number">1000</span> <span class="comment">//远截面（far）</span></span><br><span class="line">    );</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 3.三要素之一:渲染器</span></span><br><span class="line">    renderer = <span class="keyword">new</span> THREE.WebGLRenderer(&#123; <span class="attr">antialias</span>: <span class="literal">true</span> &#125;);</span><br><span class="line"></span><br><span class="line">    renderer.setSize(<span class="built_in">window</span>.innerWidth, <span class="built_in">window</span>.innerHeight);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="built_in">document</span>.body.appendChild(renderer.domElement);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 4.创建一个立方体对象：BoxGeometry（立方体）对象</span></span><br><span class="line">    <span class="keyword">const</span> geometry = <span class="keyword">new</span> THREE.BoxGeometry(<span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>);</span><br><span class="line">    <span class="comment">// const material = new THREE.MeshBasicMaterial(&#123; color: 0x0000ff &#125;);</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 将该立方体表面纹理设置为一张图片</span></span><br><span class="line">    <span class="keyword">const</span> texture = <span class="keyword">new</span> THREE.TextureLoader().load(<span class="string">'../img/texture2.png'</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> material = <span class="keyword">new</span> THREE.MeshBasicMaterial(&#123; <span class="attr">map</span>: texture &#125;);</span><br><span class="line"></span><br><span class="line">    cube = <span class="keyword">new</span> THREE.Mesh(geometry, material);</span><br><span class="line">    <span class="comment">// 场景中添加该立方体</span></span><br><span class="line">    scene.add(cube);</span><br><span class="line"></span><br><span class="line">    camera.position.z = <span class="number">5</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 4.渲染场景,该立方体绕X和Y轴旋转</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">animate</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    requestAnimationFrame(animate);</span><br><span class="line">    cube.rotation.x += <span class="number">0.01</span>;</span><br><span class="line">    cube.rotation.y += <span class="number">0.01</span>;</span><br><span class="line">    renderer.render(scene, camera);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 监听浏览器窗口大小的改变,响应式改变模型的尺寸</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">onWindowResize</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    camera.aspect = <span class="built_in">window</span>.innerWidth / <span class="built_in">window</span>.innerHeight;</span><br><span class="line">    camera.updateProjectionMatrix();</span><br><span class="line">    renderer.setSize(<span class="built_in">window</span>.innerWidth, <span class="built_in">window</span>.innerHeight);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'resize'</span>, onWindowResize, <span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">init();</span><br><span class="line">animate();</span><br></pre></td></tr></table></figure>
+
+<h3 id="效果预览"><a href="#效果预览" class="headerlink" title="效果预览"></a>效果预览</h3><p><img src="/2020/03/31/Three-js%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8%E5%B0%8F%E7%BB%93/F:%5C%E5%89%8D%E7%AB%AF%5C%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%5Cimg%5Cbox.gif" alt></p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+        <li>
+            <a target="_blank" href="https://www.zhihu.com/people/btcwiki">
+                            <span class="fa-stack fa-lg">
+                                 <i class="iconfont icon-zhihu"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/Zhuyokin">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a href="https://www.re0.cn" target="_blank" rel="noopener">re0</a></span>
+        <span>/</span>
+        
+        <span><a href="https://www.github.com/Zhuyokin" target="_blank" rel="noopener">github</a></span>
+        <span>/</span>
+        
+        <span><a href="#">It helps SEO</a></span>
+        <span>/</span>
+        
+    </p>
+    
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
