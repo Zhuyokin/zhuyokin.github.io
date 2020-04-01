@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Yokin的博客">
+    <meta name="keyword"  content="前端技术分享">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        javascript正则表达式 - Yokin的博客 | Yokin&#39;s Blog
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> 心所向,驰以恒! </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>Yokin</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archive">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#javascript正则表达式"><span class="toc-text">javascript正则表达式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#概述"><span class="toc-text">概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#在js中使用正则表达式"><span class="toc-text">在js中使用正则表达式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#正则表达式的组成"><span class="toc-text">正则表达式的组成</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#边界符"><span class="toc-text">边界符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字符类"><span class="toc-text">字符类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#量词符"><span class="toc-text">量词符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#预定义类"><span class="toc-text">预定义类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#正则表达式中的替换"><span class="toc-text">正则表达式中的替换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#replace替换"><span class="toc-text">replace替换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#正则表达式参数"><span class="toc-text">正则表达式参数</span></a></li></ol></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> 心所向,驰以恒! </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        javascript正则表达式
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2020-04-01 18:02:33</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#正则表达式" title="正则表达式">正则表达式</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="javascript正则表达式"><a href="#javascript正则表达式" class="headerlink" title="javascript正则表达式"></a>javascript正则表达式</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p><strong>正则表达式（</strong> Regular Expression <strong>）</strong>是用于匹配字符串中字符组合的模式。在 JavaScript中，正则表达式也是对象。</p>
+<p>正则表通常被用来检索、替换那些符合某个模式（规则）的文本，例如验证表单：用户名表单只能输入英文字母、数字或者下划线， 昵称输入框中可以输入中文(匹配)。此外，正则表达式还常用于过滤掉页面内容中的一些敏感词(替换)，或从字符串中获取我们想要的特定部分(提取)等 。</p>
+<p>其他语言也会使用正则表达式，我们主要是利用 JavaScript 正则表达式完成表单验证,敏感词过滤等用途。</p>
+<h2 id="在js中使用正则表达式"><a href="#在js中使用正则表达式" class="headerlink" title="在js中使用正则表达式"></a>在js中使用正则表达式</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建正则表达式</span></span><br><span class="line">在 JavaScript 中，可以通过两种方式创建一个正则表达式。</span><br><span class="line"><span class="number">1.</span> 通过调用 <span class="built_in">RegExp</span> 对象的构造函数创建</span><br><span class="line"><span class="keyword">var</span> 变量名 = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="regexp">/表达式/</span>); </span><br><span class="line"><span class="number">2.</span> 通过字面量创建</span><br><span class="line"><span class="keyword">var</span> 变量名 = <span class="regexp">/表达式/</span>; </span><br><span class="line"><span class="comment">// 测试正则表达式 test </span></span><br><span class="line">test() 正则对象方法，用于检测字符串是否符合该规则，该对象会返回 <span class="literal">true</span> 或 <span class="literal">false</span>，其参数是测试字符串。</span><br><span class="line">regexObj.test(str) </span><br><span class="line">(<span class="number">1</span>)regexObj 是写的正则表达式</span><br><span class="line">(<span class="number">2</span>)str 我们要测试的文本</span><br><span class="line">(<span class="number">3</span>)就是检测str文本是否符合我们写的正则表达式规范.</span><br></pre></td></tr></table></figure>
+
+<h2 id="正则表达式的组成"><a href="#正则表达式的组成" class="headerlink" title="正则表达式的组成"></a>正则表达式的组成</h2><p>一个正则表达式可以由简单的字符构成，比如 /abc/，也可以是简单和特殊字符的组合，比如 /ab*c/ 。其中特殊字符也被称为元字符，在正则表达式中是具有特殊意义的专用符号，如 ^ 、$ 、+ 等。</p>
+<h3 id="边界符"><a href="#边界符" class="headerlink" title="边界符"></a>边界符</h3><p>正则表达式中的边界符（位置符）用来提示字符所处的位置，主要有两个字符。如果 ^ 和 $ 在一起，表示必须是精确匹配。</p>
+<table>
+<thead>
+<tr>
+<th>边界符</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>^</td>
+<td>表示匹配行首的文本(以谁开始)</td>
+</tr>
+<tr>
+<td>$</td>
+<td>表示匹配行尾的文本(以谁结束)</td>
+</tr>
+</tbody></table>
+<h3 id="字符类"><a href="#字符类" class="headerlink" title="字符类"></a>字符类</h3><p>字符类表示有一系列字符可供选择，只要匹配其中一个就可以了。所有可供选择的字符都放在方括号内  </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> []  方括号   </span><br><span class="line">/[abc]/.test(<span class="string">'andy'</span>)     <span class="comment">// true </span></span><br><span class="line">后面的字符串只要包含 abc 中任意一个字符，都返回 <span class="literal">true</span> 。</span><br><span class="line"><span class="number">2.</span> [-]  方括号内部 范围符-   </span><br><span class="line"> /^[a-z]$/.test(<span class="string">'c'</span>)     <span class="comment">// true</span></span><br><span class="line">方括号内部加上 - 表示范围，这里表示 a 到 z <span class="number">26</span>个英文字母都可以。</span><br><span class="line"><span class="number">3.</span> [^]  方括号内部 取反符^   </span><br><span class="line"> /[^abc]/.test(<span class="string">'andy'</span>)     <span class="comment">// false</span></span><br><span class="line">方括号内部加上 ^ 表示取反，只要包含方括号内的字符，都返回 <span class="literal">false</span> 。</span><br><span class="line">注意:和边界符 ^ 区别，边界符写到方括号外面。  </span><br><span class="line"><span class="number">4.</span> 字符组合</span><br><span class="line">/[a-z1<span class="number">-9</span>]/.test(<span class="string">'andy'</span>)     <span class="comment">// true</span></span><br><span class="line">方括号内部可以使用字符组合，这里表示包含 a 到 z 的<span class="number">26</span>个英文字母和 <span class="number">1</span> 到 <span class="number">9</span> 的数字都可以。</span><br></pre></td></tr></table></figure>
+
+<h3 id="量词符"><a href="#量词符" class="headerlink" title="量词符"></a>量词符</h3><p>量词符用来设定某个模式出现的次数。</p>
+<table>
+<thead>
+<tr>
+<th>量词</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>*</td>
+<td>重复0次或更多次</td>
+</tr>
+<tr>
+<td>+</td>
+<td>重复1次或更多次</td>
+</tr>
+<tr>
+<td>?</td>
+<td>重复0次或一次</td>
+</tr>
+<tr>
+<td>{n}</td>
+<td>重复n次</td>
+</tr>
+<tr>
+<td>{n,}</td>
+<td>重复n次或更多次</td>
+</tr>
+<tr>
+<td>{n,m}</td>
+<td>重复n到m次</td>
+</tr>
+</tbody></table>
+<h3 id="预定义类"><a href="#预定义类" class="headerlink" title="预定义类"></a>预定义类</h3><p>预定义类指的是某些常见模式的简写方式。</p>
+<table>
+<thead>
+<tr>
+<th>预定义类</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>\d</td>
+<td>匹配0-9之间的任一数字，相当于[0-9]</td>
+</tr>
+<tr>
+<td>\D</td>
+<td>匹配所有0-9以外的字符，相当于<code>[^0-9]</code></td>
+</tr>
+<tr>
+<td>\w</td>
+<td>匹配任意的字母、数字和下划线,相当于[A-Za-z0-9]</td>
+</tr>
+<tr>
+<td>\W</td>
+<td>排除所有字母、数字和下划线以外的字符,相当于<code>[^A-Za-z0-9]</code></td>
+</tr>
+<tr>
+<td>\s</td>
+<td>匹配空格(包括换行符、制表符、空格符等),相当于[\t\r\n\v\f]</td>
+</tr>
+<tr>
+<td>\S</td>
+<td>匹配非空格的字符,相当于<code>[^\t\r\n\v\f]</code></td>
+</tr>
+</tbody></table>
+<h3 id="正则表达式中的替换"><a href="#正则表达式中的替换" class="headerlink" title="正则表达式中的替换"></a>正则表达式中的替换</h3><h3 id="replace替换"><a href="#replace替换" class="headerlink" title="replace替换"></a>replace替换</h3><p>replace( )方法可以实现替换字符串的操作,用以屏蔽敏感词，用来替换的参数可以是一个字符串或是一个正则表达式。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">stringObject.replace(regexp/substr,replacement)</span><br><span class="line">第一个参数:   被替换的字符串 或者  正则表达式</span><br><span class="line">第二个参数:   替换为的字符串</span><br><span class="line">返回值是一个替换完毕的新字符串</span><br></pre></td></tr></table></figure>
+
+<h3 id="正则表达式参数"><a href="#正则表达式参数" class="headerlink" title="正则表达式参数"></a>正则表达式参数</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/表达式/[<span class="keyword">switch</span>]</span><br><span class="line"><span class="keyword">switch</span>(也称为修饰符) 按照什么样的模式来匹配. 有三种值：</span><br><span class="line">g：全局匹配 </span><br><span class="line">i：忽略大小写 </span><br><span class="line">gi：全局匹配 + 忽略大小写</span><br></pre></td></tr></table></figure>
+
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+        <li>
+            <a target="_blank" href="https://www.zhihu.com/people/btcwiki">
+                            <span class="fa-stack fa-lg">
+                                 <i class="iconfont icon-zhihu"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/Zhuyokin">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a href="https://www.re0.cn" target="_blank" rel="noopener">re0</a></span>
+        <span>/</span>
+        
+        <span><a href="https://www.github.com/Zhuyokin" target="_blank" rel="noopener">github</a></span>
+        <span>/</span>
+        
+        <span><a href="#">It helps SEO</a></span>
+        <span>/</span>
+        
+    </p>
+    
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
