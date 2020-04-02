@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Yokin的博客">
+    <meta name="keyword"  content="前端技术分享">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        vue-router的使用 - Yokin的博客 | Yokin&#39;s Blog
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> 重剑无锋,大巧不工! </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>Yokin</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archive">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#vue-router"><span class="toc-text">vue-router</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#路由的基本概念与原理"><span class="toc-text">路由的基本概念与原理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#前端路由"><span class="toc-text">前端路由</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#后端路由"><span class="toc-text">后端路由</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SPA-Single-Page-Application"><span class="toc-text">SPA(Single Page Application)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vue-router的基本使用"><span class="toc-text">vue-router的基本使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#基本使用步骤"><span class="toc-text">基本使用步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#引入相关的库文件"><span class="toc-text">引入相关的库文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#添加路由连接"><span class="toc-text">添加路由连接</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#添加路由填充位"><span class="toc-text">添加路由填充位</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#定义路由组件"><span class="toc-text">定义路由组件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#配置路由规则并创建路由实例"><span class="toc-text">配置路由规则并创建路由实例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#把路由挂载到Vue根实例中"><span class="toc-text">把路由挂载到Vue根实例中</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#路由重定向"><span class="toc-text">路由重定向</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vue-router嵌套路由"><span class="toc-text">vue-router嵌套路由</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#嵌套路由功能分析"><span class="toc-text">嵌套路由功能分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#父级路由连接"><span class="toc-text">父级路由连接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#子级路由模板"><span class="toc-text">子级路由模板</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#嵌套路由配置"><span class="toc-text">嵌套路由配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vue-router动态路由匹配"><span class="toc-text">vue-router动态路由匹配</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#路由组件传递参数"><span class="toc-text">路由组件传递参数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-props的值为布尔类型"><span class="toc-text">1.props的值为布尔类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-props的值为对象类型"><span class="toc-text">2.props的值为对象类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-props的值为函数类型"><span class="toc-text">3.props的值为函数类型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vue-router命名路由"><span class="toc-text">vue-router命名路由</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vue-router编程式导航"><span class="toc-text">vue-router编程式导航</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#页面导航的两种方式"><span class="toc-text">页面导航的两种方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#编程式导航的基本用法"><span class="toc-text">编程式导航的基本用法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#router-push-方法的参数规则"><span class="toc-text">router.push() 方法的参数规则</span></a></li></ol></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> 重剑无锋,大巧不工! </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        vue-router的使用
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2020-04-02 20:45:51</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#vue" title="vue">vue</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="vue-router"><a href="#vue-router" class="headerlink" title="vue-router"></a>vue-router</h1><h2 id="路由的基本概念与原理"><a href="#路由的基本概念与原理" class="headerlink" title="路由的基本概念与原理"></a>路由的基本概念与原理</h2><p>路由是一个比较广义和抽象的概念,路由的本质就是对应关系。在开发中,路由分为前端路由和后端路由。</p>
+<h3 id="前端路由"><a href="#前端路由" class="headerlink" title="前端路由"></a>前端路由</h3><p>概念:根据不同的用户事件,显示不同的页面内容</p>
+<p>本质:用户事件与事件处理函数之间的对应关系</p>
+<h3 id="后端路由"><a href="#后端路由" class="headerlink" title="后端路由"></a>后端路由</h3><p>概念:根据不同的用户URL请求,返回不同的内容</p>
+<p>本质:URL请求地址与服务器资源之间的对应关系</p>
+<h3 id="SPA-Single-Page-Application"><a href="#SPA-Single-Page-Application" class="headerlink" title="SPA(Single Page Application)"></a>SPA(Single Page Application)</h3><p>前端渲染与后端渲染：后端渲染也称为服务器渲染，存在性能问题；传统的Ajax前端渲染能够提高性能,但是不支持浏览器的前进后退操作</p>
+<p>SPA单页面应用程序:整个网站只有一个页面,内容的变化通过Ajax局部更新实现、同时支持浏览器地址栏的前进和后退操作</p>
+<p>SPA实现原理之一:基于URL地址的hash（hash的变化会导致浏览器记录访问历史的变化,但是hash的变化不会触发新的URL请求）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 监听 window 的 onhashchange 事件，根据获取到的最新的 hash 值，切换要显示的组件的名称 window.onhashchange = function() &#123; </span></span><br><span class="line"><span class="comment">// 通过 location.hash 获取到最新的 hash 值 </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在实现SPA过程中,最核心的技术点就是前端路由.</p>
+<h2 id="vue-router的基本使用"><a href="#vue-router的基本使用" class="headerlink" title="vue-router的基本使用"></a>vue-router的基本使用</h2><p>Vue Router是Vue.js官方的路由管理器,它和Vue.js的核心深度集成,可以非常方便地用于SPA应用程序的开发。</p>
+<p>Vue Router包含的功能有:</p>
+<ul>
+<li><p>支持HTML5历史模式或hash模式</p>
+</li>
+<li><p>支持嵌套路由</p>
+</li>
+<li><p>支持路由参数</p>
+</li>
+<li><p>支持编程式路由导航</p>
+</li>
+<li><p>支持命名路由</p>
+</li>
+</ul>
+<h3 id="基本使用步骤"><a href="#基本使用步骤" class="headerlink" title="基本使用步骤"></a>基本使用步骤</h3><h4 id="引入相关的库文件"><a href="#引入相关的库文件" class="headerlink" title="引入相关的库文件"></a>引入相关的库文件</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 导入 vue 文件，为全局 <span class="built_in">window</span> 对象挂载 Vue 构造函数 --&gt; </span><br><span class="line">    &lt;script src=<span class="string">"./lib/vue_2.5.22.js"</span>&gt;&lt;<span class="regexp">/script&gt; </span></span><br><span class="line"><span class="regexp">&lt;!-- 导入 vue-router 文件，为全局 window 对象挂载 VueRouter 构造函数 --&gt; </span></span><br><span class="line"><span class="regexp">    &lt;script src="./</span>lib/vue-router_3<span class="number">.0</span><span class="number">.2</span>.js<span class="string">"&gt;&lt;/script&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="添加路由连接"><a href="#添加路由连接" class="headerlink" title="添加路由连接"></a>添加路由连接</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- router-link 是 vue 中提供的标签，默认会被渲染为 a 标签 --&gt; </span><br><span class="line">&lt;!-- to 属性默认会被渲染为 href 属性 --&gt; </span><br><span class="line">&lt;!-- to 属性的值默认会被渲染为 # 开头的 hash 地址 --&gt; </span><br><span class="line">&lt;router-link to=<span class="string">"/user"</span>&gt;User&lt;<span class="regexp">/router-link&gt; </span></span><br><span class="line"><span class="regexp">&lt;router-link to="/</span>register<span class="string">"&gt;Register&lt;/router-link&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="添加路由填充位"><a href="#添加路由填充位" class="headerlink" title="添加路由填充位"></a>添加路由填充位</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 路由填充位（也叫做路由占位符） --&gt; </span><br><span class="line">&lt;!-- 将来通过路由规则匹配到的组件，将会被渲染到 router-view 所在的位置 --&gt; </span><br><span class="line">&lt;router-view&gt;&lt;<span class="regexp">/router-view&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="定义路由组件"><a href="#定义路由组件" class="headerlink" title="定义路由组件"></a>定义路由组件</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> User = &#123; <span class="attr">template</span>: <span class="string">'&lt;div&gt;User&lt;/div&gt;'</span> &#125; </span><br><span class="line"><span class="keyword">var</span> Register = &#123; <span class="attr">template</span>: <span class="string">'&lt;div&gt;Register&lt;/div&gt;'</span> &#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="配置路由规则并创建路由实例"><a href="#配置路由规则并创建路由实例" class="headerlink" title="配置路由规则并创建路由实例"></a>配置路由规则并创建路由实例</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建路由实例对象 </span></span><br><span class="line"><span class="keyword">var</span> router = <span class="keyword">new</span> VueRouter(&#123; </span><br><span class="line">    <span class="comment">// routes 是路由规则数组 routes: [ </span></span><br><span class="line">    <span class="comment">// 每个路由规则都是一个配置对象，其中至少包含 path 和 component 两个属性： </span></span><br><span class="line">    <span class="comment">// path 表示当前路由规则匹配的 hash 地址 </span></span><br><span class="line">    <span class="comment">// component 表示当前路由规则对应要展示的组件 </span></span><br><span class="line">    &#123;<span class="attr">path</span>:<span class="string">'/user'</span>,<span class="attr">component</span>: User&#125;, </span><br><span class="line">   	&#123;<span class="attr">path</span>:<span class="string">'/register'</span>,<span class="attr">component</span>: Register&#125; </span><br><span class="line">    ] </span><br><span class="line">   &#125;)</span><br></pre></td></tr></table></figure>
+
+<h4 id="把路由挂载到Vue根实例中"><a href="#把路由挂载到Vue根实例中" class="headerlink" title="把路由挂载到Vue根实例中"></a>把路由挂载到Vue根实例中</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> Vue(&#123; </span><br><span class="line">    el: <span class="string">'#app'</span>, <span class="comment">// 为了能够让路由规则生效，必须把路由对象挂载到 vue 实例对象上 </span></span><br><span class="line">    router </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h4 id="路由重定向"><a href="#路由重定向" class="headerlink" title="路由重定向"></a>路由重定向</h4><p>路由重定向指的是：用户在访问地址 A 的时候，强制用户跳转到地址 C ，从而展示特定的组件页面； 通过路由规则的 redirect 属性，指定一个新的路由地址，可以很方便地设置路由的重定向：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> router = <span class="keyword">new</span> VueRouter(&#123;</span><br><span class="line">	routes: [</span><br><span class="line">		<span class="comment">// 其中，path 表示需要被重定向的原地址，redirect 表示将要被重定向到的新地址</span></span><br><span class="line">		&#123;<span class="attr">path</span>:<span class="string">'/'</span>, <span class="attr">redirect</span>: <span class="string">'/user'</span>&#125;,</span><br><span class="line">		&#123;<span class="attr">path</span>:<span class="string">'/user'</span>,<span class="attr">component</span>: User&#125;,</span><br><span class="line">		&#123;<span class="attr">path</span>:<span class="string">'/register'</span>,<span class="attr">component</span>: Register&#125;</span><br><span class="line">	]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="vue-router嵌套路由"><a href="#vue-router嵌套路由" class="headerlink" title="vue-router嵌套路由"></a>vue-router嵌套路由</h2><h3 id="嵌套路由功能分析"><a href="#嵌套路由功能分析" class="headerlink" title="嵌套路由功能分析"></a>嵌套路由功能分析</h3><p>（1）点击父级路由连接显示模板内容</p>
+<p>（2）模板内容中又有子级路由链接</p>
+<p>（3）点击子级路由连接显示子级模板内容</p>
+<p>（4）父路由组件模板</p>
+<h3 id="父级路由连接"><a href="#父级路由连接" class="headerlink" title="父级路由连接"></a>父级路由连接</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">//父组件路由填充位</span></span><br><span class="line">&lt;p&gt;</span><br><span class="line">	&lt;router-link to=<span class="string">"/user"</span>&gt;User&lt;<span class="regexp">/router-link&gt;</span></span><br><span class="line"><span class="regexp">	&lt;router-link to="/</span>register<span class="string">"&gt;Register&lt;/router-link&gt;</span></span><br><span class="line"><span class="string">&lt;/p&gt;</span></span><br><span class="line"><span class="string">&lt;div&gt;</span></span><br><span class="line"><span class="string">	&lt;!-- 控制组件的显示位置 --&gt;</span></span><br><span class="line"><span class="string">	&lt;router-view&gt;&lt;/router-view&gt;</span></span><br><span class="line"><span class="string">&lt;/div&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="子级路由模板"><a href="#子级路由模板" class="headerlink" title="子级路由模板"></a>子级路由模板</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 子级路由链接</span></span><br><span class="line"><span class="keyword">const</span> Register = &#123;</span><br><span class="line">	template: <span class="string">`&lt;div&gt;</span></span><br><span class="line"><span class="string">		&lt;h1&gt;Register 组件&lt;/h1&gt;</span></span><br><span class="line"><span class="string">		&lt;hr/&gt;</span></span><br><span class="line"><span class="string">		&lt;router-link to="/register/tab1"&gt;Tab1&lt;/router-link&gt;</span></span><br><span class="line"><span class="string">		&lt;router-link to="/register/tab2"&gt;Tab2&lt;/router-link&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&lt;!-- 子路由填充位置 --&gt;</span></span><br><span class="line"><span class="string">		&lt;router-view/&gt;</span></span><br><span class="line"><span class="string">	&lt;/div&gt;`</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="嵌套路由配置"><a href="#嵌套路由配置" class="headerlink" title="嵌套路由配置"></a>嵌套路由配置</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 父级路由通过children属性配置子级路由</span></span><br><span class="line"><span class="keyword">const</span> router = <span class="keyword">new</span> VueRouter(&#123;</span><br><span class="line">	routes: [&#123;</span><br><span class="line">		path: <span class="string">'/user'</span>,</span><br><span class="line">		component: User</span><br><span class="line">	&#125;, &#123;</span><br><span class="line">		path: <span class="string">'/register'</span>,</span><br><span class="line">		component: Register, <span class="comment">// 通过 children 属性，为 /register 添加子路由规则 </span></span><br><span class="line">		children: [</span><br><span class="line">		&#123;</span><br><span class="line">			path: <span class="string">'/register/tab1'</span>,</span><br><span class="line">			component: Tab1</span><br><span class="line">		&#125;, </span><br><span class="line">		&#123;</span><br><span class="line">			path: <span class="string">'/register/tab2'</span>,</span><br><span class="line">			component: Tab2</span><br><span class="line">		&#125;]</span><br><span class="line">	&#125;]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="vue-router动态路由匹配"><a href="#vue-router动态路由匹配" class="headerlink" title="vue-router动态路由匹配"></a>vue-router动态路由匹配</h2><p>动态匹配路由的基本用法：通过动态路由参数的模式进行路由匹配</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> router = <span class="keyword">new</span> VueRouter(&#123;</span><br><span class="line">	routes: [ <span class="comment">// 动态路径参数 以冒号开头</span></span><br><span class="line">		&#123;</span><br><span class="line">			path: <span class="string">'/user/:id'</span>,</span><br><span class="line">			component: User</span><br><span class="line">		&#125;</span><br><span class="line">	]</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">const</span> User = &#123; <span class="comment">// 路由组件中通过$route.params获取路由参数 </span></span><br><span class="line">	template: <span class="string">'&lt;div&gt;User &#123;&#123; $route.params.id &#125;&#125;&lt;/div&gt;'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="路由组件传递参数"><a href="#路由组件传递参数" class="headerlink" title="路由组件传递参数"></a>路由组件传递参数</h2><p>$router与队友路由形成高度耦合,不够灵活,所以可以使用props将组件和路由解耦.</p>
+<h3 id="1-props的值为布尔类型"><a href="#1-props的值为布尔类型" class="headerlink" title="1.props的值为布尔类型"></a>1.props的值为布尔类型</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> router = <span class="keyword">new</span> VueRouter(&#123;</span><br><span class="line">	routes: [</span><br><span class="line">		<span class="comment">// 如果 props 被设置为 true，route.params 将会被设置为组件属性</span></span><br><span class="line">		&#123;</span><br><span class="line">			path: <span class="string">'/user/:id'</span>,</span><br><span class="line">			component: User,</span><br><span class="line">			props: <span class="literal">true</span></span><br><span class="line">		&#125;</span><br><span class="line">	]</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">const</span> User = &#123;</span><br><span class="line">	props: [<span class="string">'id'</span>], <span class="comment">// 使用 props 接收路由参数</span></span><br><span class="line">	template: <span class="string">'&lt;div&gt;用户ID：&#123;&#123; id &#125;&#125;&lt;/div&gt;'</span> <span class="comment">// 使用路由参数</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-props的值为对象类型"><a href="#2-props的值为对象类型" class="headerlink" title="2.props的值为对象类型"></a>2.props的值为对象类型</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> router = <span class="keyword">new</span> VueRouter(&#123;</span><br><span class="line">	routes: [</span><br><span class="line">		<span class="comment">// 如果 props 是一个对象，它会被按原样设置为组件属性 </span></span><br><span class="line">		&#123;</span><br><span class="line">			path: <span class="string">'/user/:id'</span>,</span><br><span class="line">			component: User,</span><br><span class="line">			props: &#123;</span><br><span class="line">				uname: <span class="string">'lisi'</span>,</span><br><span class="line">				age: <span class="number">12</span></span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	]</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">const</span> User = &#123;</span><br><span class="line">		props: [<span class="string">'uname'</span>, <span class="string">'age'</span>],</span><br><span class="line">		template: ‘ &lt; div &gt; 用户信息： &#123;</span><br><span class="line">			&#123;</span><br><span class="line">				uname + <span class="string">'---'</span> + age</span><br><span class="line">			&#125;</span><br><span class="line">		&#125; &lt; <span class="regexp">/div&gt;' </span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-props的值为函数类型"><a href="#3-props的值为函数类型" class="headerlink" title="3.props的值为函数类型"></a>3.props的值为函数类型</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> router = <span class="keyword">new</span> VueRouter(&#123;</span><br><span class="line">	routes: [</span><br><span class="line">		<span class="comment">// 如果 props 是一个函数，则这个函数接收 route 对象为自己的形参</span></span><br><span class="line">		&#123;</span><br><span class="line">			path: <span class="string">'/user/:id'</span>,</span><br><span class="line">			component: User,</span><br><span class="line">			props: <span class="function"><span class="params">route</span> =&gt;</span> (&#123;</span><br><span class="line">				uname: <span class="string">'zs'</span>,</span><br><span class="line">				age: <span class="number">20</span>,</span><br><span class="line">				id: route.params.id</span><br><span class="line">			&#125;)</span><br><span class="line">		&#125;</span><br><span class="line">	]</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">const</span> User = &#123;</span><br><span class="line">	props: [<span class="string">'uname'</span>, <span class="string">'age'</span>, <span class="string">'id'</span>],</span><br><span class="line">	template: ‘ &lt; div &gt; 用户信息： &#123;</span><br><span class="line">		&#123;</span><br><span class="line">			uname + <span class="string">'---'</span> + age + <span class="string">'---'</span> + id</span><br><span class="line">		&#125;</span><br><span class="line">	&#125; &lt; <span class="regexp">/div&gt;'</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="vue-router命名路由"><a href="#vue-router命名路由" class="headerlink" title="vue-router命名路由"></a>vue-router命名路由</h2><p>为了更加方便的表示路由的路径，可以给路由规则起一个别名，即为“命名路由”。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> router = <span class="keyword">new</span> VueRouter(&#123;</span><br><span class="line">	routes: [&#123;</span><br><span class="line">		path: <span class="string">'/user/:id'</span>,</span><br><span class="line">		name: <span class="string">'user'</span>,</span><br><span class="line">		component: User</span><br><span class="line">	&#125;]</span><br><span class="line">&#125;)</span><br><span class="line">&lt;router-link :to=<span class="string">"&#123; name: 'user', params: &#123; id: 123 &#125;&#125;"</span>&gt;User&lt;<span class="regexp">/router-link&gt;</span></span><br><span class="line"><span class="regexp">router.push(&#123; name: 'user', params: &#123; id: 123 &#125;&#125;)</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="vue-router编程式导航"><a href="#vue-router编程式导航" class="headerlink" title="vue-router编程式导航"></a>vue-router编程式导航</h2><h3 id="页面导航的两种方式"><a href="#页面导航的两种方式" class="headerlink" title="页面导航的两种方式"></a>页面导航的两种方式</h3><p>声明式导航：通过点击链接实现导航的方式，叫做声明式导航 例如：普通网页中的 <code>&lt;a&gt;&lt;/a&gt;</code>链接 或 vue 中的 <code>&lt;router-link&gt;&lt;/router-link&gt;</code><br>        编程式导航：通过调用JavaScript形式的API实现导航的方式，叫做编程式导航 例如：普通网页中的<code>location.href</code></p>
+<h3 id="编程式导航的基本用法"><a href="#编程式导航的基本用法" class="headerlink" title="编程式导航的基本用法"></a>编程式导航的基本用法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">常用的编程式导航 API 如下：</span><br><span class="line"><span class="keyword">this</span>.$router.push(<span class="string">'hash地址'</span>)</span><br><span class="line"><span class="keyword">this</span>.$router.go(n)</span><br><span class="line">    </span><br><span class="line"><span class="keyword">const</span> User = &#123;</span><br><span class="line">	template: <span class="string">'&lt;div&gt;&lt;button @click="goRegister"&gt;跳转到注册页面&lt;/button&gt;&lt;/div&gt;'</span>,</span><br><span class="line">	methods: &#123;</span><br><span class="line">		goRegister: function() &#123;</span><br><span class="line">			<span class="comment">// 用编程的方式控制路由跳转</span></span><br><span class="line">			<span class="keyword">this</span>.$router.push(<span class="string">'/register'</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="router-push-方法的参数规则"><a href="#router-push-方法的参数规则" class="headerlink" title="router.push() 方法的参数规则"></a>router.push() 方法的参数规则</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 字符串(路径名称) </span></span><br><span class="line">router.push(<span class="string">'/home'</span>) </span><br><span class="line"><span class="comment">// 对象 </span></span><br><span class="line">router.push(&#123; <span class="attr">path</span>: <span class="string">'/home'</span> &#125;) </span><br><span class="line"><span class="comment">// 命名的路由(传递参数) </span></span><br><span class="line">router.push(&#123; <span class="attr">name</span>: <span class="string">'/user'</span>, <span class="attr">params</span>: &#123; <span class="attr">userId</span>: <span class="number">123</span> &#125;&#125;) <span class="comment">// 带查询参数，变成 /register?uname=lisi </span></span><br><span class="line">router.push(&#123; <span class="attr">path</span>: <span class="string">'/register'</span>, <span class="attr">query</span>: &#123; <span class="attr">uname</span>: <span class="string">'lisi'</span> &#125;&#125;)</span><br></pre></td></tr></table></figure>
+
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+        <li>
+            <a target="_blank" href="https://www.zhihu.com/people/btcwiki">
+                            <span class="fa-stack fa-lg">
+                                 <i class="iconfont icon-zhihu"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/Zhuyokin">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a href="https://www.re0.cn" target="_blank" rel="noopener">re0</a></span>
+        <span>/</span>
+        
+        <span><a href="https://www.github.com/Zhuyokin" target="_blank" rel="noopener">github</a></span>
+        <span>/</span>
+        
+        <span><a href="#">It helps SEO</a></span>
+        <span>/</span>
+        
+    </p>
+    
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
