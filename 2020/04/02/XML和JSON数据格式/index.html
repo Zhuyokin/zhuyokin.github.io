@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Yokin的博客">
+    <meta name="keyword"  content="前端技术分享">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        XML和JSON数据格式 - Yokin的博客 | Yokin&#39;s Blog
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> 重剑无锋,大巧不工! </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>Yokin</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archive">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#XML与JSON数据格式"><span class="toc-text">XML与JSON数据格式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#XML数据格式"><span class="toc-text">XML数据格式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#概述"><span class="toc-text">概述</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JSON数据格式"><span class="toc-text">JSON数据格式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#概述-1"><span class="toc-text">概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JSON语法规则"><span class="toc-text">JSON语法规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JSON-parse"><span class="toc-text">JSON.parse()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JSON-stringify"><span class="toc-text">JSON.stringify()</span></a></li></ol></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> 重剑无锋,大巧不工! </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        XML和JSON数据格式
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2020-04-02 21:15:51</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#JSON" title="JSON">JSON</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#XML" title="XML">XML</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="XML与JSON数据格式"><a href="#XML与JSON数据格式" class="headerlink" title="XML与JSON数据格式"></a>XML与JSON数据格式</h1><p> XML和JSON都是web存储和传输过程中数据的格式，其中JSON 使用比较广泛，主要用来前后端交互数据。 </p>
+<h2 id="XML数据格式"><a href="#XML数据格式" class="headerlink" title="XML数据格式"></a>XML数据格式</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>xml数据格式是将数据以标签的方式进行组装，必须是以<code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</code>开头，标签必须成对出现，xml是一个通用标准。例如：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">students</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">student</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>张三<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">age</span>&gt;</span>30<span class="tag">&lt;/<span class="name">age</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">sex</span>&gt;</span>男<span class="tag">&lt;/<span class="name">sex</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">student</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">student</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>李四<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">age</span>&gt;</span>25<span class="tag">&lt;/<span class="name">age</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">sex</span>&gt;</span>男<span class="tag">&lt;/<span class="name">sex</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">student</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">student</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>王五<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">age</span>&gt;</span>27<span class="tag">&lt;/<span class="name">age</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">sex</span>&gt;</span>女<span class="tag">&lt;/<span class="name">sex</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">student</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">student</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p> 缺点：体积太大，传输慢，解析不方便，所以目前使用的比较少了。 </p>
+<h2 id="JSON数据格式"><a href="#JSON数据格式" class="headerlink" title="JSON数据格式"></a>JSON数据格式</h2><h3 id="概述-1"><a href="#概述-1" class="headerlink" title="概述"></a>概述</h3><p>JSON(JavaScript Object Notation)是一种轻量级的数据交换格式,它基于ECMAScript(欧洲计算机协会制定的js规范)的一个子集，采用完全独立于编程语言的文本格式来存储和表示数据。简洁和清晰的层次结构使得 JSON 成为理想的数据交换语言。 易于人阅读和编写，同时也易于机器解析和生成，并有效地提升网络传输效率。JSON和HTML不一样，HTML主要用于显示数据，JSON主要用于传递数据，所以一般作为数据的查询接口。 JSON 比 XML 更小、更快，更易解析。   </p>
+<p> 在 JS 语言中，一切都是对象。因此，任何支持的类型都可以通过 JSON 来表示，例如字符串、数字、对象、数组等。但是对象和数组是比较特殊且常用的两种类型。</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">表示一：</span><br><span class="line">[ &#123; <span class="attr">"name"</span>:<span class="string">"xie"</span>,</span><br><span class="line">    <span class="attr">"sex"</span> :<span class="string">"man"</span>,</span><br><span class="line">    <span class="attr">"id"</span> : <span class="string">"66"</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">"name"</span>:<span class="string">"xiao"</span>,</span><br><span class="line">    <span class="attr">"sex"</span> :<span class="string">"woman"</span>,</span><br><span class="line">    <span class="attr">"id"</span> : <span class="string">"88"</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">"name"</span>:<span class="string">"hong"</span>,</span><br><span class="line">    <span class="attr">"sex"</span> :<span class="string">"woman"</span>,</span><br><span class="line">    <span class="attr">"id"</span> : <span class="string">"77"</span> &#125;]</span><br><span class="line"> </span><br><span class="line">表示二：</span><br><span class="line">&#123;</span><br><span class="line">  <span class="attr">"name"</span>:[<span class="string">"xie"</span>,<span class="string">"xiao"</span>,<span class="string">"hong"</span>],</span><br><span class="line">  <span class="attr">"sex"</span> :[<span class="string">"man"</span>,<span class="string">"woman"</span>,<span class="string">"woman"</span>],</span><br><span class="line">  <span class="attr">"id"</span>  :[<span class="string">"66"</span>,<span class="string">"88"</span>,<span class="string">"77"</span>]</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">表示三：</span><br><span class="line">&#123;</span><br><span class="line">   <span class="attr">"student"</span>:[ &#123; <span class="attr">"name"</span>:<span class="string">"xie"</span>,</span><br><span class="line">                 <span class="attr">"sex"</span> :<span class="string">"man"</span>,</span><br><span class="line">                 <span class="attr">"id"</span> : <span class="string">"66"</span> &#125;,</span><br><span class="line">               &#123; <span class="attr">"name"</span>:<span class="string">"xiao"</span>,</span><br><span class="line">                 <span class="attr">"sex"</span> :<span class="string">"woman"</span>,</span><br><span class="line">                 <span class="attr">"id"</span> : <span class="string">"88"</span> &#125;,</span><br><span class="line">               &#123; <span class="attr">"name"</span>:<span class="string">"hong"</span>,</span><br><span class="line">                 <span class="attr">"sex"</span> :<span class="string">"woman"</span>,</span><br><span class="line">                 <span class="attr">"id"</span> : <span class="string">"77"</span> &#125;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="JSON语法规则"><a href="#JSON语法规则" class="headerlink" title="JSON语法规则"></a>JSON语法规则</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">数据在名称/值对中</span><br><span class="line">数据由逗号分隔</span><br><span class="line">大括号保存对象</span><br><span class="line">中括号保存数组</span><br></pre></td></tr></table></figure>
+
+<h3 id="JSON-parse"><a href="#JSON-parse" class="headerlink" title="JSON.parse()"></a>JSON.parse()</h3><p>JSON 通常用于与服务端交换数据。客户端在接收服务器数据时得到的一般是字符串。我们可以使用 <code>JSON.parse()</code>方法将数据转换为 JavaScript 对象。 解析完成后，我们就可以在网页上使用 JSON 数据了。</p>
+<h3 id="JSON-stringify"><a href="#JSON-stringify" class="headerlink" title="JSON.stringify()"></a>JSON.stringify()</h3><p>JSON 通常用于与服务端交换数据。客户端在向服务器发送数据时一般是字符串。我们可以使用 <code>JSON.stringify()</code>方法将 JavaScript 对象转换为字符串后再发送给服务端。</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+        <li>
+            <a target="_blank" href="https://www.zhihu.com/people/btcwiki">
+                            <span class="fa-stack fa-lg">
+                                 <i class="iconfont icon-zhihu"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/Zhuyokin">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a href="https://www.re0.cn" target="_blank" rel="noopener">re0</a></span>
+        <span>/</span>
+        
+        <span><a href="https://www.github.com/Zhuyokin" target="_blank" rel="noopener">github</a></span>
+        <span>/</span>
+        
+        <span><a href="#">It helps SEO</a></span>
+        <span>/</span>
+        
+    </p>
+    
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
