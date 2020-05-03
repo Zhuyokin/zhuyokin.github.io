@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Yokin的博客">
+    <meta name="keyword"  content="前端技术分享">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        详解Vue的生命周期 - Yokin的博客 | Yokin&#39;s Blog
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> 重剑无锋,大巧不工! </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>Yokin</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archive">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#探究Vue生命周期"><span class="toc-text">探究Vue生命周期</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#概述"><span class="toc-text">概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三大阶段"><span class="toc-text">三大阶段</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常用的生命周期方法"><span class="toc-text">常用的生命周期方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码实例"><span class="toc-text">代码实例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#初始化显示"><span class="toc-text">初始化显示</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#beforeCreate"><span class="toc-text">beforeCreate()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#created"><span class="toc-text">created()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#beforeMount"><span class="toc-text">beforeMount()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mounted"><span class="toc-text">mounted()</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#更新显示"><span class="toc-text">更新显示</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#beforeUpdate-Updated"><span class="toc-text">beforeUpdate() Updated()</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#销毁Vue实例"><span class="toc-text">销毁Vue实例</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#beforeDestroy"><span class="toc-text">beforeDestroy()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#destroyed"><span class="toc-text">destroyed()</span></a></li></ol></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> 重剑无锋,大巧不工! </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        详解Vue的生命周期
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2020-05-03 20:03:37</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#生命周期" title="生命周期">生命周期</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="探究Vue生命周期"><a href="#探究Vue生命周期" class="headerlink" title="探究Vue生命周期"></a>探究<code>Vue</code>生命周期</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p><code>Vue</code>实例从创建到销毁的过程，就是生命周期。<br>        <code>Vue</code>的生命周期总共分为8个阶段:<code>beforeCreate</code>/<code>created</code>(创建前/后)，<code>beforeMount</code>/<code>mounted</code>载入前/后，<code>beforeUpdate</code>/<code>updated</code>更新前/后，<code>beforeDestroy</code>/<code>destroyed</code>销毁前/后,这8个阶段分别执行不同的事件，也称为生命周期钩子函数。</p>
+<h2 id="三大阶段"><a href="#三大阶段" class="headerlink" title="三大阶段"></a>三大阶段</h2><p>我们可以将上述8个阶段分为三个大阶段:</p>
+<p>（1）初始化显示：以下四个生命周期,每个组件只执行一次,执行完就不会在执行了。</p>
+<ul>
+<li><code>beforeCreate()</code>: 可以在这加个loading事件.</li>
+<li><code>created()</code>: 在这结束loading,也可发送Ajax请求</li>
+<li><code>beforeMount()</code></li>
+<li><code>mounted()</code>:发送Ajax请求，启动定时器.</li>
+</ul>
+<p>（2）更新显示：以下两个生命周期,每个组件可执行n次(n&gt;=0)。</p>
+<ul>
+<li><code>beforeUpdate()</code></li>
+<li><code>updated()</code></li>
+</ul>
+<p>（3）销毁<code>Vue</code>实例：以下两个生命周期,每个组件只执行一次,执行完就不会在执行了。</p>
+<ul>
+<li><p><code>beforeDestroy()</code>:删除确认事件，清除定时器</p>
+</li>
+<li><p><code>destroyed()</code></p>
+</li>
+</ul>
+<h2 id="常用的生命周期方法"><a href="#常用的生命周期方法" class="headerlink" title="常用的生命周期方法"></a>常用的生命周期方法</h2><p><code>mounted()</code>:发送Ajax请求，启动定时器等异步任务。</p>
+<p><code>BeforeDestroy()</code>:做收尾工作，如清除定时器。</p>
+<h2 id="代码实例"><a href="#代码实例" class="headerlink" title="代码实例"></a>代码实例</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"ie=edge"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>vue生命周期学习<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.bootcss.com/vue/2.4.2/vue.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>&#123;&#123;message&#125;&#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">  <span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="actionscript">    el: <span class="string">'#app'</span>,</span></span><br><span class="line">    data: &#123;</span><br><span class="line"><span class="actionscript">      message: <span class="string">'Vue的生命周期'</span></span></span><br><span class="line">    &#125;,</span><br><span class="line"><span class="actionscript">    beforeCreate: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span></span><br><span class="line"><span class="javascript">      <span class="built_in">console</span>.group(<span class="string">'------beforeCreate创建前状态------'</span>);</span></span><br><span class="line"><span class="javascript">      <span class="built_in">console</span>.log(<span class="string">"%c%s"</span>, <span class="string">"color:red"</span> , <span class="string">"el     : "</span> + <span class="keyword">this</span>.$el); <span class="comment">//undefined</span></span></span><br><span class="line"><span class="javascript">      <span class="built_in">console</span>.log(<span class="string">"%c%s"</span>, <span class="string">"color:red"</span>,<span class="string">"data   : "</span> + <span class="keyword">this</span>.$data); <span class="comment">//undefined </span></span></span><br><span class="line"><span class="javascript">      <span class="built_in">console</span>.log(<span class="string">"%c%s"</span>, <span class="string">"color:red"</span>,<span class="string">"message: "</span> + <span class="keyword">this</span>.message); <span class="comment">//undefined</span></span></span><br><span class="line">    &#125;,</span><br><span class="line"><span class="actionscript">    created: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span></span><br><span class="line"><span class="javascript">      <span class="built_in">console</span>.group(<span class="string">'------created创建完毕状态------'</span>);</span></span><br><span class="line"><span class="javascript">      <span class="built_in">console</span>.log(<span class="string">"%c%s"</span>, <span class="string">"color:red"</span>,<span class="string">"el     : "</span> + <span class="keyword">this</span>.$el); <span class="comment">//undefined</span></span></span><br><span class="line"><span class="javascript">      <span class="built_in">console</span>.log(<span class="string">"%c%s"</span>, <span class="string">"color:red"</span>,<span class="string">"data   : "</span> + <span class="keyword">this</span>.$data); <span class="comment">//已被初始化 </span></span></span><br><span class="line"><span class="javascript">      <span class="built_in">console</span>.log(<span class="string">"%c%s"</span>, <span class="string">"color:red"</span>,<span class="string">"message: "</span> + <span class="keyword">this</span>.message); <span class="comment">//已被初始化</span></span></span><br><span class="line">    &#125;,</span><br><span class="line"><span class="actionscript">    beforeMount: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span></span><br><span class="line"><span class="javascript">      <span class="built_in">console</span>.group(<span class="string">'------beforeMount挂载前状态------'</span>);</span></span><br><span class="line"><span class="javascript">      <span class="built_in">console</span>.log(<span class="string">"%c%s"</span>, <span class="string">"color:red"</span>,<span class="string">"el     : "</span> + (<span class="keyword">this</span>.$el)); <span class="comment">//已被初始化</span></span></span><br><span class="line"><span class="javascript">      <span class="built_in">console</span>.log(<span class="keyword">this</span>.$el);</span></span><br><span class="line"><span class="javascript">      <span class="built_in">console</span>.log(<span class="string">"%c%s"</span>, <span class="string">"color:red"</span>,<span class="string">"data   : "</span> + <span class="keyword">this</span>.$data); <span class="comment">//已被初始化  </span></span></span><br><span class="line"><span class="javascript">      <span class="built_in">console</span>.log(<span class="string">"%c%s"</span>, <span class="string">"color:red"</span>,<span class="string">"message: "</span> + <span class="keyword">this</span>.message); <span class="comment">//已被初始化  </span></span></span><br><span class="line">    &#125;,</span><br><span class="line"><span class="actionscript">    mounted: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span></span><br><span class="line"><span class="javascript">      <span class="built_in">console</span>.group(<span class="string">'------mounted 挂载结束状态------'</span>);</span></span><br><span class="line"><span class="javascript">      <span class="built_in">console</span>.log(<span class="string">"%c%s"</span>, <span class="string">"color:red"</span>,<span class="string">"el     : "</span> + <span class="keyword">this</span>.$el); <span class="comment">//已被初始化</span></span></span><br><span class="line"><span class="javascript">      <span class="built_in">console</span>.log(<span class="keyword">this</span>.$el);    </span></span><br><span class="line"><span class="javascript">      <span class="built_in">console</span>.log(<span class="string">"%c%s"</span>, <span class="string">"color:red"</span>,<span class="string">"data   : "</span> + <span class="keyword">this</span>.$data); <span class="comment">//已被初始化</span></span></span><br><span class="line"><span class="javascript">      <span class="built_in">console</span>.log(<span class="string">"%c%s"</span>, <span class="string">"color:red"</span>,<span class="string">"message: "</span> + <span class="keyword">this</span>.message); <span class="comment">//已被初始化 </span></span></span><br><span class="line">    &#125;,</span><br><span class="line"><span class="actionscript">    beforeUpdate: <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span></span><br><span class="line"><span class="javascript">      <span class="built_in">console</span>.group(<span class="string">'beforeUpdate 更新前状态===============》'</span>);</span></span><br><span class="line"><span class="javascript">      <span class="built_in">console</span>.log(<span class="string">"%c%s"</span>, <span class="string">"color:red"</span>,<span class="string">"el     : "</span> + <span class="keyword">this</span>.$el);</span></span><br><span class="line"><span class="javascript">      <span class="built_in">console</span>.log(<span class="keyword">this</span>.$el);   </span></span><br><span class="line"><span class="javascript">      <span class="built_in">console</span>.log(<span class="string">"%c%s"</span>, <span class="string">"color:red"</span>,<span class="string">"data   : "</span> + <span class="keyword">this</span>.$data); </span></span><br><span class="line"><span class="javascript">      <span class="built_in">console</span>.log(<span class="string">"%c%s"</span>, <span class="string">"color:red"</span>,<span class="string">"message: "</span> + <span class="keyword">this</span>.message); </span></span><br><span class="line">    &#125;,</span><br><span class="line"><span class="actionscript">    updated: <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span></span><br><span class="line"><span class="javascript">      <span class="built_in">console</span>.group(<span class="string">'updated 更新完成状态===============》'</span>);</span></span><br><span class="line"><span class="javascript">      <span class="built_in">console</span>.log(<span class="string">"%c%s"</span>, <span class="string">"color:red"</span>,<span class="string">"el     : "</span> + <span class="keyword">this</span>.$el);</span></span><br><span class="line"><span class="javascript">      <span class="built_in">console</span>.log(<span class="keyword">this</span>.$el); </span></span><br><span class="line"><span class="javascript">      <span class="built_in">console</span>.log(<span class="string">"%c%s"</span>, <span class="string">"color:red"</span>,<span class="string">"data   : "</span> + <span class="keyword">this</span>.$data); </span></span><br><span class="line"><span class="javascript">      <span class="built_in">console</span>.log(<span class="string">"%c%s"</span>, <span class="string">"color:red"</span>,<span class="string">"message: "</span> + <span class="keyword">this</span>.message); </span></span><br><span class="line">    &#125;,</span><br><span class="line"><span class="actionscript">    beforeDestroy: <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span></span><br><span class="line"><span class="javascript">      <span class="built_in">console</span>.group(<span class="string">'beforeDestroy 销毁前状态===============》'</span>);</span></span><br><span class="line"><span class="javascript">      <span class="built_in">console</span>.log(<span class="string">"%c%s"</span>, <span class="string">"color:red"</span>,<span class="string">"el     : "</span> + <span class="keyword">this</span>.$el);</span></span><br><span class="line"><span class="javascript">      <span class="built_in">console</span>.log(<span class="keyword">this</span>.$el);    </span></span><br><span class="line"><span class="javascript">      <span class="built_in">console</span>.log(<span class="string">"%c%s"</span>, <span class="string">"color:red"</span>,<span class="string">"data   : "</span> + <span class="keyword">this</span>.$data); </span></span><br><span class="line"><span class="javascript">      <span class="built_in">console</span>.log(<span class="string">"%c%s"</span>, <span class="string">"color:red"</span>,<span class="string">"message: "</span> + <span class="keyword">this</span>.message); </span></span><br><span class="line">    &#125;,</span><br><span class="line"><span class="actionscript">    destroyed: <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span></span><br><span class="line"><span class="javascript">      <span class="built_in">console</span>.group(<span class="string">'destroyed 销毁完成状态===============》'</span>);</span></span><br><span class="line"><span class="javascript">      <span class="built_in">console</span>.log(<span class="string">"%c%s"</span>, <span class="string">"color:red"</span>,<span class="string">"el     : "</span> + <span class="keyword">this</span>.$el);</span></span><br><span class="line"><span class="javascript">      <span class="built_in">console</span>.log(<span class="keyword">this</span>.$el);  </span></span><br><span class="line"><span class="javascript">      <span class="built_in">console</span>.log(<span class="string">"%c%s"</span>, <span class="string">"color:red"</span>,<span class="string">"data   : "</span> + <span class="keyword">this</span>.$data); </span></span><br><span class="line"><span class="javascript">      <span class="built_in">console</span>.log(<span class="string">"%c%s"</span>, <span class="string">"color:red"</span>,<span class="string">"message: "</span> + <span class="keyword">this</span>.message)</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="初始化显示"><a href="#初始化显示" class="headerlink" title="初始化显示"></a>初始化显示</h2><h3 id="beforeCreate"><a href="#beforeCreate" class="headerlink" title="beforeCreate()"></a><code>beforeCreate()</code></h3><p>我们使用<code>new Vue()</code>生成构造函数<code>Vue</code>实例， 在这个生命周期遍历<code>data</code> 对象下所有属性将其转化为 <code>getter/setter</code>。此时的<code>el</code>,<code>data</code>都没有初始化。</p>
+<h3 id="created"><a href="#created" class="headerlink" title="created()"></a><code>created()</code></h3><p> 在这个阶段, 首先会判断对象是否有<code>el</code>选项。如果有的话就继续向下编译，如果没有el选项，则停止编译，也就意味着停止了生命周期，直到在该<code>vue</code>实例上调用<code>vm.$mount(el)</code>才会执行后续的生命周期回调函数。</p>
+<p>其次会判断对象是否有<code>template</code>选项,如果<code>vue</code>实例对象中有<code>template</code>参数选项，则将其作为模板编译成<code>render</code>函数。如果没有<code>template</code>选项，则将外部HTML作为模板编译，可以看到<code>template</code>中的模板优先级要高于<code>outer HTML</code>的优先级。</p>
+<p>执行render函数后会返回一个<code>虚拟DOM</code>,这个<code>虚拟Dom</code>简单来讲就是通过<code>js</code>生成一个类似于<code>DOM</code>树的那么一个东西。</p>
+<p>在这个阶段完成了对数据<code>data</code>的初始化，但是仍旧未初始化<code>el</code>。</p>
+<h3 id="beforeMount"><a href="#beforeMount" class="headerlink" title="beforeMount()"></a><code>beforeMount()</code></h3><p>在这个阶段,创建了<code>vm.$el</code>并用其替换<code>el</code>选项,由于这个阶段<code>el</code>还未对数据进行渲染,还是不能操作<code>dom</code>。<code>el</code>还是 <code></code>，这里就是应用的 <code>Virtual DOM</code>（虚拟Dom）技术，先把坑占住了。到后面<code>mounted</code>挂载的时候再把数据渲染进去。 </p>
+<p>在这个阶段完成了<code>el</code>的初始化。</p>
+<h3 id="mounted"><a href="#mounted" class="headerlink" title="mounted()"></a><code>mounted()</code></h3><p>这个生命周期数据渲染到页面里，虚拟<code>DOM</code>已经被挂载到了真实的<code>DOM</code>上,</p>
+<p>在这个阶段完成了数据的渲染。</p>
+<h2 id="更新显示"><a href="#更新显示" class="headerlink" title="更新显示"></a>更新显示</h2><h3 id="beforeUpdate-Updated"><a href="#beforeUpdate-Updated" class="headerlink" title="beforeUpdate() Updated()"></a><code>beforeUpdate()</code> <code>Updated()</code></h3><p>当data中的数据发生变化的时候，虚拟DOM重新渲染导致对应组件重新渲染，先后调用<code>beforeUpdate()</code> 和<code>Updated()</code>钩子函数。</p>
+<h2 id="销毁Vue实例"><a href="#销毁Vue实例" class="headerlink" title="销毁Vue实例"></a>销毁<code>Vue</code>实例</h2><h3 id="beforeDestroy"><a href="#beforeDestroy" class="headerlink" title="beforeDestroy()"></a><code>beforeDestroy()</code></h3><p><code>beforeDestroy()</code>钩子函数在实例销毁之前调用,解除事件绑定,销毁子组件以及事件监听等。在这一步,实例仍然完全可用，也就是说还能访问实例的数据和操作<code>DOM</code>。 </p>
+<h3 id="destroyed"><a href="#destroyed" class="headerlink" title="destroyed()"></a><code>destroyed()</code></h3><p><code>destroyed()</code>钩子函数在实例销毁之后调用,此时<code>Vue</code>实例已经销毁完毕, 实例的属性和方法就不能再用了。</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+        <li>
+            <a target="_blank" href="https://www.zhihu.com/people/btcwiki">
+                            <span class="fa-stack fa-lg">
+                                 <i class="iconfont icon-zhihu"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/Zhuyokin">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a href="https://www.re0.cn" target="_blank" rel="noopener">re0</a></span>
+        <span>/</span>
+        
+        <span><a href="https://www.github.com/Zhuyokin" target="_blank" rel="noopener">github</a></span>
+        <span>/</span>
+        
+        <span><a href="#">It helps SEO</a></span>
+        <span>/</span>
+        
+    </p>
+    
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
