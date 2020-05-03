@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Yokin的博客">
+    <meta name="keyword"  content="前端技术分享">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        BFC(块级格式化上下文)概述 - Yokin的博客 | Yokin&#39;s Blog
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> 重剑无锋,大巧不工! </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>Yokin</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archive">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#BFC-块级格式化上下文-概述"><span class="toc-text">BFC(块级格式化上下文)概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#BFC是啥"><span class="toc-text">BFC是啥</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#常见的触发BFC的方式"><span class="toc-text">常见的触发BFC的方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BFC规则"><span class="toc-text">BFC规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BFC作用"><span class="toc-text">BFC作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> 重剑无锋,大巧不工! </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        BFC(块级格式化上下文)概述
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2020-05-03 09:44:06</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#BFC" title="BFC">BFC</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="BFC-块级格式化上下文-概述"><a href="#BFC-块级格式化上下文-概述" class="headerlink" title="BFC(块级格式化上下文)概述"></a>BFC(块级格式化上下文)概述</h1><h3 id="BFC是啥"><a href="#BFC是啥" class="headerlink" title="BFC是啥"></a><code>BFC</code>是啥</h3><blockquote>
+<p><code>BFC</code>(Block formatting context)直译为”块级格式化上下文”。它是一个独立的渲染区域，只有Block-level box参与，它规定了内部的Block-level Box如何布局，并且与这个区域外部毫不相干。 </p>
+</blockquote>
+<h3 id="常见的触发BFC的方式"><a href="#常见的触发BFC的方式" class="headerlink" title="常见的触发BFC的方式"></a>常见的触发<code>BFC</code>的方式</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1.浮动元素：float 除 none 以外的值。</span><br><span class="line">2.绝对定位元素：position (absolute、fixed)。</span><br><span class="line">3.display 为 inline-block、table-cell、flex、table-caption或者inline-flex</span><br><span class="line">4.overflow 除了 visible 以外的值 (hidden、auto、scroll)。</span><br></pre></td></tr></table></figure>
+
+<h3 id="BFC规则"><a href="#BFC规则" class="headerlink" title="BFC规则"></a><code>BFC</code>规则</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1.根元素<span class="tag">&lt;<span class="name">html</span>&gt;</span>会默认创建一个BFC</span><br><span class="line">2.在同一个BFC中,每一个元素的左外边距边框和父块的左边相贴，对于从右到左排列的元素则右外边距和父块的右边相贴。</span><br><span class="line">3.浮动的元素不能重叠创建了BFC的元素。</span><br><span class="line">4.当容器有足够的剩余空间容纳 BFC 的宽度时，所有浏览器都会将 BFC 放置在浮动元素所在行的剩余空间内,否则则会换行。</span><br><span class="line">5.css规定，在计算生成了 BFC 的元素的高度时，其浮动子元素应该参与计算。</span><br><span class="line">    BFC包含浮动元素不会发生高度坍塌，可以利用BFC这个特性来清除浮动。</span><br><span class="line">6.两个相邻的普通流中的块在垂直位置的空白边会发生折叠现象。</span><br><span class="line">    也就是处于同一个BFC中的两个垂直窗口的margin会重叠，解决这种现象可以分别给两个块包裹一层BFC，这样就不会折叠了。因为BFC还有一个特性就是：生成 BFC 的元素不会和在流中的子元素发生空白边折叠。属于同一个BFC的两个相邻Box的margin会发生折叠，不同BFC不会发生折叠。</span><br></pre></td></tr></table></figure>
+
+<h3 id="BFC作用"><a href="#BFC作用" class="headerlink" title="BFC作用"></a><code>BFC</code>作用</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">1.阻止元素被浮动元素覆盖</span><br><span class="line">一个正常文档流的block元素可能被一个float元素覆盖，挤占正常文档流，因此可以设置一个元素的float、display、position值等方式触发BFC，以阻止被浮动盒子覆盖。</span><br><span class="line">2.可以包含浮动元素(清除浮动造成元素脱离标准流造成盒子高度塌陷的影响)</span><br><span class="line">通过改变包含浮动子元素的父盒子的属性值，触发BFC，以此来包含子元素的浮动盒子</span><br><span class="line">3.阻止因为浏览器因为四舍五入造成的多列布局换行的情况</span><br><span class="line">有时候因为多列布局采用小数点位的width导致因为浏览器因为四舍五入造成的换行的情况，可以在最后一列触发BFC的形式来阻止换行的发生。</span><br><span class="line">4.阻止垂直排列的相邻元素的margin合并</span><br><span class="line">属于同一个BFC的两个相邻块级子元素的上下margin会发生重叠。所以当两个相邻块级子元素分属于不同的BFC时可以阻止margin重叠。</span><br><span class="line">一个常用的方式是,可以通过在任一个相邻块级盒子的外面包一个div，通过改变此div的属性使两个原盒子分属于两个不同的BFC，以此来阻止margin重叠。</span><br></pre></td></tr></table></figure>
+
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><blockquote>
+<p><code>BCF</code>就是页面上的一个隔离的独立容器，容器里面的子元素不会在布局上影响到外面的元素，反之也是如此。</p>
+</blockquote>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+        <li>
+            <a target="_blank" href="https://www.zhihu.com/people/btcwiki">
+                            <span class="fa-stack fa-lg">
+                                 <i class="iconfont icon-zhihu"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/Zhuyokin">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a href="https://www.re0.cn" target="_blank" rel="noopener">re0</a></span>
+        <span>/</span>
+        
+        <span><a href="https://www.github.com/Zhuyokin" target="_blank" rel="noopener">github</a></span>
+        <span>/</span>
+        
+        <span><a href="#">It helps SEO</a></span>
+        <span>/</span>
+        
+    </p>
+    
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
