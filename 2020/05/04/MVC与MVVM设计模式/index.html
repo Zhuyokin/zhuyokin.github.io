@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Yokin的博客">
+    <meta name="keyword"  content="前端技术分享">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        MVC与MVVM设计模式 - Yokin的博客 | Yokin&#39;s Blog
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> 重剑无锋,大巧不工! </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>Yokin</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archive">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#MVC与MVVM设计模式"><span class="toc-text">MVC与MVVM设计模式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#概述"><span class="toc-text">概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MVC"><span class="toc-text">MVC</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MVVM"><span class="toc-text">MVVM</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MVC和MVVM区别"><span class="toc-text">MVC和MVVM区别</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> 重剑无锋,大巧不工! </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        MVC与MVVM设计模式
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2020-05-04 10:16:22</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#MVC" title="MVC">MVC</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#MVVM" title="MVVM">MVVM</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="MVC与MVVM设计模式"><a href="#MVC与MVVM设计模式" class="headerlink" title="MVC与MVVM设计模式"></a><code>MVC</code>与<code>MVVM</code>设计模式</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p><code>MVC</code>和<code>MVVM</code>是两种常见的设计模式,<code>MVVM</code>是对<code>MVC</code>模式的改进。</p>
+<h2 id="MVC"><a href="#MVC" class="headerlink" title="MVC"></a><code>MVC</code></h2><p><code>MVC</code>:</p>
+<ul>
+<li><code>M(Model)</code>: 数据层,模型,负责数据的处理和获取的数据接口层。 </li>
+<li><code>V(View)</code>: 视图层,用户看到的视图。</li>
+<li><code>C(Controller)</code>:控制层,处理并解析从Model中获得的数据,并将其传递给View。</li>
+</ul>
+<p><code>Model</code>是数据的管理者，它负责获取数据和存放数据。<code>Controller</code>是<code>MVC</code>中的数据和视图的协调者，也就是在<code>Controller</code>里面把<code>Model</code>的数据赋值给<code>View</code>来显示（或者是<code>View</code>接收用户输入的数据然后由Controller把这些数据传给<code>Model</code>来保存到本地或者上传到服务器）。<code>Controller</code>不需要关心<code>Model</code>是如何拿到数据的，只管调用就行了。</p>
+<h2 id="MVVM"><a href="#MVVM" class="headerlink" title="MVVM"></a><code>MVVM</code></h2><p><code>MVVM</code>:</p>
+<ul>
+<li><p><code>M(Model)</code>: 数据层,模型,负责数据的处理和获取的数据接口层。  </p>
+</li>
+<li><p><code>V(View)</code>: 视图层,用户看到的视图。</p>
+</li>
+<li><p><code>VM(ViewModel)</code>:视图模型，负责解析数据。</p>
+<p>​    由于<code>Model</code>主要获取和存储数据,存在并未对数据进行解析处理的问题,而<code>VM(ViewModel)</code>的出现就解决了这个问题,其封装了解析<code>Model</code>中的数据的方法。</p>
+<p>​    <code>MVVM</code>中还是有<code>Controller</code>的，只是其存在感被<code>ViewModel</code>的出现降低了。<code>ViewModel</code>存在目的在于抽离<code>Controller</code>中展示的业务逻辑，而不是替代<code>Controller</code>，其它视图操作业务等还是应该放在<code>Controller</code>中实现。</p>
+<p> <code>MVVM</code>实现的是业务逻辑组件的重用，使开发更高效，结构更清晰，增加代码的复用性。 </p>
+</li>
+</ul>
+<h2 id="MVC和MVVM区别"><a href="#MVC和MVVM区别" class="headerlink" title="MVC和MVVM区别"></a><code>MVC</code>和<code>MVVM</code>区别</h2><p><code>MVC</code>和<code>MVVM</code>的区别并不是<code>ViewModel</code>完全取代了<code>Controller</code>，只是在<code>MVC</code>的基础上增加了一层<code>ViewModel</code>，而且弱化了<code>Controller</code>。</p>
+<p><code>MVC</code> 有一个巨大的缺陷就是控制器承担的责任太大了，随着项目愈加复杂，控制器中的代码会越来越臃肿，导致出现不利于维护的情况。 在 <code>MVVM</code> 架构中，引入了 <code>ViewModel</code> 的概念。<code>ViewModel</code> 只关心数据和业务的处理，不关心 <code>View</code> 如何处理数据，在这种情况下，<code>View</code>和 <code>Model</code> 都可以独立出来，任何一方改变了也不一定需要改变另一方，并且可以将一些可复用的逻辑放在一个 <code>ViewModel</code> 中，让多个 <code>View</code> 复用这个 <code>ViewModel</code>。  </p>
+<p> 以 <code>Vue</code> 框架来举例，<code>ViewModel</code> 就是组件的实例。<code>View</code> 就是模板，<code>Model</code> 的话在引入 <code>Vuex</code> 的情况下是完全可以和组件分离的。 </p>
+<p> 对于 <code>MVVM</code>来说，其实最重要的并不是通过双向绑定或者其他的方式将 <code>View</code> 与 <code>ViewModel</code> 绑定起来，而是通过 <code>ViewModel</code> 将视图中的状态和用户的行为分离出一个抽象，这才是 <code>MVVM</code> 的精髓。</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+        <li>
+            <a target="_blank" href="https://www.zhihu.com/people/btcwiki">
+                            <span class="fa-stack fa-lg">
+                                 <i class="iconfont icon-zhihu"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/Zhuyokin">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a href="https://www.re0.cn" target="_blank" rel="noopener">re0</a></span>
+        <span>/</span>
+        
+        <span><a href="https://www.github.com/Zhuyokin" target="_blank" rel="noopener">github</a></span>
+        <span>/</span>
+        
+        <span><a href="#">It helps SEO</a></span>
+        <span>/</span>
+        
+    </p>
+    
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
