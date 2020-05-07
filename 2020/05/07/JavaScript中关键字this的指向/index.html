@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Yokin的博客">
+    <meta name="keyword"  content="前端技术分享">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        JavaScript中关键字this的指向 - Yokin的博客 | Yokin&#39;s Blog
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> 重剑无锋,大巧不工! </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>Yokin</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archive">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JavaScript中关键字this的指向"><span class="toc-text">JavaScript中关键字this的指向</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#概述"><span class="toc-text">概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#不同情况下this关键字的指向"><span class="toc-text">不同情况下this关键字的指向</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#全局环境中的this（含定时器-立即执行函数）"><span class="toc-text">全局环境中的this（含定时器,立即执行函数）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#构造函数中的this"><span class="toc-text">构造函数中的this</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#事件处理函数中的this"><span class="toc-text">事件处理函数中的this</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对象方法中的this"><span class="toc-text">对象方法中的this</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#箭头函数中的this"><span class="toc-text">箭头函数中的this</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#严格模式的this"><span class="toc-text">严格模式的this</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#改变this指向的方式"><span class="toc-text">改变this指向的方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#call"><span class="toc-text">call()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#apply"><span class="toc-text">apply()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#bind"><span class="toc-text">bind()</span></a></li></ol></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> 重剑无锋,大巧不工! </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        JavaScript中关键字this的指向
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2020-05-07 19:04:11</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#this" title="this">this</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="JavaScript中关键字this的指向"><a href="#JavaScript中关键字this的指向" class="headerlink" title="JavaScript中关键字this的指向"></a><code>JavaScript</code>中关键字<code>this</code>的指向</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p><code>JavaScript</code>中的<code>this</code>关键字是包含它的函数作为方法被调用时所属的那个<strong>特定对象</strong>。</p>
+<h2 id="不同情况下this关键字的指向"><a href="#不同情况下this关键字的指向" class="headerlink" title="不同情况下this关键字的指向"></a>不同情况下<code>this</code>关键字的指向</h2><h3 id="全局环境中的this（含定时器-立即执行函数）"><a href="#全局环境中的this（含定时器-立即执行函数）" class="headerlink" title="全局环境中的this（含定时器,立即执行函数）"></a>全局环境中的<code>this</code>（含定时器,立即执行函数）</h3><p> 全局环境使用<code>this</code>，它指向的就是顶层对象<code>window</code>。  自执行函数执行(如计时器，立即执行函数等)中的<code>this</code>一般都是<code>window</code>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span> === <span class="built_in">window</span> <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f2</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span> === <span class="built_in">window</span>);</span><br><span class="line">&#125;</span><br><span class="line">f2() <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>); <span class="comment">//window</span></span><br><span class="line">&#125;)()</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    fn: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="keyword">this</span>);</span><br><span class="line">        &#125;)()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.fn(); <span class="comment">//window</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="构造函数中的this"><a href="#构造函数中的this" class="headerlink" title="构造函数中的this"></a>构造函数中的<code>this</code></h3><p>构造函数中的<code>this</code>指向的是该构造函数创建的实例对象（实例对象,原型对象里面的方法里面的<code>this</code>指向实例对象）。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Obj = <span class="function"><span class="keyword">function</span> (<span class="params">p</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.p = p;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> o = <span class="keyword">new</span> Obj(<span class="string">'Hello World!'</span>);</span><br><span class="line">o.p <span class="comment">// "Hello World!" 构造函数中的this指向o这个实例对象</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Fn</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// this -&gt; 当前Fn的实例 f</span></span><br><span class="line">    <span class="comment">// this.name 是给当前实例设置私有属性</span></span><br><span class="line">    <span class="keyword">this</span>.name = <span class="string">'phone'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> f = <span class="keyword">new</span> Fn();</span><br></pre></td></tr></table></figure>
+
+<h3 id="事件处理函数中的this"><a href="#事件处理函数中的this" class="headerlink" title="事件处理函数中的this"></a>事件处理函数中的<code>this</code></h3><p> 给元素的某个事件绑定了一个方法，当事件触发，函数执行的时候，绑定的这个方法中的<code>this</code>一般是当前操作的这个DOM元素 。但是在<code>IE6~8</code>下，如果我们使用<code>DOM</code>事件绑定，方法执行的时候，里面的<code>this</code>不是指向当前元素，而是<code>window</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ele.attachEvent(<span class="string">'onclick'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>);  <span class="comment">// window IE6-8</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="对象方法中的this"><a href="#对象方法中的this" class="headerlink" title="对象方法中的this"></a>对象方法中的<code>this</code></h3><p>对象有属性和方法,我们把定义在对象内部的函数叫做方法,而这个方法执行的时候,它的<code>this</code>就是它的调用者（该方法所属对象）。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    fn: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.fn(); <span class="comment">//&#123;fn: ƒ&#125;   this指向obj，相当于window.obj.fn();</span></span><br></pre></td></tr></table></figure>
+
+<p>调用者不同,<code>this</code>的指向就不同。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[].slice(); <span class="comment">// this -&gt; []</span></span><br><span class="line"></span><br><span class="line">[].__proto__.slice(); <span class="comment">// this -&gt; [].__proto__</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Array</span>.prototype.slice();  <span class="comment">// this -&gt; Array.prototype</span></span><br><span class="line"></span><br><span class="line">三种方式调用slice方法的调用者不同，里面的<span class="keyword">this</span>指向也不同</span><br></pre></td></tr></table></figure>
+
+<h3 id="箭头函数中的this"><a href="#箭头函数中的this" class="headerlink" title="箭头函数中的this"></a>箭头函数中的<code>this</code></h3><p>箭头函数内没有<code>this</code>, 箭头函数中的 <code>this</code> 捕获最近作用域中的 <code>this</code>。 而且<code>this</code>一旦被捕获，以后将不再变化。 </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Name=<span class="string">"张三"</span>;</span><br><span class="line"><span class="keyword">let</span> func=<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.Name);</span><br><span class="line">&#125;</span><br><span class="line">func();  <span class="comment">//张三 箭头函数在全局作用域声明，所以它捕获全局作用域中的this，this指向window对象。</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="严格模式的this"><a href="#严格模式的this" class="headerlink" title="严格模式的this"></a>严格模式的<code>this</code></h3><p> 除了在声明的对象内被调用, <code>this</code>在严格模式下永远是 <code>undefined</code>。 </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="meta">  "use strict"</span>; <span class="comment">// 这里是严格模式</span></span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">f1() === <span class="literal">undefined</span>; <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 函数的不同调用方式决定了this 的指向不同</span></span><br><span class="line"> <span class="comment">// 1. 普通函数 this 指向window</span></span><br><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">     <span class="built_in">console</span>.log(<span class="string">'普通函数的this'</span> + <span class="keyword">this</span>);</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="built_in">window</span>.fn();</span><br><span class="line"> <span class="comment">// 2. 对象的方法 this指向的是对象 o</span></span><br><span class="line"> <span class="keyword">var</span> o = &#123;</span><br><span class="line">     sayHi: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">         <span class="built_in">console</span>.log(<span class="string">'对象方法的this:'</span> + <span class="keyword">this</span>);</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;</span><br><span class="line"> o.sayHi();</span><br><span class="line"> <span class="comment">// 3. 构造函数 this 指向 ldh 这个实例对象 原型对象里面的this 指向的也是 ldh这个实例对象</span></span><br><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">Star</span>(<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line"> Star.prototype.sing = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line"> &#125;</span><br><span class="line"> <span class="keyword">var</span> ldh = <span class="keyword">new</span> Star();</span><br><span class="line"> <span class="comment">// 4. 绑定事件函数 this 指向的是函数的调用者 btn这个按钮对象</span></span><br><span class="line"> <span class="keyword">var</span> btn = <span class="built_in">document</span>.querySelector(<span class="string">'button'</span>);</span><br><span class="line"> btn.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">     <span class="built_in">console</span>.log(<span class="string">'绑定时间函数的this:'</span> + <span class="keyword">this</span>);</span><br><span class="line"> &#125;;</span><br><span class="line"> <span class="comment">// 5. 定时器函数 this 指向的也是window</span></span><br><span class="line"> <span class="built_in">window</span>.setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">     <span class="built_in">console</span>.log(<span class="string">'定时器的this:'</span> + <span class="keyword">this</span>);</span><br><span class="line"></span><br><span class="line"> &#125;, <span class="number">1000</span>);</span><br><span class="line"> <span class="comment">// 6. 立即执行函数 this还是指向window</span></span><br><span class="line"> (<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">     <span class="built_in">console</span>.log(<span class="string">'立即执行函数的this'</span> + <span class="keyword">this</span>);</span><br><span class="line"> &#125;)();</span><br></pre></td></tr></table></figure>
+
+<h2 id="改变this指向的方式"><a href="#改变this指向的方式" class="headerlink" title="改变this指向的方式"></a>改变this指向的方式</h2><p><code>JavaScript</code>为我们专门提供了一些函数方法来帮我们更优雅的处理函数内部<code>this</code>的指向问题，常用的有 <code>call()</code>、<code>apply()</code>和<code>bind()</code>三种方法。</p>
+<h3 id="call"><a href="#call" class="headerlink" title="call()"></a><code>call()</code></h3><p><code>call()</code>方法调用一个对象。简单理解为调用函数的方式，但是它可以改变函数的 this 指向。</p>
+<p><code>fun.call(thisArg, arg1, arg2, ...)</code></p>
+<ul>
+<li><code>thisArg</code>：在 <code>fun</code> 函数运行时指定的<code>this</code> 值</li>
+<li><code>arg1</code>，<code>arg2</code>：传递的其他参数</li>
+<li>返回值就是函数的返回值，因为它就是调用函数</li>
+<li>因此当我们想改变 <code>this</code> 指向，同时想调用这个函数的时候，可以使用 <code>call</code>，比如继承</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1. call()</span></span><br><span class="line"><span class="keyword">var</span> o = &#123;</span><br><span class="line">    name: <span class="string">'andy'</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(a + b);</span><br><span class="line">&#125;</span><br><span class="line">fn.call(o, <span class="number">1</span>, <span class="number">2</span>); <span class="comment">// &#123;name: "andy"&#125;  3</span></span><br><span class="line"><span class="comment">// call 第一个可以调用函数 第二个可以改变函数内的this 指向</span></span><br><span class="line"><span class="comment">// call 的主要作用可以实现继承</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Father</span>(<span class="params">uname, age, sex</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.uname = uname;</span><br><span class="line">    <span class="keyword">this</span>.age = age;</span><br><span class="line">    <span class="keyword">this</span>.sex = sex;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Son</span>(<span class="params">uname, age, sex</span>) </span>&#123;</span><br><span class="line">    Father.call(<span class="keyword">this</span>, uname, age, sex);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> son = <span class="keyword">new</span> Son(<span class="string">'刘德华'</span>, <span class="number">18</span>, <span class="string">'男'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(son); <span class="comment">// Son &#123;uname: "刘德华", age: 18, sex: "男"&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="apply"><a href="#apply" class="headerlink" title="apply()"></a><code>apply()</code></h3><p><code>fun.apply(thisArg, [argsArray])</code></p>
+<ul>
+<li><code>thisArg</code>：在<code>fun</code>函数运行时指定的 <code>this</code> 值</li>
+<li><code>argsArray</code>：传递的值，必须包含在数组里面</li>
+<li>返回值就是函数的返回值，因为它就是调用函数</li>
+<li>因此<code>apply</code>主要跟数组有关系，比如使用<code>Math.max()</code> 求数组的最大值</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 2. apply()  应用 运用的意思</span></span><br><span class="line"><span class="keyword">var</span> o = &#123;</span><br><span class="line">    name: <span class="string">'andy'</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(arr);</span><br><span class="line">&#125;;</span><br><span class="line">fn.apply(o, [<span class="string">'pink'</span>]); <span class="comment">// &#123;name: "andy"&#125;  'pink'</span></span><br><span class="line"><span class="comment">// 1. 也是调用函数 apply是第二个可以改变函数内部的this指向的方式</span></span><br><span class="line"><span class="comment">// 2. 但是他的参数必须是数组(伪数组)</span></span><br><span class="line"><span class="comment">// 3. apply 的主要应用 比如说我们可以利用 apply 借助于数学内置对象求数组最大值 </span></span><br><span class="line"><span class="comment">// Math.max();</span></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">66</span>, <span class="number">3</span>, <span class="number">99</span>, <span class="number">4</span>];</span><br><span class="line"><span class="keyword">var</span> arr1 = [<span class="string">'red'</span>, <span class="string">'pink'</span>];</span><br><span class="line"><span class="comment">// var max = Math.max.apply(null, arr);</span></span><br><span class="line"><span class="keyword">var</span> max = <span class="built_in">Math</span>.max.apply(<span class="built_in">Math</span>, arr);</span><br><span class="line"><span class="keyword">var</span> min = <span class="built_in">Math</span>.min.apply(<span class="built_in">Math</span>, arr);</span><br><span class="line"><span class="built_in">console</span>.log(max, min);</span><br></pre></td></tr></table></figure>
+
+<h3 id="bind"><a href="#bind" class="headerlink" title="bind()"></a><code>bind()</code></h3><p><code>bind()</code>方法不会调用函数。但是能改变函数内部<code>this</code>指向 </p>
+<p>​    <code>fun.bind(thisArg, arg1, arg2, ...)</code></p>
+<ul>
+<li><code>thisArg</code>：在 <code>fun</code>函数运行时指定的 <code>this</code>值</li>
+<li><code>arg1</code>，<code>arg2</code>：传递的其他参数</li>
+<li>返回由指定的<code>this</code>值和初始化参数改造的原函数拷贝</li>
+<li>因此当我们只是想改变<code>this</code>指向，并且不想调用这个函数的时候，可以使用<code>bind</code></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 3. bind()  绑定 捆绑的意思</span></span><br><span class="line"><span class="keyword">var</span> o = &#123;</span><br><span class="line">    name: <span class="string">'andy'</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(a + b);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> f = fn.bind(o, <span class="number">1</span>, <span class="number">2</span>); <span class="comment">//&#123;name: "andy"&#125; 3</span></span><br><span class="line">f();</span><br><span class="line"><span class="comment">// 1. 不会调用原来的函数   可以改变原来函数内部的this 指向</span></span><br><span class="line"><span class="comment">// 2. 返回的是原函数改变this之后产生的新函数</span></span><br><span class="line"><span class="comment">// 3. 如果有的函数我们不需要立即调用,但是又想改变这个函数内部的this指向此时可以用bind</span></span><br><span class="line"><span class="comment">// 4. 我们有一个按钮,当我们点击了之后,就禁用这个按钮,3秒钟之后开启这个按钮</span></span><br><span class="line"><span class="comment">// var btn1 = document.querySelector('button');</span></span><br><span class="line"><span class="comment">// btn1.onclick = function() &#123;</span></span><br><span class="line"><span class="comment">//     this.disabled = true; // 这个this 指向的是 btn 这个按钮</span></span><br><span class="line"><span class="comment">//     // var that = this;</span></span><br><span class="line"><span class="comment">//     setTimeout(function() &#123;</span></span><br><span class="line"><span class="comment">//         // that.disabled = false; // 定时器函数里面的this 指向的是window</span></span><br><span class="line"><span class="comment">//         this.disabled = false; // 此时定时器函数里面的this 指向的是btn</span></span><br><span class="line"><span class="comment">//     &#125;.bind(this), 3000); // 这个this 指向的是btn 这个对象</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"><span class="keyword">var</span> btns = <span class="built_in">document</span>.querySelectorAll(<span class="string">'button'</span>);</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; btns.length; i++) &#123;</span><br><span class="line">    btns[i].onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.disabled = <span class="literal">true</span>;</span><br><span class="line">        setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.disabled = <span class="literal">false</span>;</span><br><span class="line">        &#125;.bind(<span class="keyword">this</span>), <span class="number">2000</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+        <li>
+            <a target="_blank" href="https://www.zhihu.com/people/btcwiki">
+                            <span class="fa-stack fa-lg">
+                                 <i class="iconfont icon-zhihu"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/Zhuyokin">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a href="https://yokinzhu.blogspot.com/" target="_blank" rel="noopener">本人废弃的博客</a></span>
+        <span>/</span>
+        
+        <span><a href="https://www.re0.cn" target="_blank" rel="noopener">re0</a></span>
+        <span>/</span>
+        
+        <span><a href="#">It helps SEO</a></span>
+        <span>/</span>
+        
+    </p>
+    
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
