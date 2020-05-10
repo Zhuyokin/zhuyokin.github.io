@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Yokin的博客">
+    <meta name="keyword"  content="前端技术分享">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        React的三大核心概念 - Yokin的博客 | Yokin&#39;s Blog
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> 重剑无锋,大巧不工! </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>Yokin</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archive">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#React的三大核心概念"><span class="toc-text">React的三大核心概念</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#概述"><span class="toc-text">概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#虚拟DOM-Virtual-Document-Object-Model"><span class="toc-text">虚拟DOM(Virtual Document Object Model)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Diff算法"><span class="toc-text">Diff算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Tree-Diff"><span class="toc-text">Tree Diff</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Component-Diff"><span class="toc-text">Component Diff</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Element-Diff"><span class="toc-text">Element Diff</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#key属性"><span class="toc-text">key属性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JSX语法"><span class="toc-text">JSX语法</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> 重剑无锋,大巧不工! </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        React的三大核心概念
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2020-05-11 07:04:35</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#React" title="React">React</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="React的三大核心概念"><a href="#React的三大核心概念" class="headerlink" title="React的三大核心概念"></a>React的三大核心概念</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>对前端开发人员而言,三大框架之一的React有三大核心概念都是必须理解的。这三大核心概念是React的本质,它们分别是:虚拟DOM(Virtual Document Object Model),Diff算法和JSX语法。</p>
+<h2 id="虚拟DOM-Virtual-Document-Object-Model"><a href="#虚拟DOM-Virtual-Document-Object-Model" class="headerlink" title="虚拟DOM(Virtual Document Object Model)"></a>虚拟DOM(Virtual Document Object Model)</h2><p>DOM:DOM的本质就是用JS表示UI元素,DOM是由浏览器中的JS提供功能，所以我们只能人为的使用浏览器提供的固定的API来操作DOM对象；</p>
+<p>虚拟DOM:虚拟DOM并不是由浏览器提供的，而是我们开发人员手动模拟实现的，类似于浏览器中的DOM，但是有着本质的区别；</p>
+<p>在一些业务中，我们需要对数据发生变化会导致DOM树的重构。DOM操作必然会造成重绘和重排,这引起性能的极大浪费。为了解决这个问题,React提出了虚拟DOM的概念，其核心是实现按需更新页面上的元素,即只需要把要修改的数据，所对应的DOM元素重新构建一下，其他没有变化的数据，所对应的DOM节点不需要强制刷新，从而节省性能。其大致的解决方案是，只需拿到页面被更新前的内存中的DOM树，同时，再拿到页面更新前的新渲染出来的内存DOM树，然后，对比这两颗新旧DOM树，只需要找到那些需要被重新创建和修改的元素即可，这样，就能实现DOM的按需更新。但是，浏览器并没有提供相关的API让我们获取这两个新旧DOM树，我们只能手动模拟DOM树。其原理是：使用JS创建一个对象，用这个对象来模拟DOM节点，然后在每个DOM节点中，又提供了类似children这样的属性来描述当前DOM的节点，这样当DOM节点形成了嵌套关系，就模拟出了一颗DOM树。</p>
+<p>总而言之，虚拟DOM的本质是使用JS对象来模拟DOM树，虚拟DOM的目的是为了实现DOM节点的高效更新。React内部已经帮我们实现了虚拟DOM，此外，Vue也提供了虚拟DOM功能。</p>
+<h2 id="Diff算法"><a href="#Diff算法" class="headerlink" title="Diff算法"></a>Diff算法</h2><h3 id="Tree-Diff"><a href="#Tree-Diff" class="headerlink" title="Tree Diff"></a>Tree Diff</h3><p>React通过Diff算法来对比新旧DOM树的不同，新旧DOM树，逐层对比的方式，就叫做 Tree Diff。每当我们从前到后，把所有层的节点对比完后，必然能够找到那些 需要被更新的元素；</p>
+<h3 id="Component-Diff"><a href="#Component-Diff" class="headerlink" title="Component Diff"></a>Component Diff</h3><p>在对比每一层的时候，组件之间的对比，叫做 Component Diff;当对比组件的时候，如果两个组件的类型相同，则暂时认为这个组件不需要被更新，如果组件的类型不同，则立即将旧组件移除，新建一个组件，替换到被移除的位置；</p>
+<h3 id="Element-Diff"><a href="#Element-Diff" class="headerlink" title="Element Diff"></a>Element Diff</h3><p>在组件中，每个元素之间也要进行对比，那么，元素级别的对比，叫做 Element Diff；</p>
+<p><img src="/2020/05/11/React%E7%9A%84%E4%B8%89%E5%A4%A7%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/Diff.png" alt="Diff算法图"></p>
+<h3 id="key属性"><a href="#key属性" class="headerlink" title="key属性"></a>key属性</h3><p>key属性可以把 页面上的 DOM节点 和 虚拟DOM中的对象，做一层关联关系；</p>
+<h2 id="JSX语法"><a href="#JSX语法" class="headerlink" title="JSX语法"></a>JSX语法</h2><p>React中使用JS创建虚拟DOM节点并用ReactDOM将元素渲染到页面的指定容器的方式不够开发友好，于是Facebook就开发了JSX语法，可以更简洁地完成上述创建虚拟DOM和挂载的步骤。</p>
+<ol>
+<li>如要要使用 JSX 语法，必须先运行 <code>cnpm i babel-preset-react -D</code>，然后再 <code>.babelrc</code> 中添加 语法配置；</li>
+<li>JSX语法的本质：还是以 React.createElement 的形式来实现的，并没有直接把 用户写的 HTML代码，渲染到页面上；</li>
+<li>如果要在 JSX 语法内部，书写 JS 代码了，那么，所有的JS代码，必须写到 {} 内部；</li>
+<li>当 编译引擎，在编译JSX代码的时候，如果遇到了<code>&lt;</code>那么就把它当作 HTML代码去编译，如果遇到了 <code>{}</code> 就把 花括号内部的代码当作 普通JS代码去编译；</li>
+<li>在{}内部，可以写任何符合JS规范的代码；</li>
+<li>在JSX中，如果要为元素添加<code>class</code>属性了，那么，必须写成<code>className</code>，因为 <code>class</code>在ES6中是一个关键字；和<code>class</code>类似，label标签的 <code>for</code> 属性需要替换为 <code>htmlFor</code>.</li>
+<li>在JSX创建DOM的时候，所有的节点，必须有唯一的根元素进行包裹；</li>
+<li>如果要写注释了，注释必须放到 {} 内部</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// JS打包入口文件</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 1. 在 React 学习中，需要安装 两个包 react  react-dom</span></span><br><span class="line"><span class="comment">// 1.1 react 这个包，是专门用来创建React组件、组件生命周期等这些东西的；</span></span><br><span class="line"><span class="comment">// 1.2 react-dom 里面主要封装了和 DOM 操作相关的包，比如，要把 组件渲染到页面上</span></span><br><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span></span><br><span class="line"><span class="keyword">import</span> ReactDOM <span class="keyword">from</span> <span class="string">'react-dom'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. 在 react 中，如要要创建 DOM 元素了，只能使用 React 提供的 JS API 来创建，不能【直接】像 Vue 中那样，手写 HTML 元素</span></span><br><span class="line"><span class="comment">// React.createElement() 方法，用于创建 虚拟DOM 对象，它接收 3个及以上的参数</span></span><br><span class="line"><span class="comment">// 参数1： 是个字符串类型的参数，表示要创建的元素类型</span></span><br><span class="line"><span class="comment">// 参数2： 是一个属性对象，表示 创建的这个元素上，有哪些属性</span></span><br><span class="line"><span class="comment">// 参数3： 从第三个参数的位置开始，后面可以放好多的虚拟DOM对象，这写参数，表示当前元素的子节点</span></span><br><span class="line"><span class="comment">// &lt;div title="this is a div" id="mydiv"&gt;这是一个div&lt;/div&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// var myH1 = React.createElement('h1', null, '这是一个大大的H1')</span></span><br><span class="line"><span class="comment">// var myDiv = React.createElement('div', &#123; title: 'this is a div', id: 'mydiv' &#125;, '这是一个div', myH1)</span></span><br><span class="line"><span class="comment">// 由于，React官方，发现，如果直接让开发者手写 JS 代码创建元素，开发者会疯掉的，然后，开发者就开始寻找新的前端框架了，于是，</span></span><br><span class="line"><span class="comment">// React 官方，就提出了一套 JSX 语法规范，能够让我们在 JS 文件中，书写类似于 HTML 那样的代码，快速定义虚拟DOM结构；</span></span><br><span class="line"><span class="comment">// 问题： JSX（符合 XML 规范的 JS 语法）的原理是什么？？？</span></span><br><span class="line"><span class="comment">// 注意： 千万要记住，哪怕你在 JS 中可以写 JSX 语法了，但是，JSX内部在运行的时候，也是先把 类似于HTML 这样的标签代码，</span></span><br><span class="line"><span class="comment">// 转换为了 React.createElement 的形式；</span></span><br><span class="line"><span class="comment">// 也就是说：哪怕我们写了 JSX 这样的标签，也并不是直接把 我们的 HTML 标签渲染到页面上，而是先转换成 React.createElement 这样的JS代码，再渲染到页面中；（JSX是一个对程序员友好的语法糖）</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 如果要直接使用 JSX 语法，需要先安装相关的 语法转换工具</span></span><br><span class="line"><span class="comment">// 运行 cnpm i babel-preset-react -D</span></span><br><span class="line"><span class="comment">// var mytitle = '这是使用变量定义的 tilte 值'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// var arr = []</span></span><br><span class="line"><span class="comment">// for (var i = 0; i &lt; 10; i++) &#123;</span></span><br><span class="line"><span class="comment">//   var p = &lt;p className="myp" key=&#123;i&#125;&gt;但是，你知道它的本质吗？？？&lt;/p&gt;</span></span><br><span class="line"><span class="comment">//   arr.push(p)</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"><span class="comment">// var mydiv = &lt;div&gt;</span></span><br><span class="line"><span class="comment">//   这是使用 jsx 语法创建的div元素</span></span><br><span class="line"><span class="comment">//   &lt;h1 title=&#123;mytitle + 'aaaaa'&#125;&gt;JSX真好用&lt;/h1&gt;</span></span><br><span class="line"><span class="comment">//   &lt;p className="myp"&gt;但是，你知道它的本质吗？？？&lt;/p&gt;</span></span><br><span class="line"><span class="comment">//   &lt;label htmlFor=""&gt;&lt;/label&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//   &#123;arr&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//   /* 这是多行注释，你肯定看不到我 */</span></span><br><span class="line"><span class="comment">//   &#123; </span></span><br><span class="line"><span class="comment">//     // zheshi zhushi </span></span><br><span class="line"><span class="comment">//   &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//   &#123; /* 这是注释 */ &#125;</span></span><br><span class="line"><span class="comment">//   &#123;/* 1234 */&#125;</span></span><br><span class="line"><span class="comment">// &lt;/div&gt;</span></span><br></pre></td></tr></table></figure>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+        <li>
+            <a target="_blank" href="https://www.zhihu.com/people/btcwiki">
+                            <span class="fa-stack fa-lg">
+                                 <i class="iconfont icon-zhihu"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/Zhuyokin">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a href="https://yokinzhu.blogspot.com/" target="_blank" rel="noopener">本人废弃的博客</a></span>
+        <span>/</span>
+        
+        <span><a href="https://www.bicuz.com" target="_blank" rel="noopener">区块链导航</a></span>
+        <span>/</span>
+        
+        <span><a href="https://www.re0.cn" target="_blank" rel="noopener">re0</a></span>
+        <span>/</span>
+        
+        <span><a href="#">It helps SEO</a></span>
+        <span>/</span>
+        
+    </p>
+    
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
