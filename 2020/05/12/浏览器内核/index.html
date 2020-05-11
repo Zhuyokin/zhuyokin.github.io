@@ -11,7 +11,7 @@
 
     <title>
         
-        Yokin的博客 | Yokin&#39;s Blog
+        浏览器内核 - Yokin的博客 | Yokin&#39;s Blog
         
     </title>
 
@@ -57,7 +57,7 @@
     </div>
     <div class="contents" id="nav-content">
         <ul>
-            <li  class=active >
+            <li >
                 <a href="/">
                     <i class="iconfont icon-shouye1"></i>
                     <span>主页</span>
@@ -92,6 +92,10 @@
         </ul>
     </div>
     
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#浏览器内核"><span class="toc-text">浏览器内核</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#概述"><span class="toc-text">概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#浏览器引擎"><span class="toc-text">浏览器引擎</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五大浏览器四大内核"><span class="toc-text">五大浏览器四大内核</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Chrome"><span class="toc-text">Chrome</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Safari"><span class="toc-text">Safari</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FireFox"><span class="toc-text">FireFox</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IE和Edge"><span class="toc-text">IE和Edge</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Opera"><span class="toc-text">Opera</span></a></li></ol></li></ol></li></ol>
+</div>
+    
 </div>
 
 
@@ -116,137 +120,52 @@
     <div class="index-middle">
         <!-- Main Content -->
         
-<div class="post-preview-container" style="min-height: 576px">
-    
-    <div class="post-preview">
-        <div class="post-time">2020-03-23</div>
-        <div class="post-info">
-            <a href="/2020/03/23/http-server的安装和使用/">
-                <h3>
-                    http-server的安装和使用
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#http-server" title="http-server">http-server</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
+
+
+<div class="post-container">
+    <div class="post-title">
+        浏览器内核
     </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2020-03-22</div>
-        <div class="post-info">
-            <a href="/2020/03/22/markdown语法总结/">
-                <h3>
-                    markdown语法总结
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#markdown" title="markdown">markdown</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2020-05-12 06:53:35</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#浏览器" title="浏览器">浏览器</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
     </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2020-03-20</div>
-        <div class="post-info">
-            <a href="/2020/03/20/Node.js学习笔记/">
-                <h3>
-                    Node.js学习笔记
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#Node.js" title="Node.js">Node.js</a>
-                <span>/</span>
-                
-                
-            </p>
+    <div class="post-content ">
+        <h1 id="浏览器内核"><a href="#浏览器内核" class="headerlink" title="浏览器内核"></a>浏览器内核</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>常用的非套壳的浏览器有谷歌浏览器Chrome，苹果的Safari,火狐FireFox,微软的Edge和IE，欧朋Opera。我们所说的浏览器内核指的是这些浏览器的渲染引擎。</p>
+<h2 id="浏览器引擎"><a href="#浏览器引擎" class="headerlink" title="浏览器引擎"></a>浏览器引擎</h2><p>严格意义上,我们可以把浏览器的内核分为渲染引擎(Layout Engine/Rendering Engine)和JS引擎(JavaScript Engine)。</p>
+<p>渲染引擎: 负责取得网页的内容（<code>HTML</code>、<code>XML</code>、图像等等）、整理讯息（例如加入<code>CSS</code>等），以及计算网页的显示方式，然后会输出至显示器或打印机。浏览器的内核的不同对于网页的语法解释会有不同，所以渲染的效果也不相同。所有网页浏览器、电子邮件客户端以及其它需要编辑、显示网络内容的应用程序都需要内核。</p>
+<p>JS引擎: 解析和执行<code>javascript</code>来实现网页的动态效果。</p>
+<p> 最开始渲染引擎和<code>JS</code>引擎并没有区分的很明确，后来JS引擎越来越独立，内核就倾向于只指渲染引擎。</p>
+<h2 id="五大浏览器四大内核"><a href="#五大浏览器四大内核" class="headerlink" title="五大浏览器四大内核"></a>五大浏览器四大内核</h2><p>五大浏览器:Chrome,Safari,FireFox,Edge/IE,Opera</p>
+<p>四大内核:Webkit(Blink是其分支),Gecko,Trident,Presto</p>
+<h3 id="Chrome"><a href="#Chrome" class="headerlink" title="Chrome"></a>Chrome</h3><p>Chrome浏览器的内核起初是Webkit，后转向Blink, Chromium的内核也是Blink。</p>
+<h3 id="Safari"><a href="#Safari" class="headerlink" title="Safari"></a>Safari</h3><p>苹果浏览器Safari采用的是Webkit内核。</p>
+<h3 id="FireFox"><a href="#FireFox" class="headerlink" title="FireFox"></a>FireFox</h3><p>火狐浏览器FireFox使用的是Gecko内核。</p>
+<h3 id="IE和Edge"><a href="#IE和Edge" class="headerlink" title="IE和Edge"></a>IE和Edge</h3><p>IE浏览器内核是Trident,WIN10发布初期的Edge内核是EdgeHTML，后微软转向Blink。</p>
+<h3 id="Opera"><a href="#Opera" class="headerlink" title="Opera"></a>Opera</h3><p>Opera浏览器的内核起初是Presto，后转向Webkit，目前是Blink。</p>
+
+        
+        <br />
+        <div id="comment-container">
         </div>
-    </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2020-03-17</div>
-        <div class="post-info">
-            <a href="/2020/03/17/HTML5知识点汇总/">
-                <h3>
-                    HTML5知识点汇总
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#HTML5" title="HTML5">HTML5</a>
-                <span>/</span>
-                
-                
-            </p>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
         </div>
+
     </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2020-03-17</div>
-        <div class="post-info">
-            <a href="/2020/03/17/CSS知识点汇总/">
-                <h3>
-                    CSS知识点汇总
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#CSS" title="CSS">CSS</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
-    </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2020-03-17</div>
-        <div class="post-info">
-            <a href="/2020/03/17/HTML知识点汇总/">
-                <h3>
-                    HTML知识点汇总
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#HTML" title="HTML">HTML</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
-    </div>
-    
 </div>
-<ul class="pager">
-    
-    <li class="previous">
-        <a href="/page/4/">&larr; Newer Posts</a>
-    </li>
-    
-    
-</ul>
 
     </div>
 </div>
@@ -311,7 +230,7 @@
     // We expose some of the variables needed by the front end
     window.hexo_search_path = "search.json"
     window.hexo_root = "/"
-    window.isPost = false
+    window.isPost = true
 </script>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 
