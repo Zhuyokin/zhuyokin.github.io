@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Yokin的博客">
+    <meta name="keyword"  content="前端技术分享">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        浏览器本地存储的方案 - Yokin的博客 | Yokin&#39;s Blog
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> 重剑无锋,大巧不工! </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>Yokin</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archive">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#浏览器本地存储的方案"><span class="toc-text">浏览器本地存储的方案</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#概述"><span class="toc-text">概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Cookie"><span class="toc-text">Cookie</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sessionStorage"><span class="toc-text">sessionStorage</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#localStorage"><span class="toc-text">localStorage</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> 重剑无锋,大巧不工! </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        浏览器本地存储的方案
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2020-05-14 11:06:27</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#Cookie" title="Cookie">Cookie</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#sessionStorage" title="sessionStorage">sessionStorage</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#localStorage" title="localStorage">localStorage</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="浏览器本地存储的方案"><a href="#浏览器本地存储的方案" class="headerlink" title="浏览器本地存储的方案"></a>浏览器本地存储的方案</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>浏览器本地存储的方案有三种,分别是<code>Cookies</code>,<code>sessionStorage</code>和<code>localStorage</code>。</p>
+<h2 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a><code>Cookie</code></h2><p><code>Cookie</code>是网站用来<strong>标记用户身份的一段数据</strong>，通常情况下是<strong>一段加密的字符串</strong>，并且默认情况下<strong>只会在同源的HTTP请求中携带</strong>。<code>Cookie</code>的大小不超过<code>4KB</code></p>
+<p><code>js</code>中可以通过<code>document.cookie</code>属性来创建,读取以及删除<code>cookie</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建cookie</span></span><br><span class="line"><span class="built_in">document</span>.cookie=<span class="string">"username=John Doe"</span>;</span><br><span class="line"></span><br><span class="line">可以为cookie添加过期时间(UTC/GMT时间),默认情况下,cookie在浏览器关闭时删除</span><br><span class="line"><span class="built_in">document</span>.cookie=<span class="string">"username=John Doe; expires=Thu, 18 Dec 2043 12:00:00 GMT"</span>;</span><br><span class="line"></span><br><span class="line">可以使用path参数设置cookie路径，默认情况下cookie属于当前页面</span><br><span class="line"><span class="built_in">document</span>.cookie=<span class="string">"username=John Doe; expires=Thu, 18 Dec 2043 12:00:00 GMT; path=/"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 读取cookie</span></span><br><span class="line"><span class="keyword">var</span> x=<span class="built_in">document</span>.cookie;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 修改cookie 修改cookie类似与创建cookie</span></span><br><span class="line"><span class="built_in">document</span>.cookie=<span class="string">"username=John Smith; expires=Thu, 18 Dec 2043 12:00:00 GMT; path=/"</span>;</span><br><span class="line"><span class="comment">// 如果设置了新的 cookie(名字不一样)，旧的 cookie 不会被覆盖。 新 cookie 将添加到 document.cookie 中，所以如果重新读取document.cookie，将获得所有cookie</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 删除cookie 设置expires参数为以前时间</span></span><br><span class="line"><span class="built_in">document</span>.cookie=<span class="string">'username=;expires=Thu,01 Jan 1970 00:00:00 GMT'</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="sessionStorage"><a href="#sessionStorage" class="headerlink" title="sessionStorage"></a><code>sessionStorage</code></h2><p><code>sessionStorage</code>是<strong>浏览器本地存储的一种方式</strong>，以<strong>键值对</strong>的形式进行存储，并且存储数据会在<strong>浏览器关闭之后自动删除</strong>。本地储存容量较大，视浏览器而当，<code>sessionStorage</code>约<code>5M</code>、<code>localStorage</code>约<code>20M</code>，本地储存 只能存储字符串,可以将对象<code>JSON.stringify()</code>编码后存储 </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// sessionStorage可以多窗口（页面）共享（同一浏览器可以共享）,</span></span><br><span class="line"><span class="comment">// 存储数据：</span></span><br><span class="line">sessionStorage.setItem(key, value)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取数据：</span></span><br><span class="line">sessionStorage.getItem(key)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 删除数据：</span></span><br><span class="line">sessionStorage.removeItem(key)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 删除所有数据：</span></span><br><span class="line">sessionStorage.clear()</span><br></pre></td></tr></table></figure>
+
+<h2 id="localStorage"><a href="#localStorage" class="headerlink" title="localStorage"></a><code>localStorage</code></h2><p><code>localStorage</code>是<strong>浏览器本地存储的一种方式</strong>,和<code>sessionStorage</code>一样,也是以键值对的形式存在的,不过它存储的是一个<strong>持久化</strong>的数据，一般<strong>不主动删除，数据会一直存在</strong>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// localStorage可以多窗口（页面）共享（同一浏览器可以共享）</span></span><br><span class="line"><span class="comment">// 存储数据：</span></span><br><span class="line">localStorage.setItem(key, value)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取数据：</span></span><br><span class="line">localStorage.getItem(key)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 删除数据：</span></span><br><span class="line">localStorage.removeItem(key)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 删除所有数据：</span></span><br><span class="line">localStorage.clear()</span><br></pre></td></tr></table></figure>
+
+
+
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+        <li>
+            <a target="_blank" href="https://www.zhihu.com/people/btcwiki">
+                            <span class="fa-stack fa-lg">
+                                 <i class="iconfont icon-zhihu"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/Zhuyokin">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a href="https://yokinzhu.blogspot.com/" target="_blank" rel="noopener">本人废弃的博客</a></span>
+        <span>/</span>
+        
+        <span><a href="https://www.bicuz.com" target="_blank" rel="noopener">区块链导航</a></span>
+        <span>/</span>
+        
+        <span><a href="https://www.re0.cn" target="_blank" rel="noopener">re0</a></span>
+        <span>/</span>
+        
+        <span><a href="#">It helps SEO</a></span>
+        <span>/</span>
+        
+    </p>
+    
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
